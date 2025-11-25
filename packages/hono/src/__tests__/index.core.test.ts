@@ -1,7 +1,7 @@
-import { createAgentApp, withPayments } from '@lucid-agents/hono';
-import { resolvePrice } from '@lucid-agents/payments';
-import type { EntrypointDef } from '@lucid-agents/types/core';
-import type { PaymentsConfig } from '@lucid-agents/types/payments';
+import { createAgentApp, withPayments } from '@awe-agents/hono';
+import { resolvePrice } from '@awe-agents/payments';
+import type { EntrypointDef } from '@awe-agents/types/core';
+import type { PaymentsConfig } from '@awe-agents/types/payments';
 import { describe, expect, it } from 'bun:test';
 import { z } from 'zod';
 

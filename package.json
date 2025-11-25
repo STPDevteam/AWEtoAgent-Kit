@@ -1,5 +1,5 @@
 {
-  "name": "@lucid-agents/root",
+  "name": "@awe-agents/root",
   "workspaces": {
     "packages": [
       "packages/*"

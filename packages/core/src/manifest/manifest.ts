@@ -1,18 +1,18 @@
-import { resolvePrice } from '@lucid-agents/payments';
+import { resolvePrice } from '@awe-agents/payments';
 import type {
   AP2Config,
   AP2ExtensionDescriptor,
   AP2Role,
-} from '@lucid-agents/types/ap2';
+} from '@awe-agents/types/ap2';
 import type {
   AgentCapabilities,
   AgentCardWithEntrypoints,
   AgentMeta,
   Manifest,
   PaymentMethod,
-} from '@lucid-agents/types/core';
-import type { TrustConfig } from '@lucid-agents/types/identity';
-import type { PaymentsConfig } from '@lucid-agents/types/payments';
+} from '@awe-agents/types/core';
+import type { TrustConfig } from '@awe-agents/types/identity';
+import type { PaymentsConfig } from '@awe-agents/types/payments';
 
 import type { EntrypointDef } from '../http/types';
 import { toJsonSchemaOrUndefined } from '../utils';

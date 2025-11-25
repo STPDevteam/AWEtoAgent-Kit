@@ -2,8 +2,8 @@ import {
   createAgentHttpRuntime,
   type AgentHttpRuntime,
   type CreateAgentHttpOptions,
-} from '@lucid-agents/core';
-import type { AgentMeta } from '@lucid-agents/types/core';
+} from '@awe-agents/core';
+import type { AgentMeta } from '@awe-agents/types/core';
 
 export type TanStackRequestHandler = (ctx: {
   request: Request;

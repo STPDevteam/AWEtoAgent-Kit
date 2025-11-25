@@ -237,7 +237,7 @@ describe('create-agent-kit CLI', () => {
 
     expect(tanstackAgent).toContain('createTanStackRuntime');
     expect(
-      Object.prototype.hasOwnProperty.call(deps, '@lucid-agents/tanstack')
+      Object.prototype.hasOwnProperty.call(deps, '@awe-agents/tanstack')
     ).toBe(true);
   });
 
@@ -380,7 +380,7 @@ describe('create-agent-kit CLI', () => {
     await runCli(['--help'], { cwd, logger });
 
     expect(messages.join('\n')).toContain(
-      'Usage: bunx @lucid-agents/cli <app-name>'
+      'Usage: bunx @awe-agents/cli <app-name>'
     );
     const entries = await readdir(cwd);
     expect(entries.length).toBe(0);

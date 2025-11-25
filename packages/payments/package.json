@@ -1,10 +1,10 @@
 {
-  "name": "@lucid-agents/payments",
+  "name": "@awe-agents/payments",
   "version": "1.7.0",
   "description": "Payment logic for bidirectional agent-to-agent payments",
   "repository": {
     "type": "git",
-    "url": "https://github.com/daydreamsai/lucid-agents",
+    "url": "https://github.com/awe-x402/awe-agents",
     "directory": "packages/payments"
   },
   "type": "module",
@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@ax-llm/ax": "catalog:",
-    "@lucid-agents/types": "workspace:*",
+    "@awe-agents/types": "workspace:*",
     "x402-fetch": "catalog:",
     "x402": "^0.7.1",
     "viem": "^2.38.5",

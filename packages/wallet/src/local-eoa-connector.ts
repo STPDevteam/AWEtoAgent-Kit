@@ -4,7 +4,7 @@ import type {
   TypedDataPayload,
   WalletConnector,
   WalletMetadata,
-} from '@lucid-agents/types/wallets';
+} from '@awe-agents/types/wallets';
 
 import {
   detectMessageEncoding,

@@ -1,6 +1,6 @@
-import { resolvePrice } from '@lucid-agents/payments';
-import type { AgentMeta } from '@lucid-agents/types/core';
-import type { PaymentsConfig } from '@lucid-agents/types/payments';
+import { resolvePrice } from '@awe-agents/payments';
+import type { AgentMeta } from '@awe-agents/types/core';
+import type { PaymentsConfig } from '@awe-agents/types/payments';
 import { html } from 'hono/html';
 import type { HtmlEscapedString } from 'hono/utils/html';
 
@@ -925,7 +925,7 @@ export const renderLandingPage = ({
             <span>Powered by @lucid/agent-kit</span>
             <div class="footer-links">
               <a
-                href="https://github.com/daydreamsai/lucid-fullstack"
+                href="https://github.com/awe-x402/lucid-fullstack"
                 target="_blank"
                 rel="noopener noreferrer"
               >

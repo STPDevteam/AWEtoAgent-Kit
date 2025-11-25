@@ -1,4 +1,4 @@
-import type { AP2Config, AP2Runtime } from '@lucid-agents/types/ap2';
+import type { AP2Config, AP2Runtime } from '@awe-agents/types/ap2';
 
 /**
  * Creates AP2 runtime from configuration.

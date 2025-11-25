@@ -10,11 +10,11 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'Lucid Agent API',
+        title: 'Awe Agent API',
       },
       {
         name: 'description',
-        content: 'Headless TanStack runtime for Lucid Agents',
+        content: 'Headless TanStack runtime for Awe Agents',
       },
     ],
   }),

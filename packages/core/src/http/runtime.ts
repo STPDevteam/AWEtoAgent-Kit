@@ -7,15 +7,15 @@ import type {
   TaskError,
   TaskResult,
   TaskStatus,
-} from '@lucid-agents/types/a2a';
-import type { AP2Config } from '@lucid-agents/types/ap2';
+} from '@awe-agents/types/a2a';
+import type { AP2Config } from '@awe-agents/types/ap2';
 import type {
   AgentKitConfig,
   AgentMeta,
   AgentRuntime,
-} from '@lucid-agents/types/core';
-import type { TrustConfig } from '@lucid-agents/types/identity';
-import type { PaymentsConfig } from '@lucid-agents/types/payments';
+} from '@awe-agents/types/core';
+import type { TrustConfig } from '@awe-agents/types/identity';
+import type { PaymentsConfig } from '@awe-agents/types/payments';
 
 import { ZodValidationError } from '../core/agent';
 import { createAgentRuntime, type CreateAgentRuntimeOptions } from '../runtime';

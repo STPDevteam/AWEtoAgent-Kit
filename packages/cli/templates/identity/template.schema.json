@@ -26,6 +26,63 @@
       "default": "agent.example.com",
       "examples": ["agent.example.com", "ai.mydomain.com"]
     },
+    "AGENT_SHORT_DESCRIPTION": {
+      "type": "string",
+      "description": "Concise marketing sentence for manifests and backend payloads",
+      "default": "On-chain agent with verifiable identity"
+    },
+    "AGENT_SERVICE_TYPE": {
+      "type": "string",
+      "description": "Service type communicated to the backend",
+      "enum": ["AI_AGENT", "API_ACCESS", "MCP_SERVICE"],
+      "default": "AI_AGENT"
+    },
+    "AGENT_TOKEN_NAME": {
+      "type": "string",
+      "description": "Token name to create on the backend factory",
+      "default": "Agent Token"
+    },
+    "AGENT_TOKEN_SYMBOL": {
+      "type": "string",
+      "description": "Ticker symbol (<=10 chars) for the service token",
+      "default": "AGENTA",
+      "maxLength": 10
+    },
+    "AGENT_BACKEND_BASE_URL": {
+      "type": "string",
+      "description": "Base URL for the x402 backend (e.g. http://localhost:3000/api)",
+      "default": "",
+      "format": "uri"
+    },
+    "AGENT_RESOURCE_LINK": {
+      "type": "string",
+      "description": "Primary link showcased in manifests",
+      "default": "https://agent.example.com",
+      "format": "uri"
+    },
+    "AGENT_ACCESS_DETAILS": {
+      "type": "string",
+      "description": "Optional instructions for accessing the service",
+      "default": ""
+    },
+    "AGENT_GITHUB_LINK": {
+      "type": "string",
+      "description": "Optional GitHub repository link",
+      "default": "",
+      "format": "uri"
+    },
+    "AGENT_TWITTER_LINK": {
+      "type": "string",
+      "description": "Optional Twitter / X profile link",
+      "default": "",
+      "format": "uri"
+    },
+    "AGENT_DOCUMENT_LINK": {
+      "type": "string",
+      "description": "Optional documentation link",
+      "default": "",
+      "format": "uri"
+    },
     "PAYMENTS_FACILITATOR_URL": {
       "type": "string",
       "description": "x402 facilitator endpoint URL for payment processing",
@@ -47,13 +104,18 @@
     },
     "PAYMENTS_RECEIVABLE_ADDRESS": {
       "type": "string",
-      "description": "Payment address - Ethereum (0x...) or Solana (Base58) format depending on network. Separate from PRIVATE_KEY which is used for EVM identity registration. Can be shared across multiple agents.",
+      "description": "Payment address - Ethereum (0x...) or Solana (Base58) format depending on network. Separate from AGENT_WALLET_PRIVATE_KEY which is used for ERC-8004 registration.",
       "default": "",
       "examples": [
         "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb0",
         "9yPGxVrYi7C5JLMGjEZhK8qQ4tn7SzMWwQHvz3vGJCKz",
         ""
       ]
+    },
+    "PAYMENTS_DEFAULT_PRICE": {
+      "type": "string",
+      "description": "Default price (in micro USDC) applied when entrypoints omit explicit pricing",
+      "default": "1000"
     },
     "RPC_URL": {
       "type": "string",
@@ -73,9 +135,27 @@
       "description": "Auto-register agent on ERC-8004 identity registry at startup",
       "default": true
     },
-    "PRIVATE_KEY": {
+    "AGENT_METADATA_URI": {
       "type": "string",
-      "description": "Wallet private key for signing transactions (required for identity registration)",
+      "description": "URI where ERC-8004 metadata will be hosted",
+      "default": "https://agent.example.com/.well-known/agent-metadata.json",
+      "format": "uri"
+    },
+    "AGENT_CARD_URI": {
+      "type": "string",
+      "description": "URI exposing the AgentCard manifest",
+      "default": "https://agent.example.com/.well-known/agent-card.json",
+      "format": "uri"
+    },
+    "AGENT_WALLET_PRIVATE_KEY": {
+      "type": "string",
+      "description": "Wallet private key for identity operations (leave blank to auto-generate)",
+      "default": "",
+      "examples": ["0x...", ""]
+    },
+    "DEVELOPER_WALLET_PRIVATE_KEY": {
+      "type": "string",
+      "description": "Optional developer wallet for deployments or advanced flows",
       "default": "",
       "examples": ["0x...", ""]
     }
@@ -88,5 +168,5 @@
     "RPC_URL",
     "CHAIN_ID"
   ],
-  "notes": "This template requires a PRIVATE_KEY for on-chain identity registration. Ensure the wallet has sufficient gas for the target network."
+  "notes": "Leave AGENT_WALLET_PRIVATE_KEY empty to let the CLI generate a new wallet automatically. Ensure the wallet (generated or provided) has gas on the selected network."
 }

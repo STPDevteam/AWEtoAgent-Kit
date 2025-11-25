@@ -1,5 +1,5 @@
-import type { AgentCardWithEntrypoints } from '@lucid-agents/types/core';
-import type { TrustConfig } from '@lucid-agents/types/identity';
+import type { AgentCardWithEntrypoints } from '@awe-agents/types/core';
+import type { TrustConfig } from '@awe-agents/types/identity';
 import { describe, expect, it } from 'bun:test';
 
 import { createAgentCardWithIdentity } from '../manifest';

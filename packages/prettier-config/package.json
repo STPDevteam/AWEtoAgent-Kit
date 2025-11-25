@@ -1,7 +1,7 @@
 {
-  "name": "@lucid-agents/prettier-config",
+  "name": "@awe-agents/prettier-config",
   "version": "1.0.0",
-  "description": "Shared Prettier configuration for Lucid Agents monorepo",
+  "description": "Shared Prettier configuration for Awe Agents monorepo",
   "main": "index.js",
   "private": true,
   "files": [

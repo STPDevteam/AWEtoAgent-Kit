@@ -19,14 +19,14 @@ The solution is to manually copy the built packages from the monorepo into the g
 1. Build all monorepo packages:
 
    ```bash
-   cd /path/to/lucid-agents
+   cd /path/to/awe-agents
    bun run build
    ```
 
 2. Generate a test project:
    ```bash
    cd /tmp
-   bunx /path/to/lucid-agents/packages/cli/dist/index.js test-agent --adapter=hono --template=identity --non-interactive
+   bunx /path/to/awe-agents/packages/cli/dist/index.js test-agent --adapter=hono --template=identity --non-interactive
    cd test-agent
    ```
 
@@ -36,7 +36,7 @@ The solution is to manually copy the built packages from the monorepo into the g
 
 ```bash
 cd /tmp/test-agent
-mkdir -p node_modules/@lucid-agents
+mkdir -p node_modules/@awe-agents
 ```
 
 ### 2. Copy built packages
@@ -45,35 +45,35 @@ Copy the `dist` folder and `package.json` from each built package:
 
 ```bash
 # From monorepo root
-MONOREPO_ROOT=/path/to/lucid-agents
+MONOREPO_ROOT=/path/to/awe-agents
 TEST_PROJECT=/tmp/test-agent
 
 # Copy each package
-cp -r $MONOREPO_ROOT/packages/types/dist $TEST_PROJECT/node_modules/@lucid-agents/types/
-cp $MONOREPO_ROOT/packages/types/package.json $TEST_PROJECT/node_modules/@lucid-agents/types/
+cp -r $MONOREPO_ROOT/packages/types/dist $TEST_PROJECT/node_modules/@awe-agents/types/
+cp $MONOREPO_ROOT/packages/types/package.json $TEST_PROJECT/node_modules/@awe-agents/types/
 
-cp -r $MONOREPO_ROOT/packages/wallet/dist $TEST_PROJECT/node_modules/@lucid-agents/wallet/
-cp $MONOREPO_ROOT/packages/wallet/package.json $TEST_PROJECT/node_modules/@lucid-agents/wallet/
+cp -r $MONOREPO_ROOT/packages/wallet/dist $TEST_PROJECT/node_modules/@awe-agents/wallet/
+cp $MONOREPO_ROOT/packages/wallet/package.json $TEST_PROJECT/node_modules/@awe-agents/wallet/
 
-cp -r $MONOREPO_ROOT/packages/payments/dist $TEST_PROJECT/node_modules/@lucid-agents/payments/
-cp $MONOREPO_ROOT/packages/payments/package.json $TEST_PROJECT/node_modules/@lucid-agents/payments/
+cp -r $MONOREPO_ROOT/packages/payments/dist $TEST_PROJECT/node_modules/@awe-agents/payments/
+cp $MONOREPO_ROOT/packages/payments/package.json $TEST_PROJECT/node_modules/@awe-agents/payments/
 
-cp -r $MONOREPO_ROOT/packages/identity/dist $TEST_PROJECT/node_modules/@lucid-agents/identity/
-cp $MONOREPO_ROOT/packages/identity/package.json $TEST_PROJECT/node_modules/@lucid-agents/identity/
+cp -r $MONOREPO_ROOT/packages/identity/dist $TEST_PROJECT/node_modules/@awe-agents/identity/
+cp $MONOREPO_ROOT/packages/identity/package.json $TEST_PROJECT/node_modules/@awe-agents/identity/
 
-cp -r $MONOREPO_ROOT/packages/core/dist $TEST_PROJECT/node_modules/@lucid-agents/core/
-cp $MONOREPO_ROOT/packages/core/package.json $TEST_PROJECT/node_modules/@lucid-agents/core/
+cp -r $MONOREPO_ROOT/packages/core/dist $TEST_PROJECT/node_modules/@awe-agents/core/
+cp $MONOREPO_ROOT/packages/core/package.json $TEST_PROJECT/node_modules/@awe-agents/core/
 
-cp -r $MONOREPO_ROOT/packages/hono/dist $TEST_PROJECT/node_modules/@lucid-agents/hono/
-cp $MONOREPO_ROOT/packages/hono/package.json $TEST_PROJECT/node_modules/@lucid-agents/hono/
+cp -r $MONOREPO_ROOT/packages/hono/dist $TEST_PROJECT/node_modules/@awe-agents/hono/
+cp $MONOREPO_ROOT/packages/hono/package.json $TEST_PROJECT/node_modules/@awe-agents/hono/
 
 # For express adapter (if used)
-cp -r $MONOREPO_ROOT/packages/express/dist $TEST_PROJECT/node_modules/@lucid-agents/express/
-cp $MONOREPO_ROOT/packages/express/package.json $TEST_PROJECT/node_modules/@lucid-agents/express/
+cp -r $MONOREPO_ROOT/packages/express/dist $TEST_PROJECT/node_modules/@awe-agents/express/
+cp $MONOREPO_ROOT/packages/express/package.json $TEST_PROJECT/node_modules/@awe-agents/express/
 
 # For tanstack adapter (if used)
-cp -r $MONOREPO_ROOT/packages/tanstack/dist $TEST_PROJECT/node_modules/@lucid-agents/tanstack/
-cp $MONOREPO_ROOT/packages/tanstack/package.json $TEST_PROJECT/node_modules/@lucid-agents/tanstack/
+cp -r $MONOREPO_ROOT/packages/tanstack/dist $TEST_PROJECT/node_modules/@awe-agents/tanstack/
+cp $MONOREPO_ROOT/packages/tanstack/package.json $TEST_PROJECT/node_modules/@awe-agents/tanstack/
 ```
 
 ### 3. Update package.json files in node_modules
@@ -100,7 +100,7 @@ const packages = [
   'express',
   'tanstack',
 ];
-const basePath = 'node_modules/@lucid-agents';
+const basePath = 'node_modules/@awe-agents';
 const catalogVersions = {
   zod: '^4.1.12',
   hono: '4.10.1',
@@ -125,9 +125,9 @@ packages.forEach(pkg => {
     Object.keys(pkgJson.dependencies).forEach(dep => {
       if (
         pkgJson.dependencies[dep] === 'workspace:*' &&
-        dep.startsWith('@lucid-agents/')
+        dep.startsWith('@awe-agents/')
       ) {
-        const depName = dep.replace('@lucid-agents/', '');
+        const depName = dep.replace('@awe-agents/', '');
         pkgJson.dependencies[dep] = 'file:../' + depName;
       } else if (pkgJson.dependencies[dep] === 'catalog:') {
         pkgJson.dependencies[dep] = catalogVersions[dep] || 'latest';
@@ -154,11 +154,11 @@ Update the test project's `package.json` to use `file:` paths:
 ```json
 {
   "dependencies": {
-    "@lucid-agents/core": "file:./node_modules/@lucid-agents/core",
-    "@lucid-agents/hono": "file:./node_modules/@lucid-agents/hono",
-    "@lucid-agents/wallet": "file:./node_modules/@lucid-agents/wallet",
-    "@lucid-agents/identity": "file:./node_modules/@lucid-agents/identity",
-    "@lucid-agents/types": "file:./node_modules/@lucid-agents/types",
+    "@awe-agents/core": "file:./node_modules/@awe-agents/core",
+    "@awe-agents/hono": "file:./node_modules/@awe-agents/hono",
+    "@awe-agents/wallet": "file:./node_modules/@awe-agents/wallet",
+    "@awe-agents/identity": "file:./node_modules/@awe-agents/identity",
+    "@awe-agents/types": "file:./node_modules/@awe-agents/types",
     "zod": "^4.1.12",
     "viem": "^2.21.26",
     "hono": "^4.10.1"
@@ -173,7 +173,7 @@ cd /tmp/test-agent
 bun install
 ```
 
-This will install external dependencies (zod, viem, hono, etc.) while using the local copies of `@lucid-agents/*` packages.
+This will install external dependencies (zod, viem, hono, etc.) while using the local copies of `@awe-agents/*` packages.
 
 ### 6. Run the project
 
@@ -206,14 +206,14 @@ fi
 echo "Copying packages from $MONOREPO_ROOT to $TEST_PROJECT..."
 
 cd "$TEST_PROJECT"
-mkdir -p node_modules/@lucid-agents
+mkdir -p node_modules/@awe-agents
 
 # Copy packages
 for pkg in types wallet payments identity core hono express tanstack; do
   if [ -d "$MONOREPO_ROOT/packages/$pkg/dist" ]; then
     echo "Copying $pkg..."
-    cp -r "$MONOREPO_ROOT/packages/$pkg/dist" "node_modules/@lucid-agents/$pkg/"
-    cp "$MONOREPO_ROOT/packages/$pkg/package.json" "node_modules/@lucid-agents/$pkg/"
+    cp -r "$MONOREPO_ROOT/packages/$pkg/dist" "node_modules/@awe-agents/$pkg/"
+    cp "$MONOREPO_ROOT/packages/$pkg/package.json" "node_modules/@awe-agents/$pkg/"
   fi
 done
 
@@ -223,7 +223,7 @@ const fs = require('fs');
 const path = require('path');
 
 const packages = ['types', 'wallet', 'payments', 'identity', 'core', 'hono', 'express', 'tanstack'];
-const basePath = 'node_modules/@lucid-agents';
+const basePath = 'node_modules/@awe-agents';
 const catalogVersions = {
   'zod': '^4.1.12',
   'hono': '4.10.1',
@@ -243,8 +243,8 @@ packages.forEach(pkg => {
 
   if (pkgJson.dependencies) {
     Object.keys(pkgJson.dependencies).forEach(dep => {
-      if (pkgJson.dependencies[dep] === 'workspace:*' && dep.startsWith('@lucid-agents/')) {
-        const depName = dep.replace('@lucid-agents/', '');
+      if (pkgJson.dependencies[dep] === 'workspace:*' && dep.startsWith('@awe-agents/')) {
+        const depName = dep.replace('@awe-agents/', '');
         pkgJson.dependencies[dep] = 'file:../' + depName;
       } else if (pkgJson.dependencies[dep] === 'catalog:') {
         pkgJson.dependencies[dep] = catalogVersions[dep] || 'latest';
@@ -263,7 +263,7 @@ echo "Done! Now run: cd $TEST_PROJECT && bun install && bun run dev"
 Usage:
 
 ```bash
-./test-generated-project.sh /path/to/lucid-agents /tmp/test-agent
+./test-generated-project.sh /path/to/awe-agents /tmp/test-agent
 ```
 
 ## Testing Different Adapters
@@ -272,31 +272,31 @@ To test different adapters, generate projects with different `--adapter` flags:
 
 ```bash
 # Hono
-bunx @lucid-agents/create-agent-kit test-hono --adapter=hono --template=identity
+bunx @awe-agents/create-agent-kit test-hono --adapter=hono --template=identity
 
 # Express
-bunx @lucid-agents/create-agent-kit test-express --adapter=express --template=identity
+bunx @awe-agents/create-agent-kit test-express --adapter=express --template=identity
 
 # TanStack UI
-bunx @lucid-agents/create-agent-kit test-tanstack-ui --adapter=tanstack-ui --template=identity
+bunx @awe-agents/create-agent-kit test-tanstack-ui --adapter=tanstack-ui --template=identity
 
 # TanStack Headless
-bunx @lucid-agents/create-agent-kit test-tanstack-headless --adapter=tanstack-headless --template=identity
+bunx @awe-agents/create-agent-kit test-tanstack-headless --adapter=tanstack-headless --template=identity
 ```
 
 Then follow the same process for each.
 
 ## Troubleshooting
 
-### "Cannot find module '@lucid-agents/...'"
+### "Cannot find module '@awe-agents/...'"
 
-- Ensure the package was copied to `node_modules/@lucid-agents/<package-name>/`
+- Ensure the package was copied to `node_modules/@awe-agents/<package-name>/`
 - Check that `package.json` exists in the package directory
 - Verify the `file:` paths in the test project's `package.json` are correct
 
 ### "Workspace dependency not found"
 
-- The package.json files in `node_modules/@lucid-agents/*` still have `workspace:*` references
+- The package.json files in `node_modules/@awe-agents/*` still have `workspace:*` references
 - Re-run the fix script to update them
 
 ### "catalog: failed to resolve"

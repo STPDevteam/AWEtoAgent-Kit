@@ -1,7 +1,7 @@
 {
-  "name": "@lucid-agents/types",
+  "name": "@awe-agents/types",
   "version": "1.3.0",
-  "description": "Shared types for lucid-agents framework",
+  "description": "Shared types for awe-agents framework",
   "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
@@ -52,7 +52,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/daydreamsai/lucid-agents",
+    "url": "https://github.com/awe-x402/awe-agents",
     "directory": "packages/types"
   },
   "scripts": {

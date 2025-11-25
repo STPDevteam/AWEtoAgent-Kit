@@ -2,11 +2,11 @@ import { definePackageConfig } from '../tsup.config.base';
 
 export default definePackageConfig({
   entry: ['src/index.ts'],
-  dts: true,
+  dts: false, // Disabled due to x402/x402-fetch/viem version conflicts
   external: [
-    '@lucid-agents/core',
-    '@lucid-agents/identity',
-    '@lucid-agents/wallet',
+    '@awe-agents/core',
+    '@awe-agents/identity',
+    '@awe-agents/wallet',
     'x402-fetch',
     'x402',
     'viem',

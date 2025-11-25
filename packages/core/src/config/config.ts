@@ -1,6 +1,6 @@
-import { paymentsFromEnv } from '@lucid-agents/payments';
-import type { AgentKitConfig } from '@lucid-agents/types/core';
-import { walletsFromEnv } from '@lucid-agents/wallet';
+import { paymentsFromEnv } from '@awe-agents/payments';
+import type { AgentKitConfig } from '@awe-agents/types/core';
+import { walletsFromEnv } from '@awe-agents/wallet';
 
 import { hasDefinedValue } from '../utils/utils';
 

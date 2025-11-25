@@ -3,13 +3,13 @@ import type {
   AgentMeta,
   EntrypointDef,
   CreateAgentAppReturn,
-} from '@lucid-agents/types/core';
+} from '@awe-agents/types/core';
 import { withPayments } from './paywall';
 import {
   createAgentHttpRuntime,
   type CreateAgentHttpOptions,
   type AgentHttpRuntime,
-} from '@lucid-agents/core';
+} from '@awe-agents/core';
 
 export type CreateAgentAppOptions = CreateAgentHttpOptions & {
   /**

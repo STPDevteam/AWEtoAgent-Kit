@@ -1,7 +1,7 @@
 {
-  "name": "@lucid-agents/eslint-config",
+  "name": "@awe-agents/eslint-config",
   "version": "1.0.0",
-  "description": "Shared ESLint configuration for Lucid Agents monorepo",
+  "description": "Shared ESLint configuration for Awe Agents monorepo",
   "main": "index.js",
   "private": true,
   "files": [

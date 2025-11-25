@@ -85,26 +85,26 @@ async function buildPackages() {
   // Core depends on all extensions, so extensions must build first.
   const preferredOrder = [
     // Base layer - no internal dependencies
-    '@lucid-agents/types',
+    '@awe-agents/types',
 
     // Extensions - only depend on types
-    '@lucid-agents/wallet', // Depends on types
-    '@lucid-agents/payments', // Depends on types only
-    '@lucid-agents/identity', // Depends on types only
-    '@lucid-agents/a2a', // Depends on types only
-    '@lucid-agents/ap2', // Depends on types only
+    '@awe-agents/wallet', // Depends on types
+    '@awe-agents/payments', // Depends on types only
+    '@awe-agents/identity', // Depends on types only
+    '@awe-agents/a2a', // Depends on types only
+    '@awe-agents/ap2', // Depends on types only
 
     // Core - depends on all extensions
-    '@lucid-agents/core', // Depends on payments, identity, a2a, ap2, types, wallet
+    '@awe-agents/core', // Depends on payments, identity, a2a, ap2, types, wallet
 
     // Adapters - depend on core and extensions
-    '@lucid-agents/hono', // Depends on core, payments, types
-    '@lucid-agents/express', // Depends on core, payments, types
-    '@lucid-agents/x402-tanstack-start', // No internal dependencies
-    '@lucid-agents/tanstack', // Depends on core, payments, types, x402-tanstack-start
+    '@awe-agents/hono', // Depends on core, payments, types
+    '@awe-agents/express', // Depends on core, payments, types
+    '@awe-agents/x402-tanstack-start', // No internal dependencies
+    '@awe-agents/tanstack', // Depends on core, payments, types, x402-tanstack-start
 
     // CLI - no dependencies on other packages
-    '@lucid-agents/cli',
+    '@awe-agents/cli',
   ];
 
   const packagesByName = new Map(packages.map(pkg => [pkg.name, pkg]));

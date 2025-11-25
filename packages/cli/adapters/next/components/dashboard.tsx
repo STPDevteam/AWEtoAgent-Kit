@@ -154,7 +154,7 @@ export default function Dashboard({
                 </div>
                 <div>
                   <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-zinc-50 to-zinc-400 bg-clip-text text-transparent">
-                    {initialData.meta?.name ?? 'Lucid Agent'}
+                    {initialData.meta?.name ?? 'Awe Agent'}
                   </h1>
                   <p className="text-sm text-zinc-500">
                     v{initialData.meta?.version ?? '0.0.0'}
@@ -279,7 +279,7 @@ export default function Dashboard({
 
         <footer className="mt-12 border-t border-zinc-800/50 pt-8 pb-4">
           <div className="flex items-center justify-between text-xs text-zinc-600">
-            <p>Powered by Lucid Agents Framework</p>
+            <p>Powered by Awe Agents Framework</p>
             <p>Built with Next.js</p>
           </div>
         </footer>

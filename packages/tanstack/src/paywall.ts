@@ -1,8 +1,8 @@
-import type { AgentHttpRuntime } from '@lucid-agents/core';
-import { toJsonSchemaOrUndefined } from '@lucid-agents/core';
-import type { EntrypointDef } from '@lucid-agents/types/core';
-import type { PaymentsConfig } from '@lucid-agents/types/payments';
-import { resolvePrice, validatePaymentsConfig } from '@lucid-agents/payments';
+import type { AgentHttpRuntime } from '@awe-agents/core';
+import { toJsonSchemaOrUndefined } from '@awe-agents/core';
+import type { EntrypointDef } from '@awe-agents/types/core';
+import type { PaymentsConfig } from '@awe-agents/types/payments';
+import { resolvePrice, validatePaymentsConfig } from '@awe-agents/payments';
 import type {
   FacilitatorConfig,
   PaywallConfig,
@@ -12,7 +12,7 @@ import type {
 import {
   paymentMiddleware,
   type TanStackRequestMiddleware,
-} from '@lucid-agents/x402-tanstack-start';
+} from '@awe-agents/x402-tanstack-start';
 
 type RuntimeLike = {
   payments?: { config: PaymentsConfig };

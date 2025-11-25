@@ -3,7 +3,7 @@ import { describe, expect, it } from 'bun:test';
 import type {
   AgentChallengeResponse,
   LocalEoaSigner,
-} from '@lucid-agents/types/wallets';
+} from '@awe-agents/types/wallets';
 
 import { LocalEoaWalletConnector } from '../../local-eoa-connector';
 

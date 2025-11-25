@@ -60,9 +60,10 @@ export type LocalWalletWithPrivateKeyOptions = LocalWalletMetadataOptions & {
 };
 
 /**
- * Configuration for Lucid wallet connector (server-orchestrated wallet).
+ * Configuration for Awe wallet connector (server-orchestrated wallet).
+ * Note: The type value 'lucid' is kept for backward compatibility.
  */
-export interface LucidWalletOptions {
+export interface AweWalletOptions {
   type: 'lucid';
   baseUrl: string;
   agentRef: string;
@@ -73,11 +74,11 @@ export interface LucidWalletOptions {
 }
 
 /**
- * Configuration for an agent wallet. Can be local (with private key) or Lucid (server-orchestrated).
+ * Configuration for an agent wallet. Can be local (with private key) or Awe (server-orchestrated).
  */
 export type AgentWalletConfig =
   | LocalWalletWithPrivateKeyOptions
-  | LucidWalletOptions;
+  | AweWalletOptions;
 
 /**
  * Configuration for a developer wallet. Must be a local wallet with private key.
@@ -111,7 +112,7 @@ export type LocalWalletOptions =
 /**
  * Options for creating an agent wallet. Supports both local and Lucid wallet types.
  */
-export type AgentWalletFactoryOptions = LocalWalletOptions | LucidWalletOptions;
+export type AgentWalletFactoryOptions = LocalWalletOptions | AweWalletOptions;
 
 /**
  * Interface for signing messages and transactions with an EOA (Externally Owned Account) wallet.

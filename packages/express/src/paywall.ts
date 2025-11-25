@@ -1,10 +1,10 @@
 import type { Express, RequestHandler } from 'express';
 import { paymentMiddleware } from 'x402-express';
 import type { FacilitatorConfig } from 'x402/types';
-import type { EntrypointDef } from '@lucid-agents/types/core';
-import type { PaymentsConfig } from '@lucid-agents/types/payments';
-import { resolvePrice, validatePaymentsConfig } from '@lucid-agents/payments';
-import { toJsonSchemaOrUndefined } from '@lucid-agents/core/utils';
+import type { EntrypointDef } from '@awe-agents/types/core';
+import type { PaymentsConfig } from '@awe-agents/types/payments';
+import { resolvePrice, validatePaymentsConfig } from '@awe-agents/payments';
+import { toJsonSchemaOrUndefined } from '@awe-agents/core/utils';
 
 type PaymentMiddlewareFactory = typeof paymentMiddleware;
 

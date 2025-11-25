@@ -1,5 +1,5 @@
 {
-  "name": "@lucid-agents/x402-tanstack-start",
+  "name": "@awe-agents/x402-tanstack-start",
   "version": "0.1.0",
   "description": "TanStack Start middleware for the x402 payment protocol",
   "type": "module",

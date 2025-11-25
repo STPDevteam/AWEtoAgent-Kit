@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Lucid Agent Platform',
+  title: 'Awe Agent Platform',
   description: 'Full-stack agent platform with x402 micropayments',
 };
 

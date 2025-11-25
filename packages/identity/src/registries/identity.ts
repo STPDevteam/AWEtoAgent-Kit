@@ -1,19 +1,19 @@
 import type {
   RegistrationEntry,
   TrustConfig,
-} from '@lucid-agents/types/identity';
+} from '@awe-agents/types/identity';
 import type {
   AgentWalletHandle,
   LocalEoaSigner,
-} from '@lucid-agents/types/wallets';
-import type { Hex } from '@lucid-agents/wallet';
-import { normalizeAddress, toCaip10, ZERO_ADDRESS } from '@lucid-agents/wallet';
+} from '@awe-agents/types/wallets';
+import type { Hex } from '@awe-agents/wallet';
+import { normalizeAddress, toCaip10, ZERO_ADDRESS } from '@awe-agents/wallet';
 
 import { normalizeDomain } from '../utils';
 import { signDomainProof } from './signatures';
 import { waitForConfirmation } from './utils';
 
-export { toCaip10 } from '@lucid-agents/wallet';
+export { toCaip10 } from '@awe-agents/wallet';
 
 import type {
   IdentityRegistryReadFunctionName,

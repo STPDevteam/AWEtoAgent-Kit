@@ -3,7 +3,7 @@ import type {
   FetchExecutor,
   WalletConnector,
   WalletMetadata,
-} from '@lucid-agents/types/wallets';
+} from '@awe-agents/types/wallets';
 
 import {
   detectMessageEncoding,

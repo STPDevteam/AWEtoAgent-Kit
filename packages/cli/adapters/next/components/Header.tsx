@@ -31,7 +31,7 @@ export default function Header() {
         </button>
         <h1 className="ml-4 text-xl font-semibold">
           <Link href="/">
-            <img src="/daydreams.svg" alt="Lucid Agent" className="h-10" />
+            <img src="/awe.svg" alt="Awe Agent" className="h-10" />
           </Link>
         </h1>
         <div className="ml-auto">

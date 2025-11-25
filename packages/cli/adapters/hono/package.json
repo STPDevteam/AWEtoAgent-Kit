@@ -7,11 +7,12 @@
     "dev": "bun run --watch src/index.ts",
     "start": "bun run src/index.ts",
     "build": "bun build src/index.ts --outdir=dist --target=bun",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "agent:onboard": "bun run scripts/onboard-agent.ts"
   },
   "dependencies": {
-    "@lucid-agents/core": "latest",
-    "@lucid-agents/hono": "latest",
+    "@awe-agents/core": "latest",
+    "@awe-agents/hono": "latest",
     "zod": "^4.1.12"
   },
   "devDependencies": {

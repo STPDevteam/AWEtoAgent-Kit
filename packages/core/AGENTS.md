@@ -138,7 +138,7 @@ const payments = paymentsFromEnv(); // returns the config you supplied earlier
 ```
 
 For wallet-authenticated calls, pair your agent with
-`@lucid-agents/agent-auth` and reuse its `AgentRuntime` helpers instead of the
+`@awe-agents/agent-auth` and reuse its `AgentRuntime` helpers instead of the
 now-removed `createAgentPaymentContext` flow.
 `createRuntimePaymentContext({ runtime })` will hand you the same x402-enabled
 fetch + signer wiring backed by the agent wallet.
@@ -251,7 +251,7 @@ addEntrypoint({
 To pay for agent calls, create a payment-enabled fetch using `createRuntimePaymentContext`:
 
 ```ts
-import { createRuntimePaymentContext } from '@lucid-agents/payments';
+import { createRuntimePaymentContext } from '@awe-agents/payments';
 
 handler: async ctx => {
   const runtime = ctx.runtime;
@@ -285,7 +285,7 @@ handler: async ctx => {
 The A2A client provides convenience functions:
 
 ```ts
-import { fetchAndInvoke } from '@lucid-agents/a2a';
+import { fetchAndInvoke } from '@awe-agents/a2a';
 
 // Fetch card and invoke in one call
 const result = await fetchAndInvoke(
@@ -363,7 +363,7 @@ Key shapes:
 - `AgentContext`: `{ key, input, signal, headers, runId }`
 - `PaymentsConfig`: `{ payTo, facilitatorUrl, network }`
 - `CreateAgentAppOptions`: `{ config?, payments?, ap2?, trust?, entrypoints? }`
-- `CreateAgentAppReturn<TApp>`: `{ app: TApp, runtime, agent, addEntrypoint, config }` (generic type in `@lucid-agents/types/core`)
+- `CreateAgentAppReturn<TApp>`: `{ app: TApp, runtime, agent, addEntrypoint, config }` (generic type in `@awe-agents/types/core`)
 
 ## Utils
 

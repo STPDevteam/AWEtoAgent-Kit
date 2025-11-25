@@ -38,7 +38,7 @@ if (!projectId) {
 }
 
 const metadata = {
-  name: 'Lucid Agent Platform',
+  name: 'Awe Agent Platform',
   description: 'Full-stack agent platform with x402 micropayments',
   url: typeof window !== 'undefined' ? window.location.origin : '',
   icons: [],

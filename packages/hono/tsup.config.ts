@@ -9,9 +9,9 @@ export default defineConfig({
   treeshake: true,
   tsconfig: "./tsconfig.build.json",
   external: [
-    '@lucid-agents/core',
-    '@lucid-agents/payments',
-    '@lucid-agents/types',
+    '@awe-agents/core',
+    '@awe-agents/payments',
+    '@awe-agents/types',
     'hono',
     'x402-hono',
     'x402',

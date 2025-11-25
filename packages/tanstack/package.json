@@ -1,10 +1,10 @@
 {
-  "name": "@lucid-agents/tanstack",
+  "name": "@awe-agents/tanstack",
   "version": "0.5.1",
   "description": "TanStack Start adapter for Lucid agent runtime",
   "repository": {
     "type": "git",
-    "url": "https://github.com/daydreamsai/lucid-agents",
+    "url": "https://github.com/awe-x402/awe-agents",
     "directory": "packages/tanstack"
   },
   "type": "module",
@@ -32,10 +32,10 @@
     "type-check": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@lucid-agents/core": "workspace:*",
-    "@lucid-agents/payments": "workspace:*",
-    "@lucid-agents/types": "workspace:*",
-    "@lucid-agents/x402-tanstack-start": "workspace:*",
+    "@awe-agents/core": "workspace:*",
+    "@awe-agents/payments": "workspace:*",
+    "@awe-agents/types": "workspace:*",
+    "@awe-agents/x402-tanstack-start": "workspace:*",
     "viem": "^2.21.26",
     "x402": "catalog:"
   },

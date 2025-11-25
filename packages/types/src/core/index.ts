@@ -379,13 +379,13 @@ export type ManifestRuntime = {
 /**
  * Agent runtime interface.
  * This type is defined in the types package to avoid circular dependencies
- * between @lucid-agents/core and @lucid-agents/payments.
+ * between @awe-agents/core and @awe-agents/payments.
  *
- * The actual implementation is in @lucid-agents/core.
+ * The actual implementation is in @awe-agents/core.
  */
 export type AgentRuntime = {
   /**
-   * Agent core instance. The actual type is AgentCore from @lucid-agents/core.
+   * Agent core instance. The actual type is AgentCore from @awe-agents/core.
    * Using `any` here to avoid circular dependency - the type will be properly
    * inferred when used with the actual runtime implementation.
    */

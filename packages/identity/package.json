@@ -1,10 +1,10 @@
 {
-  "name": "@lucid-agents/identity",
+  "name": "@awe-agents/identity",
   "version": "1.7.0",
   "description": "ERC-8004 identity helpers for Lucid agent kit surfaces",
   "repository": {
     "type": "git",
-    "url": "https://github.com/daydreamsai/lucid-agents",
+    "url": "https://github.com/awe-x402/awe-agents",
     "directory": "packages/identity"
   },
   "type": "module",
@@ -38,14 +38,14 @@
     "type-check": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@lucid-agents/types": "workspace:*",
-    "@lucid-agents/wallet": "workspace:*",
+    "@awe-agents/types": "workspace:*",
+    "@awe-agents/wallet": "workspace:*",
     "viem": "^2.38.1"
   },
   "devDependencies": {
     "tsup": "^8.5.0",
     "typescript": "^5.9.2",
-    "@lucid-agents/eslint-config": "workspace:*",
-    "@lucid-agents/prettier-config": "workspace:*"
+    "@awe-agents/eslint-config": "workspace:*",
+    "@awe-agents/prettier-config": "workspace:*"
   }
 }

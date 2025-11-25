@@ -4,7 +4,7 @@ This guide helps AI coding agents understand and extend this AxLLM Flow-powered 
 
 ## Project Overview
 
-This is a Bun HTTP agent with `@ax-llm/ax` Flow integration for multi-step LLM workflows. It includes payment support via x402 and uses `@lucid-agents/core` for agent app creation.
+This is a Bun HTTP agent with `@ax-llm/ax` Flow integration for multi-step LLM workflows. It includes payment support via x402 and uses `@awe-agents/core` for agent app creation.
 
 **Key Files:**
 - `src/agent.ts` - Agent definition, AxLLM client setup, and flow-based entrypoints
@@ -12,7 +12,7 @@ This is a Bun HTTP agent with `@ax-llm/ax` Flow integration for multi-step LLM w
 - `.env` - Configuration (API keys, payment settings, etc.)
 
 **Key Dependencies:**
-- `@lucid-agents/core` - Agent app framework
+- `@awe-agents/core` - Agent app framework
 - `@ax-llm/ax` - LLM client library with Flow support
 - `zod` - Schema validation
 
@@ -568,4 +568,4 @@ For long flows:
 
 - [@ax-llm/ax Flow documentation](https://github.com/dosco/ax)
 - [Chain-of-thought prompting](https://www.promptingguide.ai/techniques/cot)
-- [@lucid-agents/core docs](../../../core/README.md)
+- [@awe-agents/core docs](../../../core/README.md)

@@ -1,4 +1,4 @@
-# @lucid-agents/a2a
+# @awe-agents/a2a
 
 Complete A2A Protocol implementation for Lucid agents. Enables agent-to-agent communication, Agent Card discovery, and task-based operations.
 
@@ -14,7 +14,7 @@ The [A2A Protocol](https://a2a-protocol.org/) (Agent-to-Agent Protocol) is a sta
 ## Installation
 
 ```bash
-bun add @lucid-agents/a2a
+bun add @awe-agents/a2a
 ```
 
 ## Quick Start
@@ -22,8 +22,8 @@ bun add @lucid-agents/a2a
 ### Building Agent Cards
 
 ```typescript
-import { createA2ARuntime } from '@lucid-agents/a2a';
-import { createAgentRuntime } from '@lucid-agents/core';
+import { createA2ARuntime } from '@awe-agents/a2a';
+import { createAgentRuntime } from '@awe-agents/core';
 
 const runtime = createAgentRuntime({
   name: 'my-agent',
@@ -45,7 +45,7 @@ console.log(card.skills); // Array of skills/entrypoints
 const otherAgentCard = await a2a.fetchCard('https://other-agent.example.com');
 
 // Find a specific skill
-import { findSkill } from '@lucid-agents/a2a';
+import { findSkill } from '@awe-agents/a2a';
 const echoSkill = findSkill(otherAgentCard, 'echo');
 ```
 
@@ -78,7 +78,7 @@ const task = await a2a.client.getTask(otherAgentCard, taskId);
 console.log(task.status); // 'running' | 'completed' | 'failed' | 'cancelled'
 
 // Wait for task completion
-import { waitForTask } from '@lucid-agents/a2a';
+import { waitForTask } from '@awe-agents/a2a';
 const completedTask = await waitForTask(a2a.client, otherAgentCard, taskId);
 console.log(completedTask.result?.output);
 ```
@@ -150,7 +150,7 @@ await a2a.client.stream(otherAgentCard, 'generate', { prompt: '...' }, async chu
 ### Convenience Functions
 
 ```typescript
-import { fetchAndInvoke, fetchAndSendMessage } from '@lucid-agents/a2a';
+import { fetchAndInvoke, fetchAndSendMessage } from '@awe-agents/a2a';
 
 // Fetch card and invoke in one call
 const result = await fetchAndInvoke(
@@ -174,8 +174,8 @@ const { taskId } = await fetchAndSendMessage(
 Creates an A2A runtime from an AgentRuntime. Always returns a runtime (A2A is always available).
 
 ```typescript
-import { createA2ARuntime } from '@lucid-agents/a2a';
-import { createAgentRuntime } from '@lucid-agents/core';
+import { createA2ARuntime } from '@awe-agents/a2a';
+import { createAgentRuntime } from '@awe-agents/core';
 
 const runtime = createAgentRuntime({ name: 'my-agent', version: '1.0.0' });
 const a2a = createA2ARuntime(runtime);
@@ -186,7 +186,7 @@ const a2a = createA2ARuntime(runtime);
 Builds a base A2A-compliant Agent Card. Does NOT include payments, identity, or AP2 extensions.
 
 ```typescript
-import { buildAgentCard } from '@lucid-agents/a2a';
+import { buildAgentCard } from '@awe-agents/a2a';
 
 const card = buildAgentCard({
   meta: { name: 'my-agent', version: '1.0.0' },
@@ -200,7 +200,7 @@ const card = buildAgentCard({
 Fetches an Agent Card from `/.well-known/agent-card.json`.
 
 ```typescript
-import { fetchAgentCard } from '@lucid-agents/a2a';
+import { fetchAgentCard } from '@awe-agents/a2a';
 
 const card = await fetchAgentCard('https://other-agent.example.com');
 ```
@@ -276,10 +276,10 @@ See `packages/a2a/examples/full-integration.ts` for a complete example.
 
 ## Related Packages
 
-- `@lucid-agents/core` - Core agent runtime
-- `@lucid-agents/ap2` - AP2 extension for Agent Cards
-- `@lucid-agents/payments` - Payment utilities for paid agent calls
-- `@lucid-agents/types` - Shared type definitions
+- `@awe-agents/core` - Core agent runtime
+- `@awe-agents/ap2` - AP2 extension for Agent Cards
+- `@awe-agents/payments` - Payment utilities for paid agent calls
+- `@awe-agents/types` - Shared type definitions
 
 ## Resources
 

@@ -1,10 +1,10 @@
 {
-  "name": "@lucid-agents/ap2",
+  "name": "@awe-agents/ap2",
   "version": "0.2.0",
   "description": "AP2 (Agent Payments Protocol) extension for Lucid agents",
   "repository": {
     "type": "git",
-    "url": "https://github.com/daydreamsai/lucid-agents",
+    "url": "https://github.com/awe-x402/awe-agents",
     "directory": "packages/ap2"
   },
   "type": "module",
@@ -33,7 +33,7 @@
     "test": "bun test"
   },
   "dependencies": {
-    "@lucid-agents/types": "workspace:*"
+    "@awe-agents/types": "workspace:*"
   },
   "devDependencies": {
     "tsup": "catalog:",

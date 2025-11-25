@@ -6,4 +6,4 @@ export type {
   StreamEnvelope,
   StreamPushEnvelope,
   StreamResult,
-} from '@lucid-agents/types/core';
+} from '@awe-agents/types/core';

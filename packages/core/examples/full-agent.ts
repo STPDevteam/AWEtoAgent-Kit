@@ -11,21 +11,21 @@
  */
 
 import { z } from 'zod';
-import { createAgentApp } from '@lucid-agents/hono';
+import { createAgentApp } from '@awe-agents/hono';
 import {
   createRuntimePaymentContext,
   type AgentKitConfig,
-} from '@lucid-agents/core';
+} from '@awe-agents/core';
 import {
   createAgentIdentity,
   getTrustConfig,
   type AgentIdentity,
-} from '@lucid-agents/identity';
+} from '@awe-agents/identity';
 import {
   AgentRuntime,
   MemoryStorageAdapter,
   type AgentRuntimeWallet,
-} from '@lucid-dreams/agent-auth';
+} from '@awe-agents/agent-auth';
 import { privateKeyToAccount } from 'viem/accounts';
 
 type RuntimeBootstrap = {

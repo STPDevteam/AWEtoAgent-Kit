@@ -9,9 +9,9 @@ export default defineConfig({
   clean: true,
   treeshake: true,
   external: [
-    '@lucid-agents/core',
-    '@lucid-agents/payments',
-    '@lucid-agents/types',
+    '@awe-agents/core',
+    '@awe-agents/payments',
+    '@awe-agents/types',
     'express',
     'x402-express',
     'x402',

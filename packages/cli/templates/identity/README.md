@@ -1,6 +1,6 @@
 ## {{AGENT_NAME}}
 
-This project was scaffolded with `create-agent-kit` and includes **ERC-8004 identity registration** built on [`@lucid-agents/core`](https://www.npmjs.com/package/@lucid-agents/core) and [`@lucid-agents/identity`](https://www.npmjs.com/package/@lucid-agents/identity).
+This project was scaffolded with `create-agent-kit` and includes **ERC-8004 identity registration** built on [`@awe-agents/core`](https://www.npmjs.com/package/@awe-agents/core) and [`@awe-agents/identity`](https://www.npmjs.com/package/@awe-agents/identity).
 
 ### Features
 
@@ -12,19 +12,13 @@ This project was scaffolded with `create-agent-kit` and includes **ERC-8004 iden
 
 ### Quick start
 
-1. **Set up your environment:**
+1. **Review your `.env`:**
 
-   ```sh
-   cp .env.example .env
-   # Edit .env and add your PRIVATE_KEY
-   ```
+   The CLI already generated `.env` with everything you entered during scaffolding (domain, backend URL, token details, etc.). Update any values you want to change and make sure `AGENT_BACKEND_BASE_URL`, `AGENT_TOKEN_SYMBOL`, and `PAYMENTS_*` match your deployment.
 
-   The private key is used to:
-
-   - Register your agent on-chain (ERC-8004 Identity Registry)
-   - Sign domain ownership proofs
-
-   By default, the agent is configured for **Base Sepolia testnet**. If you want to use a different network, update `CHAIN_ID` and `RPC_URL` in your `.env` file.
+   - If you supplied a private key during scaffolding, it’s stored in `AGENT_WALLET_PRIVATE_KEY`.
+   - If you left it blank, the CLI generated `.agent-wallet.json` and wrote the new key into `.env` for you.
+   - By default, the project targets **Base Sepolia**. Change `CHAIN_ID` + `RPC_URL` if you want a different network.
 
 2. **Install dependencies:**
 
@@ -40,9 +34,26 @@ This project was scaffolded with `create-agent-kit` and includes **ERC-8004 iden
 The agent will:
 
 - Check if it's registered on the ERC-8004 Identity Registry
-- Auto-register if not found (when `AUTO_REGISTER=true`)
+- Auto-register if not found (when `IDENTITY_AUTO_REGISTER=true`)
 - Sign a domain ownership proof
 - Include trust metadata in `/.well-known/agent.json`
+
+### Automatic onboarding
+
+During scaffolding, the CLI already:
+
+- Generated an agent wallet (if you didn’t supply one)
+- Registered / verified your ERC-8004 identity
+- Posted to your backend’s `/api/agents/init` endpoint to create the service token
+- Wrote `./.well-known/agent-metadata.json`
+
+If anything failed—or you want to rerun the flow after editing `.env`—use:
+
+```sh
+bun run agent:onboard
+```
+
+This script lives in `scripts/onboard-agent.ts` and mirrors the CLI workflow.
 
 ### Project structure
 
@@ -77,21 +88,26 @@ await validationClient.createRequest({
 
 ### Environment Variables
 
-**Required:**
+**Identity & backend:**
 
-- `PRIVATE_KEY` – Your wallet's private key for signing transactions and payments
+- `AGENT_DOMAIN`, `AGENT_BACKEND_BASE_URL` – Provided during scaffolding
+- `AGENT_TOKEN_NAME`, `AGENT_TOKEN_SYMBOL`, `AGENT_SERVICE_TYPE` – Token + service metadata
+- `AGENT_WALLET_PRIVATE_KEY` – Wallet used for ERC-8004 + signing (auto-generated if blank)
+- `DEVELOPER_WALLET_PRIVATE_KEY` – Optional wallet for deployments / scripts
+- `RPC_URL`, `CHAIN_ID`, `IDENTITY_AUTO_REGISTER` – Network + identity settings
 
-**Pre-configured from setup:**
+**Payments:**
 
-- `AGENT_DOMAIN` – Configured during agent creation
-- `FACILITATOR_URL`, `PAYMENTS_RECEIVABLE_ADDRESS`, `NETWORK`, `DEFAULT_PRICE` – Payment settings from setup
+- `PAYMENTS_FACILITATOR_URL`, `PAYMENTS_NETWORK`, `PAYMENTS_RECEIVABLE_ADDRESS`
+- `PAYMENTS_DEFAULT_PRICE` – Default micro-USDC amount when entrypoints don’t define a price
 
-**Optional:**
+**Metadata (optional):**
 
-- `RPC_URL` – Blockchain RPC endpoint (default: Base Sepolia)
-- `CHAIN_ID` – Chain ID (default: 84532 for Base Sepolia)
+- `AGENT_SHORT_DESCRIPTION`, `AGENT_ACCESS_DETAILS`, `AGENT_RESOURCE_LINK`
+- `AGENT_GITHUB_LINK`, `AGENT_TWITTER_LINK`, `AGENT_DOCUMENT_LINK`
+- `AGENT_METADATA_URI`, `AGENT_CARD_URI`, `AGENT_CAPABILITIES` (JSON array)
 
-**Optional (server):**
+**Server:**
 
 - `PORT` – HTTP server port (default: 3000)
 
@@ -102,6 +118,7 @@ await validationClient.createRequest({
 - `bun run dev` – Start with hot reload
 - `bun run start` – Start once
 - `bun run agent` – Run agent module directly
+- `bun run agent:onboard` – Re-run wallet + ERC-8004 + backend onboarding flow
 - `bunx tsc --noEmit` – Type-check
 
 ### Next steps
@@ -119,6 +136,6 @@ await validationClient.createRequest({
 
 ### Learn more
 
-- [Agent Kit Documentation](https://github.com/lucid-dreams/lucid-agents/blob/master/packages/core/README.md)
-- [Identity Kit Documentation](https://github.com/lucid-dreams/lucid-agents/blob/master/packages/identity/README.md)
+- [Agent Kit Documentation](https://github.com/awe-agents/awe-agents/blob/master/packages/core/README.md)
+- [Identity Kit Documentation](https://github.com/awe-agents/awe-agents/blob/master/packages/identity/README.md)
 - [ERC-8004 Specification](https://eips.ethereum.org/EIPS/eip-8004)

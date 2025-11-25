@@ -1,6 +1,6 @@
-# Lucid Agents - SDK Architecture
+# Awe Agents - SDK Architecture
 
-High-level architecture overview of the Lucid Agents SDK.
+High-level architecture overview of the Awe Agents SDK.
 
 ## Package Structure
 
@@ -9,30 +9,30 @@ The SDK is organized into four architectural layers:
 ```mermaid
 graph TB
     subgraph "Layer 0: Types"
-        types["@lucid-agents/types<br/>Shared type definitions"]
+        types["@awe-agents/types<br/>Shared type definitions"]
     end
 
     subgraph "Layer 1: Extensions"
-        identity["@lucid-agents/identity<br/>ERC-8004 identity & trust"]
-        payments["@lucid-agents/payments<br/>x402 bi-directional payments"]
-        wallet["@lucid-agents/wallet<br/>Wallet connectors"]
-        a2a["@lucid-agents/a2a<br/>A2A protocol support"]
-        ap2["@lucid-agents/ap2<br/>AP2 extension"]
+        identity["@awe-agents/identity<br/>ERC-8004 identity & trust"]
+        payments["@awe-agents/payments<br/>x402 bi-directional payments"]
+        wallet["@awe-agents/wallet<br/>Wallet connectors"]
+        a2a["@awe-agents/a2a<br/>A2A protocol support"]
+        ap2["@awe-agents/ap2<br/>AP2 extension"]
         future["Future extensions<br/>(monitoring, etc.)"]
     end
 
     subgraph "Layer 2: Core"
-        core["@lucid-agents/core<br/>Core runtime"]
+        core["@awe-agents/core<br/>Core runtime"]
     end
 
     subgraph "Layer 3: Adapters"
-        hono["@lucid-agents/hono<br/>Hono framework adapter"]
-        tanstack["@lucid-agents/tanstack<br/>TanStack Start adapter"]
+        hono["@awe-agents/hono<br/>Hono framework adapter"]
+        tanstack["@awe-agents/tanstack<br/>TanStack Start adapter"]
         express["Future: Express adapter"]
     end
 
     subgraph "Layer 4: Developer Tools"
-        cli["@lucid-agents/cli<br/>CLI scaffolding tool"]
+        cli["@awe-agents/cli<br/>CLI scaffolding tool"]
         templates["Templates<br/>(blank, axllm, identity, etc.)"]
     end
 
@@ -128,13 +128,13 @@ graph LR
     style cli fill:#e57373
 ```
 
-Note: Dependencies are one-directional. @lucid-agents/core imports from extensions (both types and runtime functions). All packages import shared types from @lucid-agents/types. This pure DAG structure eliminates circular dependencies.
+Note: Dependencies are one-directional. @awe-agents/core imports from extensions (both types and runtime functions). All packages import shared types from @awe-agents/types. This pure DAG structure eliminates circular dependencies.
 
 ## Layer 1: Extensions
 
 Extensions add optional capabilities. They are independent and don't depend on each other.
 
-### @lucid-agents/identity
+### @awe-agents/identity
 
 **Purpose:** ERC-8004 on-chain identity and trust layer
 
@@ -149,7 +149,7 @@ Extensions add optional capabilities. They are independent and don't depend on e
 
 ---
 
-### @lucid-agents/payments
+### @awe-agents/payments
 
 **Purpose:** x402 payment protocol (bi-directional)
 
@@ -165,7 +165,7 @@ Extensions add optional capabilities. They are independent and don't depend on e
 
 ---
 
-### @lucid-agents/wallet
+### @awe-agents/wallet
 
 **Purpose:** Wallet connectors and helpers for agent operations
 
@@ -179,7 +179,7 @@ Extensions add optional capabilities. They are independent and don't depend on e
 
 ---
 
-### @lucid-agents/a2a
+### @awe-agents/a2a
 
 **Purpose:** Agent-to-Agent (A2A) protocol implementation
 
@@ -191,11 +191,11 @@ Extensions add optional capabilities. They are independent and don't depend on e
 - Multi-turn conversation support with contextId
 - A2A runtime integration
 
-**Dependencies:** `@lucid-agents/types`, `zod`
+**Dependencies:** `@awe-agents/types`, `zod`
 
 ---
 
-### @lucid-agents/ap2
+### @awe-agents/ap2
 
 **Purpose:** AP2 (Agent Payments Protocol) extension
 
@@ -205,11 +205,11 @@ Extensions add optional capabilities. They are independent and don't depend on e
 - Agent Card enhancement with AP2 extension metadata
 - AP2 role management (merchant, shopper)
 
-**Dependencies:** `@lucid-agents/types`
+**Dependencies:** `@awe-agents/types`
 
 ## Layer 2: Core
 
-### @lucid-agents/core
+### @awe-agents/core
 
 **Purpose:** Framework-agnostic agent runtime
 
@@ -223,13 +223,13 @@ Extensions add optional capabilities. They are independent and don't depend on e
 - Configuration management
 - Landing page UI
 
-**Dependencies:** `@lucid-agents/payments`, `@lucid-agents/identity`, `@lucid-agents/wallet`, `@lucid-agents/a2a`, `@lucid-agents/ap2`
+**Dependencies:** `@awe-agents/payments`, `@awe-agents/identity`, `@awe-agents/wallet`, `@awe-agents/a2a`, `@awe-agents/ap2`
 
 ## Layer 3: Adapters
 
 Adapters integrate the core runtime with specific web frameworks.
 
-### @lucid-agents/hono
+### @awe-agents/hono
 
 **Purpose:** Hono framework integration
 
@@ -239,11 +239,11 @@ Adapters integrate the core runtime with specific web frameworks.
 - `withPayments()` - x402-hono middleware wrapper
 - Automatic route registration for tasks, entrypoints, manifest
 
-**Dependencies:** `@lucid-agents/core`, `hono`, `x402-hono`
+**Dependencies:** `@awe-agents/core`, `hono`, `x402-hono`
 
 ---
 
-### @lucid-agents/tanstack
+### @awe-agents/tanstack
 
 **Purpose:** TanStack Start framework integration
 
@@ -253,11 +253,11 @@ Adapters integrate the core runtime with specific web frameworks.
 - `withPayments()` - x402-tanstack middleware wrapper
 - Route files for tasks, entrypoints, manifest
 
-**Dependencies:** `@lucid-agents/core`, `@tanstack/start`, `x402-tanstack-start`
+**Dependencies:** `@awe-agents/core`, `@tanstack/start`, `x402-tanstack-start`
 
 ---
 
-### @lucid-agents/express
+### @awe-agents/express
 
 **Purpose:** Express framework integration
 
@@ -267,11 +267,11 @@ Adapters integrate the core runtime with specific web frameworks.
 - `withPayments()` - x402 Express middleware wrapper
 - Automatic route registration for tasks, entrypoints, manifest
 
-**Dependencies:** `@lucid-agents/core`, `express`, `x402-express`
+**Dependencies:** `@awe-agents/core`, `express`, `x402-express`
 
 ## Layer 4: Developer Tools
 
-### @lucid-agents/cli
+### @awe-agents/cli
 
 **Purpose:** CLI for scaffolding new agent projects
 
@@ -282,7 +282,7 @@ Adapters integrate the core runtime with specific web frameworks.
 - Adapter selection (hono, tanstack-ui, tanstack-headless, express)
 - Merge system (combines adapter + template)
 
-**Dependencies:** All @lucid-agents packages
+**Dependencies:** All @awe-agents packages
 
 ## Developer Flow
 
@@ -396,32 +396,32 @@ Note: All extension packages (identity, payments, wallet, a2a, ap2) are independ
 
 | Package                  | Responsibility                                               |
 | ------------------------ | ------------------------------------------------------------ |
-| `@lucid-agents/types`    | Shared type definitions (zero dependencies)                  |
-| `@lucid-agents/identity` | ERC-8004 on-chain identity, registries, trust models         |
-| `@lucid-agents/payments` | x402 protocol, EntrypointDef, pricing, payment client/server |
-| `@lucid-agents/wallet`   | Wallet connectors and helpers for agent operations           |
-| `@lucid-agents/a2a`      | A2A protocol implementation, Agent Cards, task operations    |
-| `@lucid-agents/ap2`      | AP2 extension for Agent Cards                                |
-| `@lucid-agents/core`     | Core runtime, HTTP handlers, SSE, manifest, config, UI       |
-| `@lucid-agents/hono`     | Hono framework integration, middleware wiring                |
-| `@lucid-agents/tanstack` | TanStack framework integration, middleware wiring            |
-| `@lucid-agents/express`  | Express framework integration, middleware wiring             |
-| `@lucid-agents/cli`      | CLI tool, templates, project scaffolding                     |
+| `@awe-agents/types`    | Shared type definitions (zero dependencies)                  |
+| `@awe-agents/identity` | ERC-8004 on-chain identity, registries, trust models         |
+| `@awe-agents/payments` | x402 protocol, EntrypointDef, pricing, payment client/server |
+| `@awe-agents/wallet`   | Wallet connectors and helpers for agent operations           |
+| `@awe-agents/a2a`      | A2A protocol implementation, Agent Cards, task operations    |
+| `@awe-agents/ap2`      | AP2 extension for Agent Cards                                |
+| `@awe-agents/core`     | Core runtime, HTTP handlers, SSE, manifest, config, UI       |
+| `@awe-agents/hono`     | Hono framework integration, middleware wiring                |
+| `@awe-agents/tanstack` | TanStack framework integration, middleware wiring            |
+| `@awe-agents/express`  | Express framework integration, middleware wiring             |
+| `@awe-agents/cli`      | CLI tool, templates, project scaffolding                     |
 
 ## Extension Independence
 
 ```mermaid
 graph TB
     subgraph "Independent Extensions"
-        identity[@lucid-agents/identity<br/>ERC-8004 identity]
-        payments[@lucid-agents/payments<br/>x402 payments]
-        wallet[@lucid-agents/wallet<br/>Wallet connectors]
-        a2a[@lucid-agents/a2a<br/>A2A protocol]
-        ap2[@lucid-agents/ap2<br/>AP2 extension]
+        identity[@awe-agents/identity<br/>ERC-8004 identity]
+        payments[@awe-agents/payments<br/>x402 payments]
+        wallet[@awe-agents/wallet<br/>Wallet connectors]
+        a2a[@awe-agents/a2a<br/>A2A protocol]
+        ap2[@awe-agents/ap2<br/>AP2 extension]
     end
 
     subgraph "Core"
-        core[@lucid-agents/core<br/>Uses all extensions]
+        core[@awe-agents/core<br/>Uses all extensions]
     end
 
     identity -.->|optional| core
@@ -442,11 +442,11 @@ Extensions are independent modules that core can optionally use. They don't depe
 
 ## Types Package
 
-`@lucid-agents/types` is the foundational package containing all shared type definitions.
+`@awe-agents/types` is the foundational package containing all shared type definitions.
 
 ### Key Characteristics
 
-- **Zero dependencies** on other @lucid-agents packages
+- **Zero dependencies** on other @awe-agents packages
 - **Only external dependencies**: zod, x402
 - **Pure TypeScript types** - no runtime code
 - **Single source of truth** for type contracts
@@ -460,17 +460,17 @@ Extensions are independent modules that core can optionally use. They don't depe
 
 ### Architecture Benefits
 
-All packages import from @lucid-agents/types, creating a clean dependency DAG:
+All packages import from @awe-agents/types, creating a clean dependency DAG:
 
 ```mermaid
 graph TD
-    types[@lucid-agents/types]
-    identity[@lucid-agents/identity]
-    payments[@lucid-agents/payments]
-    core[@lucid-agents/core]
-    hono[@lucid-agents/hono]
-    tanstack[@lucid-agents/tanstack]
-    cli[@lucid-agents/cli]
+    types[@awe-agents/types]
+    identity[@awe-agents/identity]
+    payments[@awe-agents/payments]
+    core[@awe-agents/core]
+    hono[@awe-agents/hono]
+    tanstack[@awe-agents/tanstack]
+    cli[@awe-agents/cli]
 
     types --> identity
     types --> payments
@@ -498,15 +498,15 @@ Planned extensions and adapters:
 ```mermaid
 graph TB
     subgraph "Existing"
-        identity_now[@lucid-agents/identity]
-        payments_now[@lucid-agents/payments]
-        wallet_now[@lucid-agents/wallet]
-        a2a_now[@lucid-agents/a2a]
-        ap2_now[@lucid-agents/ap2]
-        core_now[@lucid-agents/core]
-        hono_now[@lucid-agents/hono]
-        tanstack_now[@lucid-agents/tanstack]
-        express_now[@lucid-agents/express]
+        identity_now[@awe-agents/identity]
+        payments_now[@awe-agents/payments]
+        wallet_now[@awe-agents/wallet]
+        a2a_now[@awe-agents/a2a]
+        ap2_now[@awe-agents/ap2]
+        core_now[@awe-agents/core]
+        hono_now[@awe-agents/hono]
+        tanstack_now[@awe-agents/tanstack]
+        express_now[@awe-agents/express]
     end
 
     subgraph "Planned Extensions"
@@ -533,7 +533,7 @@ graph TB
 
 ## Summary
 
-The Lucid Agents SDK follows a **layered, modular architecture**:
+The Awe Agents SDK follows a **layered, modular architecture**:
 
 1. **Extensions** - Independent capabilities (identity, payments)
 2. **Core** - Framework-agnostic runtime

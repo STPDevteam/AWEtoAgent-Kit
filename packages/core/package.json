@@ -1,10 +1,10 @@
 {
-  "name": "@lucid-agents/core",
+  "name": "@awe-agents/core",
   "version": "1.7.0",
   "description": "Build typed agent HTTP apps",
   "repository": {
     "type": "git",
-    "url": "https://github.com/daydreamsai/lucid-agents",
+    "url": "https://github.com/awe-x402/awe-agents",
     "directory": "packages/core"
   },
   "type": "module",
@@ -49,14 +49,12 @@
   "dependencies": {
     "zod": "catalog:",
     "hono": "catalog:",
-    "@lucid-dreams/agent-auth": "latest",
-    "@lucid-dreams/client": "latest",
-    "@lucid-agents/types": "workspace:*",
-    "@lucid-agents/a2a": "workspace:*",
-    "@lucid-agents/ap2": "workspace:*",
-    "@lucid-agents/identity": "workspace:*",
-    "@lucid-agents/payments": "workspace:*",
-    "@lucid-agents/wallet": "workspace:*",
+    "@awe-agents/types": "workspace:*",
+    "@awe-agents/a2a": "workspace:*",
+    "@awe-agents/ap2": "workspace:*",
+    "@awe-agents/identity": "workspace:*",
+    "@awe-agents/payments": "workspace:*",
+    "@awe-agents/wallet": "workspace:*",
     "x402-fetch": "catalog:",
     "x402": "^0.7.1",
     "viem": "^2.38.5",
@@ -66,8 +64,8 @@
   "devDependencies": {
     "tsup": "catalog:",
     "typescript": "catalog:",
-    "@lucid-agents/eslint-config": "workspace:*",
-    "@lucid-agents/prettier-config": "workspace:*",
-    "@lucid-agents/hono": "workspace:*"
+    "@awe-agents/eslint-config": "workspace:*",
+    "@awe-agents/prettier-config": "workspace:*",
+    "@awe-agents/hono": "workspace:*"
   }
 }

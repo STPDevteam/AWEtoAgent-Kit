@@ -1,10 +1,10 @@
 {
-  "name": "@lucid-agents/hono",
+  "name": "@awe-agents/hono",
   "version": "0.6.0",
   "description": "Hono adapter for Lucid agent runtime",
   "repository": {
     "type": "git",
-    "url": "https://github.com/daydreamsai/lucid-agents",
+    "url": "https://github.com/awe-x402/awe-agents",
     "directory": "packages/hono"
   },
   "type": "module",
@@ -32,10 +32,10 @@
     "type-check": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@lucid-agents/ap2": "workspace:*",
-    "@lucid-agents/core": "workspace:*",
-    "@lucid-agents/payments": "workspace:*",
-    "@lucid-agents/types": "workspace:*",
+    "@awe-agents/ap2": "workspace:*",
+    "@awe-agents/core": "workspace:*",
+    "@awe-agents/payments": "workspace:*",
+    "@awe-agents/types": "workspace:*",
     "hono": "catalog:",
     "x402-hono": "^0.7.1",
     "x402": "^0.7.1",

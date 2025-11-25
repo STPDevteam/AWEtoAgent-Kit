@@ -1,6 +1,6 @@
-# @lucid-agents/eslint-config
+# @awe-agents/eslint-config
 
-Shared ESLint configuration for Lucid Agents monorepo packages.
+Shared ESLint configuration for Awe Agents monorepo packages.
 
 ## Features
 
@@ -16,7 +16,7 @@ Shared ESLint configuration for Lucid Agents monorepo packages.
 
 ```bash
 # In your package directory
-bun add -D @lucid-agents/eslint-config
+bun add -D @awe-agents/eslint-config
 ```
 
 ### 2. Create `.eslintrc.cjs`
@@ -31,7 +31,7 @@ Or create manually:
 
 ```js
 module.exports = {
-  extends: ['@lucid-agents/eslint-config'],
+  extends: ['@awe-agents/eslint-config'],
   env: {
     node: true,
     es2022: true,
@@ -61,7 +61,7 @@ If ESLint doesn't recognize certain globals:
 
 ```js
 module.exports = {
-  extends: ['@lucid-agents/eslint-config'],
+  extends: ['@awe-agents/eslint-config'],
   globals: {
     NodeJS: 'readonly',
     RequestInfo: 'readonly',
@@ -76,7 +76,7 @@ For interactive CLI prompts:
 
 ```js
 module.exports = {
-  extends: ['@lucid-agents/eslint-config'],
+  extends: ['@awe-agents/eslint-config'],
   rules: {
     'no-constant-condition': ['error', { checkLoops: false }],
   },

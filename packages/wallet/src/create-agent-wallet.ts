@@ -11,10 +11,10 @@ import type {
   AgentWalletFactoryOptions,
   AgentWalletHandle,
   LocalWalletOptions,
-  LucidWalletOptions,
+  AweWalletOptions,
   WalletConnector,
-} from '@lucid-agents/types/wallets';
-import type { AgentKitConfig } from '@lucid-agents/types/core';
+} from '@awe-agents/types/wallets';
+import type { AgentKitConfig } from '@awe-agents/types/core';
 
 export const createAgentWallet = (
   options: AgentWalletFactoryOptions
@@ -22,7 +22,7 @@ export const createAgentWallet = (
   if (options.type === 'local') {
     return buildLocalWallet(options);
   }
-  return buildLucidWallet(options);
+  return buildAweWallet(options);
 };
 
 const buildLocalWallet = (options: LocalWalletOptions): AgentWalletHandle => {
@@ -59,9 +59,9 @@ const resolveLocalConnectorOptions = (
   label: options.label ?? null,
 });
 
-const buildLucidWallet = (options: LucidWalletOptions): AgentWalletHandle => {
+const buildAweWallet = (options: AweWalletOptions): AgentWalletHandle => {
   const connector = new ServerOrchestratorWalletConnector(
-    resolveLucidConnectorOptions(options)
+    resolveAweConnectorOptions(options)
   );
 
   return {
@@ -71,8 +71,8 @@ const buildLucidWallet = (options: LucidWalletOptions): AgentWalletHandle => {
   };
 };
 
-const resolveLucidConnectorOptions = (
-  options: LucidWalletOptions
+const resolveAweConnectorOptions = (
+  options: AweWalletOptions
 ): ServerOrchestratorWalletConnectorOptions => ({
   baseUrl: options.baseUrl,
   agentRef: options.agentRef,

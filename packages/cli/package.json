@@ -1,10 +1,10 @@
 {
-  "name": "@lucid-agents/cli",
+  "name": "@awe-agents/cli",
   "version": "1.7.0",
-  "description": "Scaffold a Bun agent app powered by @lucid-agents/core.",
+  "description": "Scaffold a Bun agent app powered by @awe-agents/core.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/daydreamsai/lucid-agents",
+    "url": "https://github.com/awe-x402/awe-agents",
     "directory": "packages/cli"
   },
   "type": "module",
@@ -33,16 +33,20 @@
     "agent",
     "scaffold",
     "bun",
-    "lucid"
+    "awe"
   ],
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "@awe-agents/core": "workspace:*",
+    "@awe-agents/identity": "workspace:*",
+    "viem": "^2.21.26"
+  },
   "devDependencies": {
     "@types/node": "^24.3.1",
     "bun-types": "^1.1.16",
     "tsup": "^8.5.0",
     "typescript": "^5.9.2",
-    "@lucid-agents/eslint-config": "workspace:*",
-    "@lucid-agents/prettier-config": "workspace:*"
+    "@awe-agents/eslint-config": "workspace:*",
+    "@awe-agents/prettier-config": "workspace:*"
   }
 }

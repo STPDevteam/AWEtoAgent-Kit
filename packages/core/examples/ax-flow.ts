@@ -1,6 +1,6 @@
 import { z } from 'zod';
-import { createAgentApp } from '@lucid-agents/hono';
-import { AgentKitConfig, createAxLLMClient } from '@lucid-agents/core';
+import { createAgentApp } from '@awe-agents/hono';
+import { AgentKitConfig, createAxLLMClient } from '@awe-agents/core';
 import { flow } from '@ax-llm/ax';
 
 /**

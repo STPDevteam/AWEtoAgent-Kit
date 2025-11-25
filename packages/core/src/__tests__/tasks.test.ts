@@ -4,7 +4,7 @@ import type {
   SendMessageRequest,
   Task,
   TaskStatus,
-} from '@lucid-agents/types/a2a';
+} from '@awe-agents/types/a2a';
 import { afterEach, describe, expect, it } from 'bun:test';
 import { z } from 'zod';
 

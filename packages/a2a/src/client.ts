@@ -1,7 +1,7 @@
 import type {
   AgentCardWithEntrypoints,
   FetchFunction,
-} from '@lucid-agents/types/core';
+} from '@awe-agents/types/core';
 import type {
   InvokeAgentResult,
   StreamEmit,
@@ -14,7 +14,7 @@ import type {
   ListTasksResponse,
   CancelTaskRequest,
   CancelTaskResponse,
-} from '@lucid-agents/types/a2a';
+} from '@awe-agents/types/a2a';
 
 import { fetchAgentCard, findSkill } from './card';
 

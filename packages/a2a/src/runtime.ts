@@ -1,8 +1,8 @@
-import type { AgentRuntime, FetchFunction } from '@lucid-agents/types/core';
+import type { AgentRuntime, FetchFunction } from '@awe-agents/types/core';
 import type {
   A2ARuntime,
   CreateA2ARuntimeOptions,
-} from '@lucid-agents/types/a2a';
+} from '@awe-agents/types/a2a';
 
 import { buildAgentCard, fetchAgentCard } from './card';
 import {

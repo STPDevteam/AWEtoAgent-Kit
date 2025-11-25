@@ -16,6 +16,8 @@ import {
   getAdapterDisplayName,
   isAdapterSupported,
 } from './adapters';
+import { ensureAgentWalletConfig, runAutoOnboarding } from './onboarding';
+import type { RunLogger, WizardAnswers } from './types';
 
 type CliOptions = {
   install: boolean;
@@ -29,12 +31,6 @@ type ParsedArgs = {
   options: CliOptions;
   target: string | null;
   showHelp: boolean;
-};
-
-type RunLogger = {
-  log: (message: string) => void;
-  warn: (message: string) => void;
-  error: (message: string) => void;
 };
 
 type PromptChoice = {
@@ -106,29 +102,18 @@ type TemplateDescriptor = {
   wizard?: WizardConfig;
 };
 
-type WizardAnswers = Map<string, string | boolean>;
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const TEMPLATE_ROOT = resolve(__dirname, '../templates');
 
-const LUCID_BANNER = [
-  '____   ____     ___   ____   ___________   ',
-
+const AWE_BANNER = [
+  '    _    __        _______ ',
+  '   / \\   \\ \\      / / ____|',
+  '  / _ \\   \\ \\ /\\ / /|  _|  ',
+  ' / ___ \\   \\ V  V / | |___ ',
+  '/_/   \\_\\   \\_/\\_/  |_____|',
   '',
-  '',
-  "MM'   `MM'     `M'  6MMMMb/ `MM`MMMMMMMb. ",
-  'MM     MM       M  8P    YM  MM MM    `Mb ',
-  'MM     MM       M 6M      Y  MM MM     MM ',
-  'MM     MM       M MM         MM MM     MM ',
-  'MM     MM       M MM         MM MM     MM ',
-  'MM     MM       M MM         MM MM     MM ',
-  'MM     YM       M YM      6  MM MM     MM ',
-  'MM    / 8b     d8  8b    d9  MM MM    .M9 ',
-  "_MMMMMMM  YMMMMM9    YMMMM9  _MM_MMMMMMM9'",
-
-  '',
-  '       L U C I D  DREAMS   ',
+  '           A W E           ',
   '   Agent scaffolding toolkit  ',
 ];
 
@@ -229,6 +214,13 @@ export async function runCli(
     templateMeta,
   });
 
+  await ensureAgentWalletConfig({
+    targetDir,
+    wizardAnswers,
+    agentName: projectDirName,
+    logger,
+  });
+
   await setupEnvironment({
     targetDir,
     skipWizard: parsed.options.skipWizard ?? false,
@@ -239,6 +231,22 @@ export async function runCli(
 
   if (parsed.options.install) {
     await runInstall(targetDir, logger);
+  }
+
+  if (template.id === 'identity') {
+    try {
+      await runAutoOnboarding({
+        targetDir,
+        wizardAnswers,
+        agentName: projectDirName,
+        logger,
+      });
+    } catch (error) {
+      logger.warn(
+        `Auto onboarding failed: ${(error as Error).message}. ` +
+          'Run `bun run agent:onboard` inside the project to retry later.'
+      );
+    }
   }
 
   const relativeTarget = relative(cwd, targetDir) || '.';
@@ -323,7 +331,7 @@ function parseArgs(args: string[]): ParsedArgs {
 }
 
 function printHelp(logger: RunLogger) {
-  logger.log('Usage: bunx @lucid-agents/cli <app-name> [options]');
+  logger.log('Usage: bunx @awe-agents/cli <app-name> [options]');
   logger.log('');
   logger.log('Options:');
   logger.log(
@@ -345,20 +353,20 @@ function printHelp(logger: RunLogger) {
   logger.log('  -h, --help            Show this help');
   logger.log('');
   logger.log('Examples:');
-  logger.log('  bunx @lucid-agents/cli my-agent');
-  logger.log('  bunx @lucid-agents/cli my-agent --network=solana-devnet');
-  logger.log('  bunx @lucid-agents/cli my-agent --template=identity --install');
-  logger.log('  bunx @lucid-agents/cli my-agent --wizard=no');
+  logger.log('  bunx @awe-agents/cli my-agent');
+  logger.log('  bunx @awe-agents/cli my-agent --network=solana-devnet');
+  logger.log('  bunx @awe-agents/cli my-agent --template=identity --install');
+  logger.log('  bunx @awe-agents/cli my-agent --wizard=no');
   logger.log('');
   logger.log('Non-interactive with template arguments:');
-  logger.log('  bunx @lucid-agents/cli my-agent --template=identity \\');
+  logger.log('  bunx @awe-agents/cli my-agent --template=identity \\');
   logger.log('    --non-interactive \\');
   logger.log('    --AGENT_DESCRIPTION="My agent" \\');
   logger.log('    --PAYMENTS_RECEIVABLE_ADDRESS="0x..."');
 }
 
 function printBanner(logger: RunLogger) {
-  LUCID_BANNER.forEach(line => logger.log(line));
+  AWE_BANNER.forEach(line => logger.log(line));
 }
 
 async function loadTemplates(

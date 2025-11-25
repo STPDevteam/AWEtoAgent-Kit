@@ -3,13 +3,13 @@ import { setTimeout as delay } from 'node:timers/promises';
 
 import { z } from 'zod';
 
-import { createAgentApp } from '@lucid-agents/hono';
-import { configureAgentKit, getAgentKitConfig } from '@lucid-agents/core';
+import { createAgentApp } from '@awe-agents/hono';
+import { configureAgentKit, getAgentKitConfig } from '@awe-agents/core';
 import {
   AgentRuntime,
   MemoryStorageAdapter,
   type AgentRuntimeWallet,
-} from '@lucid-dreams/agent-auth';
+} from '@awe-agents/agent-auth';
 
 type ServerHandle = {
   stop: () => void;

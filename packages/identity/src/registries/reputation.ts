@@ -3,8 +3,8 @@
  * Handles peer feedback system for agent reputation
  */
 
-import type { Hex, SignerWalletClient } from '@lucid-agents/wallet';
-import { normalizeAddress } from '@lucid-agents/wallet';
+import type { Hex, SignerWalletClient } from '@awe-agents/wallet';
+import { normalizeAddress } from '@awe-agents/wallet';
 
 import { REPUTATION_REGISTRY_ABI } from '../abi/types';
 import type { PublicClientLike, WalletClientLike } from './identity';

@@ -1,4 +1,4 @@
-# @lucid-agents/identity
+# @awe-agents/identity
 
 ERC-8004 identity helpers for Lucid agents. Register your agent on the ERC-8004 registry and include verifiable on-chain identity in your agent manifest.
 
@@ -25,7 +25,7 @@ This package enables you to:
 ## Installation
 
 ```bash
-bun add @lucid-agents/identity
+bun add @awe-agents/identity
 ```
 
 ## Quick Start
@@ -53,7 +53,7 @@ REGISTER_IDENTITY=true
 ### 2. Register Your Agent
 
 ```typescript
-import { createAgentIdentity } from '@lucid-agents/identity';
+import { createAgentIdentity } from '@awe-agents/identity';
 
 // Register with auto-configuration from env vars
 const identity = await createAgentIdentity({
@@ -80,7 +80,7 @@ https://my-agent.example.com/.well-known/agent-metadata.json
 You can also generate custom metadata using the helper:
 
 ```typescript
-import { generateAgentMetadata } from '@lucid-agents/identity';
+import { generateAgentMetadata } from '@awe-agents/identity';
 
 const metadata = generateAgentMetadata(identity, {
   name: 'My Agent',
@@ -96,8 +96,8 @@ const metadata = generateAgentMetadata(identity, {
 ## Usage with Agent Kit
 
 ```typescript
-import { createAgentIdentity, getTrustConfig } from '@lucid-agents/identity';
-import { createAgentApp } from '@lucid-agents/core';
+import { createAgentIdentity, getTrustConfig } from '@awe-agents/identity';
+import { createAgentApp } from '@awe-agents/core';
 
 // 1. Create identity with all three registry clients
 const identity = await createAgentIdentity({
@@ -405,5 +405,5 @@ MIT
 ## Links
 
 - [ERC-8004 Specification](https://eips.ethereum.org/EIPS/eip-8004)
-- [ERC-8004 Reference Implementation](https://github.com/lucid-dreams-ai/erc-8004-contracts)
-- [Agent Kit Documentation](https://github.com/lucid-dreams-ai/lucid-fullstack/tree/main/packages/core)
+- [ERC-8004 Reference Implementation](https://github.com/awe-agents-ai/erc-8004-contracts)
+- [Agent Kit Documentation](https://github.com/awe-agents-ai/lucid-fullstack/tree/main/packages/core)

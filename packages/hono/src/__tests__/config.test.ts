@@ -2,9 +2,9 @@ import {
   configureAgentKit,
   getAgentKitConfig,
   resetAgentKitConfigForTesting,
-} from '@lucid-agents/core';
-import { createAgentApp } from '@lucid-agents/hono';
-import { paymentsFromEnv } from '@lucid-agents/payments';
+} from '@awe-agents/core';
+import { createAgentApp } from '@awe-agents/hono';
+import { paymentsFromEnv } from '@awe-agents/payments';
 import { afterEach, describe, expect, it } from 'bun:test';
 
 describe('AgentKit config management', () => {

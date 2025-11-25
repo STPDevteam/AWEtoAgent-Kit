@@ -1,6 +1,6 @@
-# @lucid-agents/prettier-config
+# @awe-agents/prettier-config
 
-Shared Prettier configuration for Lucid Agents monorepo packages.
+Shared Prettier configuration for Awe Agents monorepo packages.
 
 ## Features
 
@@ -17,7 +17,7 @@ Shared Prettier configuration for Lucid Agents monorepo packages.
 
 ```bash
 # In your package directory
-bun add -D @lucid-agents/prettier-config
+bun add -D @awe-agents/prettier-config
 ```
 
 ### 2. Create `.prettierignore`

@@ -91,7 +91,7 @@ const code = true;
   describe('mergeAdapterAndTemplate', () => {
     test('combines adapter snippets with template sections', () => {
       const snippets = {
-        imports: 'import { createAgentApp } from "@lucid-agents/hono";',
+        imports: 'import { createAgentApp } from "@awe-agents/hono";',
         preSetup: '',
         appCreation: 'const { app, addEntrypoint } = createAgentApp(...);',
         entrypointRegistration: 'addEntrypoint({...});',

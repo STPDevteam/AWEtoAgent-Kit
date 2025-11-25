@@ -9,6 +9,14 @@ old/*
 .env
 .env.local
 
+.agent-wallet.json
+.well-known/
+
+# Generated agent projects
+identity-agent*/
+docker-agent*/
+my-agent*/
+test-agent*/
 
 # Build outputs
 dist/

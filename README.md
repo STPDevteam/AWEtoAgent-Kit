@@ -1,21 +1,21 @@
 <div align="center">
-  <h1>Lucid Agents</h1>
+  <h1>Awe Agents</h1>
   <p><strong>The Multi-Runtime Framework for Building and Monetizing AI Agents</strong></p>
   <p>Build, deploy, and monetize autonomous AI agents with typed entrypoints, on-chain identity, and built-in payment infrastructure.</p>
 </div>
 
 <div align="center">
-  <a href="https://github.com/daydreamsai/lucid-agents/blob/master/LICENSE"><img src="https://img.shields.io/github/license/daydreamsai/lucid-agents?style=for-the-badge" alt="License"></a>
-  <a href="https://www.npmjs.com/package/@lucid-agents/cli"><img src="https://img.shields.io/npm/v/@lucid-agents/cli?style=for-the-badge" alt="NPM Version"></a>
-  <a href="https://github.com/daydreamsai/lucid-agents/actions"><img src="https://img.shields.io/github/actions/workflow/status/daydreamsai/lucid-agents/ci.yml?branch=master&style=for-the-badge" alt="CI Status"></a>
+  <a href="https://github.com/awe-x402/awe-agents/blob/master/LICENSE"><img src="https://img.shields.io/github/license/awe-x402/awe-agents?style=for-the-badge" alt="License"></a>
+  <a href="https://www.npmjs.com/package/@awe-agents/cli"><img src="https://img.shields.io/npm/v/@awe-agents/cli?style=for-the-badge" alt="NPM Version"></a>
+  <a href="https://github.com/awe-x402/awe-agents/actions"><img src="https://img.shields.io/github/actions/workflow/status/awe-x402/awe-agents/ci.yml?branch=master&style=for-the-badge" alt="CI Status"></a>
   <a href="https://bun.sh"><img src="https://img.shields.io/badge/runtime-bun-black?style=for-the-badge&logo=bun" alt="Bun"></a>
 </div>
 
 ---
 
-## What is Lucid Agents?
+## What is Awe Agents?
 
-Lucid Agents is a TypeScript-first framework for building and monetizing AI agents—an agentic commerce and payments SDK. Build AI agents that sell services, facilitate monetary transactions, and participate in agent-to-agent marketplaces.
+Awe Agents is a TypeScript-first framework for building and monetizing AI agents—an agentic commerce and payments SDK. Build AI agents that sell services, facilitate monetary transactions, and participate in agent-to-agent marketplaces.
 
 **Core Capabilities:**
 
@@ -31,7 +31,7 @@ Lucid Agents is a TypeScript-first framework for building and monetizing AI agen
 - **Multi-Network Support**: EVM (Base, Ethereum, Sepolia) and Solana (mainnet, devnet) payment networks
 - **Developer Experience**: CLI scaffolding, hot reload, comprehensive examples, TypeScript strict mode, and ESM modules
 
-Whether you're building paid AI services, agent marketplaces, or multi-agent systems where agents transact with each other, Lucid Agents provides the payments and commerce infrastructure you need.
+Whether you're building paid AI services, agent marketplaces, or multi-agent systems where agents transact with each other, Awe Agents provides the payments and commerce infrastructure you need.
 
 ---
 
@@ -44,36 +44,116 @@ Get your first monetized AI agent running in minutes.
 - [Bun](https://bun.sh/docs/installation) >= 1.0 (recommended) or Node.js >= 20.9
 - An API key from your preferred LLM provider (OpenAI, Anthropic, etc.)
 - Optional: A wallet address for receiving payments
+- Optional: Testnet ETH for ERC-8004 identity registration
 
-### 1. Create and Configure Your Agent
+### Create Agent with Hono (Step-by-Step Example)
 
 ```bash
-# Interactive mode - CLI guides you through all options
-bunx @lucid-agents/cli my-agent
-
-# Or use inline configuration for faster setup
-bunx @lucid-agents/cli my-agent \
-  --adapter=hono \
-  --template=axllm \
-  --AGENT_NAME="My AI Agent" \
-  --AGENT_DESCRIPTION="AI-powered assistant" \
-  --OPENAI_API_KEY=your_api_key_here \
-  --PAYMENTS_RECEIVABLE_ADDRESS=0xYourAddress \
-  --NETWORK=base-sepolia \
-  --DEFAULT_PRICE=1000
+# Run CLI in interactive mode
+cd /path/to/awe-agents
+node ./packages/cli/dist/index.js
 ```
 
-The CLI will:
+**Step 1: Select Runtime Adapter**
+```
+Select a runtime adapter:
+  1. Hono
+  2. Express
+  3. TanStack Start (UI)
+  4. TanStack Start (Headless)
+  5. Next.js
+Select an option [1-5]: 1
+```
 
-- **Adapter selection**: `hono` (HTTP server), `tanstack-ui` (full dashboard), `tanstack-headless` (API only), `express` (Node.js server), or `next` (Next.js App Router)
-- **Template selection**: `blank` (minimal), `axllm` (LLM-powered), `axllm-flow` (workflows), `identity` (on-chain identity), `trading-data-agent` (merchant), or `trading-recommendation-agent` (shopper)
-- **Configuration**: Set agent metadata, LLM keys, and optional payment details
-- **Install dependencies**: Automatically run `bun install`
+**Step 2: Select Template**
+```
+Select a template for Hono:
+  1. AxLLM Bun Agent
+  2. AxLLM Flow Agent
+  3. Blank Bun Agent
+  4. Agent with ERC-8004 Identity  ← Recommended for on-chain identity
+  5. Trading Data Agent
+  6. Trading Recommendation Agent
+Select an option [1-6]: 4
+```
 
-### 2. Start Your Agent
+**Step 3: Configure Agent**
+```
+Project directory name: my-agent
+How would you describe your agent? My AI Agent
+What version should the agent start at? 0.1.0
+What domain will host your agent? agent.example.com
+Short description for listings: On-chain agent with verifiable identity
+
+Service type:
+  1. AI Agent
+  2. API Access
+  3. MCP Service
+Select an option [1-3]: 1
+
+Token name (for backend factory): My Agent Token
+Token symbol (max 10 chars): MYAGT
+Backend base URL: http://localhost:3000/api
+```
+
+**Step 4: Configure Payments**
+```
+Facilitator URL: https://facilitator.daydreams.systems
+Payment network:
+  1. Base Sepolia (EVM testnet)  ← For testing
+  2. Base (EVM mainnet)
+  3. Solana Devnet
+  4. Solana Mainnet
+Select an option [1-4]: 1
+
+Payment address (0x... for EVM): 0xYourWalletAddress
+Default price for entrypoints (micro USDC): 1000
+```
+
+**Step 5: Configure Blockchain**
+```
+RPC URL: https://sepolia.base.org
+Chain ID: 84532
+Auto-register on ERC-8004 registry? Y
+```
+
+**Step 6: Configure Wallet**
+```
+Agent wallet private key (leave blank to auto-generate): 
+  - Leave blank: Auto-generates new wallet (requires funding later)
+  - Enter private key: Uses existing funded wallet for immediate registration
+```
+
+**What Happens Next:**
+
+If wallet has ETH balance:
+```
+[cli] Wallet 0x... balance: 0.01 ETH
+[cli] Registering / checking ERC-8004 identity...
+[cli] Registration tx hash: 0x...
+[cli] Identity Agent ID: 1234
+[cli] Calling backend /agents/init endpoint...
+[cli] Backend onboarding complete. Token: 0x...
+```
+
+If wallet has no ETH (auto-generated):
+```
+[cli] Generated agent wallet 0x...
+[cli] ⚠️  Wallet 0x... has 0 ETH balance.
+[cli] Skipping ERC-8004 on-chain registration (requires gas fees).
+[cli] To complete registration later:
+[cli]   1. Fund the wallet with testnet ETH
+[cli]      Faucets for Base Sepolia:
+[cli]      - https://www.alchemy.com/faucets/base-sepolia
+[cli]      - https://faucets.chain.link/base-sepolia
+[cli]   2. Run: cd my-agent && bun run agent:onboard
+```
+
+### Start Your Agent
 
 ```bash
 cd my-agent
+bun install
 bun run dev
 ```
 
@@ -91,18 +171,35 @@ curl http://localhost:3000/entrypoints
 # Invoke an entrypoint (example for echo template)
 curl -X POST http://localhost:3000/entrypoints/echo/invoke \
   -H "Content-Type: application/json" \
-  -d '{"input": {"text": "Hello, Lucid Agents!"}}'
+  -d '{"input": {"text": "Hello, Awe Agents!"}}'
+```
+
+### Complete Registration Later (If Skipped)
+
+If you auto-generated a wallet without ETH:
+
+```bash
+# 1. Get your wallet address from the generated project
+cat my-agent/.agent-wallet.json
+
+# 2. Fund the wallet using a faucet (Base Sepolia)
+#    - https://www.alchemy.com/faucets/base-sepolia
+#    - https://faucets.chain.link/base-sepolia
+
+# 3. Run onboarding to complete ERC-8004 registration
+cd my-agent
+bun run agent:onboard
 ```
 
 ---
 
 ## Architecture Overview
 
-Lucid Agents is a TypeScript monorepo built for multi-runtime agent deployment with a layered architecture:
+Awe Agents is a TypeScript monorepo built for multi-runtime agent deployment with a layered architecture:
 
-- **Layer 0: Types** - Shared type definitions (`@lucid-agents/types`)
+- **Layer 0: Types** - Shared type definitions (`@awe-agents/types`)
 - **Layer 1: Extensions** - Optional capabilities (identity, payments, wallet, a2a, ap2)
-- **Layer 2: Core** - Framework-agnostic agent runtime (`@lucid-agents/core`)
+- **Layer 2: Core** - Framework-agnostic agent runtime (`@awe-agents/core`)
 - **Layer 3: Adapters** - Framework integrations (hono, tanstack, express, next)
 - **Layer 4: Developer Tools** - CLI scaffolding and templates
 
@@ -200,12 +297,12 @@ Lucid Agents is a TypeScript monorepo built for multi-runtime agent deployment w
 
 ### Core Packages
 
-#### [`@lucid-agents/core`](packages/core/README.md)
+#### [`@awe-agents/core`](packages/core/README.md)
 
 Core agent runtime with entrypoints, manifests, and streaming support.
 
 ```typescript
-import { createRuntime } from '@lucid-agents/core';
+import { createRuntime } from '@awe-agents/core';
 import { z } from 'zod';
 
 const runtime = createRuntime({
@@ -223,12 +320,12 @@ runtime.addEntrypoint({
 });
 ```
 
-#### [`@lucid-agents/hono`](packages/hono/README.md)
+#### [`@awe-agents/hono`](packages/hono/README.md)
 
 Hono adapter for building traditional HTTP servers.
 
 ```typescript
-import { createAgentApp } from '@lucid-agents/hono';
+import { createAgentApp } from '@awe-agents/hono';
 
 const { app, addEntrypoint } = createAgentApp({
   name: 'my-agent',
@@ -240,12 +337,12 @@ const { app, addEntrypoint } = createAgentApp({
 export default app; // Bun.serve or Hono serve
 ```
 
-#### [`@lucid-agents/tanstack`](packages/tanstack/README.md)
+#### [`@awe-agents/tanstack`](packages/tanstack/README.md)
 
 TanStack Start adapter with UI and headless variants.
 
 ```typescript
-import { createTanStackRuntime } from '@lucid-agents/tanstack';
+import { createTanStackRuntime } from '@awe-agents/tanstack';
 
 export const { runtime, handlers } = createTanStackRuntime({
   name: 'my-agent',
@@ -253,12 +350,12 @@ export const { runtime, handlers } = createTanStackRuntime({
 });
 ```
 
-#### [`@lucid-agents/identity`](packages/identity/README.md)
+#### [`@awe-agents/identity`](packages/identity/README.md)
 
 ERC-8004 toolkit for on-chain identity, reputation, and validation.
 
 ```typescript
-import { createAgentIdentity } from '@lucid-agents/identity';
+import { createAgentIdentity } from '@awe-agents/identity';
 
 const identity = await createAgentIdentity({
   domain: 'my-agent.example.com',
@@ -266,23 +363,23 @@ const identity = await createAgentIdentity({
 });
 ```
 
-#### [`@lucid-agents/payments`](packages/payments/README.md)
+#### [`@awe-agents/payments`](packages/payments/README.md)
 
 x402 payment utilities for multi-network payment handling.
 
 ```typescript
-import { paymentsFromEnv } from '@lucid-agents/payments';
+import { paymentsFromEnv } from '@awe-agents/payments';
 
 const payments = paymentsFromEnv();
 // Auto-detects EVM vs Solana from PAYMENTS_RECEIVABLE_ADDRESS format
 ```
 
-#### [`@lucid-agents/a2a`](packages/a2a/README.md)
+#### [`@awe-agents/a2a`](packages/a2a/README.md)
 
 A2A Protocol client for agent-to-agent communication.
 
 ```typescript
-import { fetchAndInvoke, sendMessage, waitForTask } from '@lucid-agents/a2a';
+import { fetchAndInvoke, sendMessage, waitForTask } from '@awe-agents/a2a';
 
 // Direct invocation
 const result = await fetchAndInvoke('https://other-agent.com', 'skillId', {
@@ -302,23 +399,23 @@ const { taskId } = await sendMessage(
 const task = await waitForTask(client, card, taskId);
 ```
 
-#### [`@lucid-agents/ap2`](packages/ap2/README.md)
+#### [`@awe-agents/ap2`](packages/ap2/README.md)
 
 AP2 (Agent Payments Protocol) extension for Agent Cards.
 
 ```typescript
-import { createAP2Runtime, createAgentCardWithAP2 } from '@lucid-agents/ap2';
+import { createAP2Runtime, createAgentCardWithAP2 } from '@awe-agents/ap2';
 
 const ap2Runtime = createAP2Runtime({ roles: ['merchant'] });
 const cardWithAP2 = createAgentCardWithAP2(baseCard, ap2Runtime.config);
 ```
 
-#### [`@lucid-agents/wallet`](packages/wallet/README.md)
+#### [`@awe-agents/wallet`](packages/wallet/README.md)
 
 Wallet SDK for agent and developer wallet management.
 
 ```typescript
-import { createAgentWallet } from '@lucid-agents/wallet';
+import { createAgentWallet } from '@awe-agents/wallet';
 
 const wallet = await createAgentWallet({
   type: 'local',
@@ -328,16 +425,16 @@ const wallet = await createAgentWallet({
 
 ### CLI Tool
 
-#### [`@lucid-agents/cli`](packages/cli/README.md)
+#### [`@awe-agents/cli`](packages/cli/README.md)
 
 CLI for scaffolding new agent projects with templates and interactive configuration.
 
 ```bash
 # Interactive mode
-bunx @lucid-agents/cli
+bunx @awe-agents/cli
 
 # With options
-bunx @lucid-agents/cli my-agent \
+bunx @awe-agents/cli my-agent \
   --adapter=tanstack-ui \
   --template=axllm \
   --non-interactive
@@ -353,8 +450,8 @@ Here's a complete example showing identity, payments, and LLM integration:
 
 ```typescript
 import { z } from 'zod';
-import { createAgentApp } from '@lucid-agents/hono';
-import { createAgentIdentity, getTrustConfig } from '@lucid-agents/identity';
+import { createAgentApp } from '@awe-agents/hono';
+import { createAgentIdentity, getTrustConfig } from '@awe-agents/identity';
 import { AI } from '@ax-llm/ax';
 
 // 1. Create on-chain identity
@@ -453,8 +550,8 @@ app.listen(port, () => {
 
 ```bash
 # Clone the repository
-git clone https://github.com/daydreamsai/lucid-agents.git
-cd lucid-agents
+git clone https://github.com/awe-x402/awe-agents.git
+cd awe-agents
 
 # Install dependencies
 bun install
@@ -560,25 +657,25 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 ## Contributors
 
-<a href="https://github.com/daydreamsai/lucid-agents/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=daydreamsai/lucid-agents" alt="Contributors" />
+<a href="https://github.com/awe-x402/awe-agents/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=awe-x402/awe-agents" alt="Contributors" />
 </a>
 
 ---
 
 ## Star History
 
-<a href="https://star-history.com/#daydreamsai/lucid-agents&Date">
-  <img src="https://api.star-history.com/svg?repos=daydreamsai/lucid-agents&type=Date" alt="Star History Chart" />
+<a href="https://star-history.com/#awe-x402/awe-agents&Date">
+  <img src="https://api.star-history.com/svg?repos=awe-x402/awe-agents&type=Date" alt="Star History Chart" />
 </a>
 
 ---
 
 <div align="center">
-  <p>Built with ❤️ by the Daydreams AI team</p>
+  <p>Built with ❤️ by the Awe team</p>
   <p>
-    <a href="https://github.com/daydreamsai/lucid-agents">GitHub</a> •
-    <a href="https://www.npmjs.com/org/lucid-agents">npm</a> •
-    <a href="https://twitter.com/daydreamsai">Twitter</a>
+    <a href="https://github.com/awe-x402/awe-agents">GitHub</a> •
+    <a href="https://www.npmjs.com/org/awe-agents">npm</a> •
+    <a href="https://twitter.com/awe-x402">Twitter</a>
   </p>
 </div>

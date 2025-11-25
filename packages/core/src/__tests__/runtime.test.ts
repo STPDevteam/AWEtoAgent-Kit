@@ -1,9 +1,9 @@
 import {
   createRuntimePaymentContext,
   type RuntimePaymentOptions,
-} from '@lucid-agents/payments';
-import type { AgentRuntime } from '@lucid-agents/types/core';
-import type { PaymentsConfig } from '@lucid-agents/types/payments';
+} from '@awe-agents/payments';
+import type { AgentRuntime } from '@awe-agents/types/core';
+import type { PaymentsConfig } from '@awe-agents/types/payments';
 import { afterEach, describe, expect, it, mock } from 'bun:test';
 import { z } from 'zod';
 

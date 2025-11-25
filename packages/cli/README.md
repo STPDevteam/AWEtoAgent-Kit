@@ -1,4 +1,4 @@
-# @lucid-agents/cli
+# @awe-agents/cli
 
 CLI scaffolding tool to quickly generate new agent projects with built-in templates and interactive configuration.
 
@@ -7,7 +7,7 @@ CLI scaffolding tool to quickly generate new agent projects with built-in templa
 Create a new agent in seconds:
 
 ```bash
-bunx @lucid-agents/cli@latest my-agent
+bunx @awe-agents/cli@latest my-agent
 ```
 
 The wizard will guide you through template selection and configuration. That's it!
@@ -56,6 +56,7 @@ Full-featured agent with on-chain identity and verifiable attestations.
 - Trust and reputation tracking
 - Domain-bound agent attestations
 - Decentralized agent networks
+- Automatically provisioning wallets + backend tokens during scaffolding
 
 ## How It Works
 
@@ -72,6 +73,7 @@ When you run the CLI:
    - Ready-to-use `package.json`
    - Template-specific features
 4. **Install & run** - Optionally install dependencies with `--install`
+5. **(identity template)** Auto onboarding - Generates a wallet (if needed), registers on ERC-8004, writes metadata, and POSTs to your backend `/api/agents/init`. A reusable `bun run agent:onboard` script is scaffolded inside the project for reruns.
 
 All configuration goes into `.env` - easy to change later without editing code.
 
@@ -83,7 +85,7 @@ When you select an adapter, the CLI copies the corresponding runtime framework f
 **Available Adapters:**
 
 - `hono` - Traditional HTTP server with Hono framework
-- `express` - Node-style HTTP server built on Express with `@lucid-agents/agent-kit-express`
+- `express` - Node-style HTTP server built on Express with `@awe-agents/agent-kit-express`
 - `tanstack-ui` - TanStack Start with full UI dashboard (wallet integration, entrypoint testing, schema forms)
 - `tanstack-headless` - TanStack Start API-only (no UI components)
 - `next` – Next.js App Router shell with x402-next middleware and the dashboard UI
@@ -93,7 +95,7 @@ The adapter provides the runtime skeleton (routing, server setup, build config),
 ## CLI Options
 
 ```bash
-bunx @lucid-agents/cli <app-name> [options]
+bunx @awe-agents/cli <app-name> [options]
 
 Options:
   -t, --template <id>   Select template (blank, axllm, axllm-flow, identity)
@@ -111,37 +113,37 @@ Options:
 
 ```bash
 # Interactive setup (recommended)
-bunx @lucid-agents/cli@latest my-agent
+bunx @awe-agents/cli@latest my-agent
 
 # With specific template
-bunx @lucid-agents/cli@latest my-agent --template=identity
+bunx @awe-agents/cli@latest my-agent --template=identity
 
 # With Solana payment network
-bunx @lucid-agents/cli@latest my-agent --network=solana-devnet
+bunx @awe-agents/cli@latest my-agent --network=solana-devnet
 
 # With Base mainnet
-bunx @lucid-agents/cli@latest my-agent --network=base
+bunx @awe-agents/cli@latest my-agent --network=base
 
 # Identity template with Solana payments
-bunx @lucid-agents/cli@latest my-agent --template=identity --network=solana
+bunx @awe-agents/cli@latest my-agent --template=identity --network=solana
 
 # With Express adapter
-bunx @lucid-agents/cli@latest my-agent --adapter=express --template=blank
+bunx @awe-agents/cli@latest my-agent --adapter=express --template=blank
 
 # With Hono adapter
-bunx @lucid-agents/cli@latest my-agent --adapter=hono --template=blank
+bunx @awe-agents/cli@latest my-agent --adapter=hono --template=blank
 
 # With TanStack UI (full dashboard)
-bunx @lucid-agents/cli@latest my-agent --adapter=tanstack-ui --template=blank
+bunx @awe-agents/cli@latest my-agent --adapter=tanstack-ui --template=blank
 
 # With TanStack headless (API only, no UI)
-bunx @lucid-agents/cli@latest my-agent --adapter=tanstack-headless --template=blank
+bunx @awe-agents/cli@latest my-agent --adapter=tanstack-headless --template=blank
 
 # Auto-install dependencies
-bunx @lucid-agents/cli@latest my-agent --install
+bunx @awe-agents/cli@latest my-agent --install
 
 # Non-interactive with defaults
-bunx @lucid-agents/cli@latest my-agent --template=blank --wizard=no
+bunx @awe-agents/cli@latest my-agent --template=blank --wizard=no
 ```
 
 ### Network Selection
@@ -164,10 +166,10 @@ Use the `--network` flag to specify the network:
 
 ```bash
 # Solana devnet
-bunx @lucid-agents/cli my-agent --network=solana-devnet --non-interactive
+bunx @awe-agents/cli my-agent --network=solana-devnet --non-interactive
 
 # Base mainnet
-bunx @lucid-agents/cli my-agent --network=base --non-interactive
+bunx @awe-agents/cli my-agent --network=base --non-interactive
 ```
 
 **Important Notes:**
@@ -184,7 +186,7 @@ Perfect for CI/CD, automation, or AI coding agents:
 
 ```bash
 # Blank template with custom configuration
-bunx @lucid-agents/cli@latest my-agent \
+bunx @awe-agents/cli@latest my-agent \
   --template=blank \
   --non-interactive \
   --AGENT_DESCRIPTION="Custom agent for automation" \
@@ -192,7 +194,7 @@ bunx @lucid-agents/cli@latest my-agent \
   --PAYMENTS_RECEIVABLE_ADDRESS="0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb0"
 
 # Identity template with full configuration
-bunx @lucid-agents/cli@latest verified-agent \
+bunx @awe-agents/cli@latest verified-agent \
   --template=identity \
   --non-interactive \
   --install \
@@ -208,7 +210,7 @@ bunx @lucid-agents/cli@latest verified-agent \
   --IDENTITY_AUTO_REGISTER="true"
 
 # AxLLM template
-bunx @lucid-agents/cli@latest ai-agent \
+bunx @awe-agents/cli@latest ai-agent \
   --template=axllm \
   --non-interactive \
   --AGENT_DESCRIPTION="AI-powered agent" \
@@ -349,8 +351,8 @@ Note: While the CLI works with Node/npx, generated projects require Bun.
 
 ## Related Packages
 
-- [`@lucid-agents/core`](../core/README.md) - Core agent runtime
-- [`@lucid-agents/identity`](../identity/README.md) - ERC-8004 identity
+- [`@awe-agents/core`](../core/README.md) - Core agent runtime
+- [`@awe-agents/identity`](../identity/README.md) - ERC-8004 identity
 
 ## Contributing
 

@@ -3,7 +3,7 @@
  * Contract addresses and constants
  */
 
-import type { Hex } from '@lucid-agents/wallet';
+import type { Hex } from '@awe-agents/wallet';
 
 /**
  * Official ERC-8004 registry addresses by chain

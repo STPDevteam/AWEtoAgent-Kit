@@ -1,6 +1,6 @@
 ## {{AGENT_NAME}}
 
-This project was scaffolded with `create-agent-kit` and ships with a ready-to-run agent app built on [`@lucid-agents/core`](https://www.npmjs.com/package/@lucid-agents/core).
+This project was scaffolded with `create-agent-kit` and ships with a ready-to-run agent app built on [`@awe-agents/core`](https://www.npmjs.com/package/@awe-agents/core).
 
 ### Quick start
 
@@ -26,6 +26,6 @@ The dev command runs `bun` in watch mode, starts the HTTP server, and reloads wh
 ### Next steps
 
 - Update `src/agent.ts` with your use case.
-- Wire up `@lucid-agents/core` configuration and secrets (see `AGENTS.md` in the repo for details).
+- Wire up `@awe-agents/core` configuration and secrets (see `AGENTS.md` in the repo for details).
 - Copy `.env.example` to `.env` and fill in the values for your environment.
 - Deploy with your preferred Bun-compatible platform when you're ready.

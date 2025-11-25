@@ -1,23 +1,23 @@
-import { createA2ARuntime } from '@lucid-agents/a2a';
-import { createAgentCardWithAP2, createAP2Runtime } from '@lucid-agents/ap2';
-import { createAgentCardWithIdentity } from '@lucid-agents/identity';
+import { createA2ARuntime } from '@awe-agents/a2a';
+import { createAgentCardWithAP2, createAP2Runtime } from '@awe-agents/ap2';
+import { createAgentCardWithIdentity } from '@awe-agents/identity';
 import {
   createAgentCardWithPayments,
   createPaymentsRuntime,
-} from '@lucid-agents/payments';
-import type { AP2Config } from '@lucid-agents/types/ap2';
+} from '@awe-agents/payments';
+import type { AP2Config } from '@awe-agents/types/ap2';
 import type {
   AgentCardWithEntrypoints,
   AgentKitConfig,
   AgentMeta,
   AgentRuntime,
-} from '@lucid-agents/types/core';
-import type { TrustConfig } from '@lucid-agents/types/identity';
+} from '@awe-agents/types/core';
+import type { TrustConfig } from '@awe-agents/types/identity';
 import type {
   PaymentsConfig,
   PaymentsRuntime,
-} from '@lucid-agents/types/payments';
-import { createWalletsRuntime } from '@lucid-agents/wallet';
+} from '@awe-agents/types/payments';
+import { createWalletsRuntime } from '@awe-agents/wallet';
 
 import { getAgentKitConfig, setActiveInstanceConfig } from './config/config';
 import { type AgentCore, createAgentCore } from './core/agent';

@@ -1,6 +1,6 @@
-# Contributing to Lucid Agents
+# Contributing to Awe Agents
 
-Thank you for your interest in contributing to Lucid Agents! This document provides guidelines and instructions for contributing to the project.
+Thank you for your interest in contributing to Awe Agents! This document provides guidelines and instructions for contributing to the project.
 
 ## Table of Contents
 
@@ -25,8 +25,8 @@ Thank you for your interest in contributing to Lucid Agents! This document provi
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/lucid-dreams-ai/lucid-agents.git
-cd lucid-agents
+git clone https://github.com/awe-agents-ai/awe-agents.git
+cd awe-agents
 ```
 
 2. **Install dependencies**
@@ -42,7 +42,7 @@ This installs all dependencies for the monorepo and individual packages.
 The repository is organized as a monorepo with multiple packages:
 
 ```
-lucid-agents/
+awe-agents/
 ├── packages/
 │   ├── agent-kit/              # Core agent runtime
 │   ├── agent-kit-identity/     # ERC-8004 identity toolkit

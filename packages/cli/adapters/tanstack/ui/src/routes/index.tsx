@@ -610,7 +610,7 @@ function HomePage() {
               </div>
               <div>
                 <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-zinc-50 to-zinc-400 bg-clip-text text-transparent">
-                  {meta?.name ?? 'Lucid Agent'}
+                  {meta?.name ?? 'Awe Agent'}
                 </h1>
                 <p className="text-sm text-zinc-500">
                   v{meta?.version ?? '0.0.0'}
@@ -1062,7 +1062,7 @@ function HomePage() {
 
         <footer className="mt-12 border-t border-zinc-800/50 pt-8 pb-4">
           <div className="flex items-center justify-between text-xs text-zinc-600">
-            <p>Powered by Lucid Agents Framework</p>
+            <p>Powered by Awe Agents Framework</p>
             <p>Built with TanStack Start</p>
           </div>
         </footer>

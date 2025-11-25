@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['@lucid-agents/eslint-config'],
+  extends: ['@awe-agents/eslint-config'],
   env: {
     node: true,
     es2022: true,

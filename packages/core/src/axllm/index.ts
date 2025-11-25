@@ -1,7 +1,7 @@
 import {
   createX402LLM,
   type CreateX402LLMOptions,
-} from '@lucid-agents/payments';
+} from '@awe-agents/payments';
 import type { Hex } from 'viem';
 
 export type AxLLMClientOptions = {

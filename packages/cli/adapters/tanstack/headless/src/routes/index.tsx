@@ -38,7 +38,7 @@ function HeadlessDashboard({
     <section className="space-y-4">
       <header>
         <p className="text-sm uppercase tracking-widest text-slate-400">
-          Lucid Agent · API Runtime
+          Awe Agent · API Runtime
         </p>
         <h1 className="text-3xl font-semibold">
           {loaderData.meta?.name ?? 'Headless Agent'}
