@@ -1,7 +1,7 @@
 {
-  "name": "@awe-agents/prettier-config",
+  "name": "@AWEtoAgent/prettier-config",
   "version": "1.0.0",
-  "description": "Shared Prettier configuration for Awe Agents monorepo",
+  "description": "Shared Prettier configuration for AWEtoAgent monorepo",
   "main": "index.js",
   "private": true,
   "files": [

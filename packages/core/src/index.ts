@@ -16,7 +16,7 @@ export type {
   StreamPushEnvelope,
   StreamResult,
 } from './http/types';
-export type { AgentConfig } from '@awe-agents/types/core';
+export type { AgentConfig } from '@AWEtoAgent/types/core';
 
 // Config management
 export {

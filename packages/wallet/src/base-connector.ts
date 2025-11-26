@@ -3,7 +3,7 @@ import type {
   ChallengeSigner,
   WalletConnector,
   WalletMetadata,
-} from '@awe-agents/types/wallets';
+} from '@AWEtoAgent/types/wallets';
 
 export interface NormalizedChallenge {
   id: string;

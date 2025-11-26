@@ -1,10 +1,10 @@
 {
-  "name": "@awe-agents/hono",
+  "name": "@AWEtoAgent/hono",
   "version": "0.6.0",
   "description": "Hono adapter for Lucid agent runtime",
   "repository": {
     "type": "git",
-    "url": "https://github.com/awe-x402/awe-agents",
+    "url": "https://github.com/awe-x402/AWEtoAgent-Kit",
     "directory": "packages/hono"
   },
   "type": "module",
@@ -32,10 +32,10 @@
     "type-check": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@awe-agents/ap2": "workspace:*",
-    "@awe-agents/core": "workspace:*",
-    "@awe-agents/payments": "workspace:*",
-    "@awe-agents/types": "workspace:*",
+    "@AWEtoAgent/ap2": "workspace:*",
+    "@AWEtoAgent/core": "workspace:*",
+    "@AWEtoAgent/payments": "workspace:*",
+    "@AWEtoAgent/types": "workspace:*",
     "hono": "catalog:",
     "x402-hono": "^0.7.1",
     "x402": "^0.7.1",

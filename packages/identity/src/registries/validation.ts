@@ -3,7 +3,7 @@
  * Handles validation requests and responses for agent work verification
  */
 
-import type { Hex } from '@awe-agents/wallet';
+import type { Hex } from '@AWEtoAgent/wallet';
 
 import { VALIDATION_REGISTRY_ABI } from '../abi/types';
 import type { PublicClientLike, WalletClientLike } from './identity';

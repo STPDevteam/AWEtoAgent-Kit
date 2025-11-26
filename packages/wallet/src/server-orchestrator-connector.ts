@@ -3,7 +3,7 @@ import type {
   FetchExecutor,
   WalletConnector,
   WalletMetadata,
-} from '@awe-agents/types/wallets';
+} from '@AWEtoAgent/types/wallets';
 
 import {
   detectMessageEncoding,

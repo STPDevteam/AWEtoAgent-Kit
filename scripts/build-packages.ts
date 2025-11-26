@@ -85,26 +85,26 @@ async function buildPackages() {
   // Core depends on all extensions, so extensions must build first.
   const preferredOrder = [
     // Base layer - no internal dependencies
-    '@awe-agents/types',
+    '@AWEtoAgent/types',
 
     // Extensions - only depend on types
-    '@awe-agents/wallet', // Depends on types
-    '@awe-agents/payments', // Depends on types only
-    '@awe-agents/identity', // Depends on types only
-    '@awe-agents/a2a', // Depends on types only
-    '@awe-agents/ap2', // Depends on types only
+    '@AWEtoAgent/wallet', // Depends on types
+    '@AWEtoAgent/payments', // Depends on types only
+    '@AWEtoAgent/identity', // Depends on types only
+    '@AWEtoAgent/a2a', // Depends on types only
+    '@AWEtoAgent/ap2', // Depends on types only
 
     // Core - depends on all extensions
-    '@awe-agents/core', // Depends on payments, identity, a2a, ap2, types, wallet
+    '@AWEtoAgent/core', // Depends on payments, identity, a2a, ap2, types, wallet
 
     // Adapters - depend on core and extensions
-    '@awe-agents/hono', // Depends on core, payments, types
-    '@awe-agents/express', // Depends on core, payments, types
-    '@awe-agents/x402-tanstack-start', // No internal dependencies
-    '@awe-agents/tanstack', // Depends on core, payments, types, x402-tanstack-start
+    '@AWEtoAgent/hono', // Depends on core, payments, types
+    '@AWEtoAgent/express', // Depends on core, payments, types
+    '@AWEtoAgent/x402-tanstack-start', // No internal dependencies
+    '@AWEtoAgent/tanstack', // Depends on core, payments, types, x402-tanstack-start
 
     // CLI - no dependencies on other packages
-    '@awe-agents/cli',
+    '@AWEtoAgent/cli',
   ];
 
   const packagesByName = new Map(packages.map(pkg => [pkg.name, pkg]));

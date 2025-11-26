@@ -1,18 +1,18 @@
-import { resolvePrice } from '@awe-agents/payments';
+import { resolvePrice } from '@AWEtoAgent/payments';
 import type {
   AP2Config,
   AP2ExtensionDescriptor,
   AP2Role,
-} from '@awe-agents/types/ap2';
+} from '@AWEtoAgent/types/ap2';
 import type {
   AgentCapabilities,
   AgentCardWithEntrypoints,
   AgentMeta,
   Manifest,
   PaymentMethod,
-} from '@awe-agents/types/core';
-import type { TrustConfig } from '@awe-agents/types/identity';
-import type { PaymentsConfig } from '@awe-agents/types/payments';
+} from '@AWEtoAgent/types/core';
+import type { TrustConfig } from '@AWEtoAgent/types/identity';
+import type { PaymentsConfig } from '@AWEtoAgent/types/payments';
 
 import type { EntrypointDef } from '../http/types';
 import { toJsonSchemaOrUndefined } from '../utils';

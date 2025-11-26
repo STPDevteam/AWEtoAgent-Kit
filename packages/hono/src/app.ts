@@ -3,13 +3,13 @@ import type {
   AgentMeta,
   EntrypointDef,
   CreateAgentAppReturn,
-} from '@awe-agents/types/core';
+} from '@AWEtoAgent/types/core';
 import { withPayments } from './paywall';
 import {
   createAgentHttpRuntime,
   type CreateAgentHttpOptions,
   type AgentHttpRuntime,
-} from '@awe-agents/core';
+} from '@AWEtoAgent/core';
 
 export type CreateAgentAppOptions = CreateAgentHttpOptions & {
   /**

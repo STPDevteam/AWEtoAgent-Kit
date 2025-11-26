@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'bun:test';
-import type { AgentCardWithEntrypoints } from '@awe-agents/types/core';
-import type { EntrypointDef } from '@awe-agents/types/core';
+import type { AgentCardWithEntrypoints } from '@AWEtoAgent/types/core';
+import type { EntrypointDef } from '@AWEtoAgent/types/core';
 import { z } from 'zod';
 
 import { createAgentCardWithPayments } from '../manifest';
-import type { PaymentsConfig } from '@awe-agents/types/payments';
+import type { PaymentsConfig } from '@AWEtoAgent/types/payments';
 
 describe('createAgentCardWithPayments', () => {
   const baseCard: AgentCardWithEntrypoints = {

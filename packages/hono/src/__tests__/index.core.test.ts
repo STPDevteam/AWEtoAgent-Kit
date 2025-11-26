@@ -1,7 +1,7 @@
-import { createAgentApp, withPayments } from '@awe-agents/hono';
-import { resolvePrice } from '@awe-agents/payments';
-import type { EntrypointDef } from '@awe-agents/types/core';
-import type { PaymentsConfig } from '@awe-agents/types/payments';
+import { createAgentApp, withPayments } from '@AWEtoAgent/hono';
+import { resolvePrice } from '@AWEtoAgent/payments';
+import type { EntrypointDef } from '@AWEtoAgent/types/core';
+import type { PaymentsConfig } from '@AWEtoAgent/types/payments';
 import { describe, expect, it } from 'bun:test';
 import { z } from 'zod';
 

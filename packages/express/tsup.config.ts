@@ -9,9 +9,9 @@ export default defineConfig({
   clean: true,
   treeshake: true,
   external: [
-    '@awe-agents/core',
-    '@awe-agents/payments',
-    '@awe-agents/types',
+    '@AWEtoAgent/core',
+    '@AWEtoAgent/payments',
+    '@AWEtoAgent/types',
     'express',
     'x402-express',
     'x402',

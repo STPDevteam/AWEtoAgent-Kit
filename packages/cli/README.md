@@ -1,4 +1,4 @@
-# @awe-agents/cli
+# @AWEtoAgent/cli
 
 CLI scaffolding tool to quickly generate new agent projects with built-in templates and interactive configuration.
 
@@ -7,7 +7,7 @@ CLI scaffolding tool to quickly generate new agent projects with built-in templa
 Create a new agent in seconds:
 
 ```bash
-bunx @awe-agents/cli@latest my-agent
+bunx @AWEtoAgent/cli@latest my-agent
 ```
 
 The wizard will guide you through template selection and configuration. That's it!
@@ -85,7 +85,7 @@ When you select an adapter, the CLI copies the corresponding runtime framework f
 **Available Adapters:**
 
 - `hono` - Traditional HTTP server with Hono framework
-- `express` - Node-style HTTP server built on Express with `@awe-agents/agent-kit-express`
+- `express` - Node-style HTTP server built on Express with `@AWEtoAgent/agent-kit-express`
 - `tanstack-ui` - TanStack Start with full UI dashboard (wallet integration, entrypoint testing, schema forms)
 - `tanstack-headless` - TanStack Start API-only (no UI components)
 - `next` – Next.js App Router shell with x402-next middleware and the dashboard UI
@@ -95,7 +95,7 @@ The adapter provides the runtime skeleton (routing, server setup, build config),
 ## CLI Options
 
 ```bash
-bunx @awe-agents/cli <app-name> [options]
+bunx @AWEtoAgent/cli <app-name> [options]
 
 Options:
   -t, --template <id>   Select template (blank, axllm, axllm-flow, identity)
@@ -113,37 +113,37 @@ Options:
 
 ```bash
 # Interactive setup (recommended)
-bunx @awe-agents/cli@latest my-agent
+bunx @AWEtoAgent/cli@latest my-agent
 
 # With specific template
-bunx @awe-agents/cli@latest my-agent --template=identity
+bunx @AWEtoAgent/cli@latest my-agent --template=identity
 
 # With Solana payment network
-bunx @awe-agents/cli@latest my-agent --network=solana-devnet
+bunx @AWEtoAgent/cli@latest my-agent --network=solana-devnet
 
 # With Base mainnet
-bunx @awe-agents/cli@latest my-agent --network=base
+bunx @AWEtoAgent/cli@latest my-agent --network=base
 
 # Identity template with Solana payments
-bunx @awe-agents/cli@latest my-agent --template=identity --network=solana
+bunx @AWEtoAgent/cli@latest my-agent --template=identity --network=solana
 
 # With Express adapter
-bunx @awe-agents/cli@latest my-agent --adapter=express --template=blank
+bunx @AWEtoAgent/cli@latest my-agent --adapter=express --template=blank
 
 # With Hono adapter
-bunx @awe-agents/cli@latest my-agent --adapter=hono --template=blank
+bunx @AWEtoAgent/cli@latest my-agent --adapter=hono --template=blank
 
 # With TanStack UI (full dashboard)
-bunx @awe-agents/cli@latest my-agent --adapter=tanstack-ui --template=blank
+bunx @AWEtoAgent/cli@latest my-agent --adapter=tanstack-ui --template=blank
 
 # With TanStack headless (API only, no UI)
-bunx @awe-agents/cli@latest my-agent --adapter=tanstack-headless --template=blank
+bunx @AWEtoAgent/cli@latest my-agent --adapter=tanstack-headless --template=blank
 
 # Auto-install dependencies
-bunx @awe-agents/cli@latest my-agent --install
+bunx @AWEtoAgent/cli@latest my-agent --install
 
 # Non-interactive with defaults
-bunx @awe-agents/cli@latest my-agent --template=blank --wizard=no
+bunx @AWEtoAgent/cli@latest my-agent --template=blank --wizard=no
 ```
 
 ### Network Selection
@@ -166,10 +166,10 @@ Use the `--network` flag to specify the network:
 
 ```bash
 # Solana devnet
-bunx @awe-agents/cli my-agent --network=solana-devnet --non-interactive
+bunx @AWEtoAgent/cli my-agent --network=solana-devnet --non-interactive
 
 # Base mainnet
-bunx @awe-agents/cli my-agent --network=base --non-interactive
+bunx @AWEtoAgent/cli my-agent --network=base --non-interactive
 ```
 
 **Important Notes:**
@@ -186,7 +186,7 @@ Perfect for CI/CD, automation, or AI coding agents:
 
 ```bash
 # Blank template with custom configuration
-bunx @awe-agents/cli@latest my-agent \
+bunx @AWEtoAgent/cli@latest my-agent \
   --template=blank \
   --non-interactive \
   --AGENT_DESCRIPTION="Custom agent for automation" \
@@ -194,7 +194,7 @@ bunx @awe-agents/cli@latest my-agent \
   --PAYMENTS_RECEIVABLE_ADDRESS="0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb0"
 
 # Identity template with full configuration
-bunx @awe-agents/cli@latest verified-agent \
+bunx @AWEtoAgent/cli@latest verified-agent \
   --template=identity \
   --non-interactive \
   --install \
@@ -210,7 +210,7 @@ bunx @awe-agents/cli@latest verified-agent \
   --IDENTITY_AUTO_REGISTER="true"
 
 # AxLLM template
-bunx @awe-agents/cli@latest ai-agent \
+bunx @AWEtoAgent/cli@latest ai-agent \
   --template=axllm \
   --non-interactive \
   --AGENT_DESCRIPTION="AI-powered agent" \
@@ -351,8 +351,8 @@ Note: While the CLI works with Node/npx, generated projects require Bun.
 
 ## Related Packages
 
-- [`@awe-agents/core`](../core/README.md) - Core agent runtime
-- [`@awe-agents/identity`](../identity/README.md) - ERC-8004 identity
+- [`@AWEtoAgent/core`](../core/README.md) - Core agent runtime
+- [`@AWEtoAgent/identity`](../identity/README.md) - ERC-8004 identity
 
 ## Contributing
 

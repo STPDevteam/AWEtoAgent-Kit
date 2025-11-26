@@ -1,12 +1,12 @@
 import type { Network } from 'x402/types';
-import type { EntrypointDef, AgentCore } from '@awe-agents/types/core';
-import type { EntrypointPrice } from '@awe-agents/types/payments';
+import type { EntrypointDef, AgentCore } from '@AWEtoAgent/types/core';
+import type { EntrypointPrice } from '@AWEtoAgent/types/payments';
 import type {
   PaymentsConfig,
   PaymentRequirement,
   RuntimePaymentRequirement,
-} from '@awe-agents/types/payments';
-import type { AgentKitConfig } from '@awe-agents/types/core';
+} from '@AWEtoAgent/types/payments';
+import type { AgentKitConfig } from '@AWEtoAgent/types/core';
 import { resolvePrice } from './pricing';
 
 /**
@@ -153,7 +153,7 @@ export const paymentRequiredResponse = (
 export function createPaymentsRuntime(
   paymentsOption: PaymentsConfig | false | undefined,
   agentConfig: AgentKitConfig
-): import('@awe-agents/types/payments').PaymentsRuntime | undefined {
+): import('@AWEtoAgent/types/payments').PaymentsRuntime | undefined {
   const config: PaymentsConfig | undefined =
     paymentsOption === false
       ? undefined

@@ -1,10 +1,10 @@
 {
-  "name": "@awe-agents/wallet",
+  "name": "@AWEtoAgent/wallet",
   "version": "0.2.1",
   "description": "Wallet connectors and helpers for Lucid agents",
   "repository": {
     "type": "git",
-    "url": "https://github.com/awe-x402/awe-agents",
+    "url": "https://github.com/awe-x402/AWEtoAgent-Kit",
     "directory": "packages/wallet"
   },
   "type": "module",
@@ -33,7 +33,7 @@
     "test": "bun test"
   },
   "dependencies": {
-    "@awe-agents/types": "workspace:*",
+    "@AWEtoAgent/types": "workspace:*",
     "viem": "^2.38.5"
   },
   "devDependencies": {

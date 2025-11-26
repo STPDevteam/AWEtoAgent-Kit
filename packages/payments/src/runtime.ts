@@ -1,5 +1,5 @@
-import type { AgentRuntime } from '@awe-agents/types/core';
-import type { WalletConnector } from '@awe-agents/types/wallets';
+import type { AgentRuntime } from '@AWEtoAgent/types/core';
+import type { WalletConnector } from '@AWEtoAgent/types/wallets';
 import type { Signer } from 'x402/types';
 import { createSigner, type Hex, wrapFetchWithPayment } from 'x402-fetch';
 import { sanitizeAddress, ZERO_ADDRESS } from './crypto';

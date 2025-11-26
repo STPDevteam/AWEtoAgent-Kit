@@ -4,7 +4,7 @@ import type {
   SendMessageRequest,
   Task,
   TaskStatus,
-} from '@awe-agents/types/a2a';
+} from '@AWEtoAgent/types/a2a';
 import { afterEach, describe, expect, it } from 'bun:test';
 import { z } from 'zod';
 

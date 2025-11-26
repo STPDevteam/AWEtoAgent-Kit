@@ -1,6 +1,6 @@
 ## {{AGENT_NAME}}
 
-This project was scaffolded with `create-agent-kit` and includes **ERC-8004 identity registration** built on [`@awe-agents/core`](https://www.npmjs.com/package/@awe-agents/core) and [`@awe-agents/identity`](https://www.npmjs.com/package/@awe-agents/identity).
+This project was scaffolded with `create-agent-kit` and includes **ERC-8004 identity registration** built on [`@AWEtoAgent/core`](https://www.npmjs.com/package/@AWEtoAgent/core) and [`@AWEtoAgent/identity`](https://www.npmjs.com/package/@AWEtoAgent/identity).
 
 ### Features
 

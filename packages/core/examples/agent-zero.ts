@@ -1,7 +1,7 @@
 import { z } from 'zod';
-import { createAgentApp } from '@awe-agents/hono';
-import { AgentKitConfig, createAxLLMClient } from '@awe-agents/core';
-import { paymentsFromEnv } from '@awe-agents/payments';
+import { createAgentApp } from '@AWEtoAgent/hono';
+import { AgentKitConfig, createAxLLMClient } from '@AWEtoAgent/core';
+import { paymentsFromEnv } from '@AWEtoAgent/payments';
 import { flow } from '@ax-llm/ax';
 
 /**

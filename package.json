@@ -1,5 +1,5 @@
 {
-  "name": "@awe-agents/root",
+  "name": "@AWEtoAgent/root",
   "workspaces": {
     "packages": [
       "packages/*"

@@ -11,21 +11,21 @@
  */
 
 import { z } from 'zod';
-import { createAgentApp } from '@awe-agents/hono';
+import { createAgentApp } from '@AWEtoAgent/hono';
 import {
   createRuntimePaymentContext,
   type AgentKitConfig,
-} from '@awe-agents/core';
+} from '@AWEtoAgent/core';
 import {
   createAgentIdentity,
   getTrustConfig,
   type AgentIdentity,
-} from '@awe-agents/identity';
+} from '@AWEtoAgent/identity';
 import {
   AgentRuntime,
   MemoryStorageAdapter,
   type AgentRuntimeWallet,
-} from '@awe-agents/agent-auth';
+} from '@AWEtoAgent/agent-auth';
 import { privateKeyToAccount } from 'viem/accounts';
 
 type RuntimeBootstrap = {

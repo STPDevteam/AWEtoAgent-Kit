@@ -1,5 +1,5 @@
-import type { EntrypointDef } from '@awe-agents/types/core';
-import type { PaymentsConfig } from '@awe-agents/types/payments';
+import type { EntrypointDef } from '@AWEtoAgent/types/core';
+import type { PaymentsConfig } from '@AWEtoAgent/types/payments';
 
 /**
  * Resolves the price for an entrypoint.

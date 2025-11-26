@@ -3,13 +3,13 @@ import { setTimeout as delay } from 'node:timers/promises';
 
 import { z } from 'zod';
 
-import { createAgentApp } from '@awe-agents/hono';
-import { configureAgentKit, getAgentKitConfig } from '@awe-agents/core';
+import { createAgentApp } from '@AWEtoAgent/hono';
+import { configureAgentKit, getAgentKitConfig } from '@AWEtoAgent/core';
 import {
   AgentRuntime,
   MemoryStorageAdapter,
   type AgentRuntimeWallet,
-} from '@awe-agents/agent-auth';
+} from '@AWEtoAgent/agent-auth';
 
 type ServerHandle = {
   stop: () => void;

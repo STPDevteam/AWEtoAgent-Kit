@@ -2,7 +2,7 @@ import type {
   AgentConfig,
   AgentContext,
   Usage,
-} from '@awe-agents/types/core';
+} from '@AWEtoAgent/types/core';
 import { z } from 'zod';
 
 import type { EntrypointDef, StreamResult } from '../http/types';
@@ -11,7 +11,7 @@ export type InvokeContext = {
   signal: AbortSignal;
   headers: Headers;
   runId?: string;
-  runtime?: import('@awe-agents/types/core').AgentRuntime;
+  runtime?: import('@AWEtoAgent/types/core').AgentRuntime;
 };
 
 export type StreamContext = InvokeContext;

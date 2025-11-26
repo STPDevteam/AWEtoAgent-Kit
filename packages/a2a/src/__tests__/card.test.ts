@@ -1,6 +1,6 @@
 import { describe, expect, it, mock } from 'bun:test';
-import type { AgentCardWithEntrypoints, AgentMeta } from '@awe-agents/types/core';
-import type { EntrypointDef } from '@awe-agents/types/core';
+import type { AgentCardWithEntrypoints, AgentMeta } from '@AWEtoAgent/types/core';
+import type { EntrypointDef } from '@AWEtoAgent/types/core';
 import { z } from 'zod';
 
 import { buildAgentCard, fetchAgentCard, findSkill, parseAgentCard } from '../card';

@@ -1,10 +1,10 @@
 {
-  "name": "@awe-agents/core",
+  "name": "@AWEtoAgent/core",
   "version": "1.7.0",
   "description": "Build typed agent HTTP apps",
   "repository": {
     "type": "git",
-    "url": "https://github.com/awe-x402/awe-agents",
+    "url": "https://github.com/awe-x402/AWEtoAgent-Kit",
     "directory": "packages/core"
   },
   "type": "module",
@@ -49,12 +49,12 @@
   "dependencies": {
     "zod": "catalog:",
     "hono": "catalog:",
-    "@awe-agents/types": "workspace:*",
-    "@awe-agents/a2a": "workspace:*",
-    "@awe-agents/ap2": "workspace:*",
-    "@awe-agents/identity": "workspace:*",
-    "@awe-agents/payments": "workspace:*",
-    "@awe-agents/wallet": "workspace:*",
+    "@AWEtoAgent/types": "workspace:*",
+    "@AWEtoAgent/a2a": "workspace:*",
+    "@AWEtoAgent/ap2": "workspace:*",
+    "@AWEtoAgent/identity": "workspace:*",
+    "@AWEtoAgent/payments": "workspace:*",
+    "@AWEtoAgent/wallet": "workspace:*",
     "x402-fetch": "catalog:",
     "x402": "^0.7.1",
     "viem": "^2.38.5",
@@ -64,8 +64,8 @@
   "devDependencies": {
     "tsup": "catalog:",
     "typescript": "catalog:",
-    "@awe-agents/eslint-config": "workspace:*",
-    "@awe-agents/prettier-config": "workspace:*",
-    "@awe-agents/hono": "workspace:*"
+    "@AWEtoAgent/eslint-config": "workspace:*",
+    "@AWEtoAgent/prettier-config": "workspace:*",
+    "@AWEtoAgent/hono": "workspace:*"
   }
 }

@@ -1,5 +1,5 @@
-import type { AgentCardWithEntrypoints } from '@awe-agents/types/core';
-import type { TrustConfig } from '@awe-agents/types/identity';
+import type { AgentCardWithEntrypoints } from '@AWEtoAgent/types/core';
+import type { TrustConfig } from '@AWEtoAgent/types/identity';
 
 /**
  * Creates a new Agent Card with identity/trust metadata added.

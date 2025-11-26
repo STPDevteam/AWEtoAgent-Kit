@@ -2,9 +2,9 @@ import {
   configureAgentKit,
   getAgentKitConfig,
   resetAgentKitConfigForTesting,
-} from '@awe-agents/core';
-import { createAgentApp } from '@awe-agents/hono';
-import { paymentsFromEnv } from '@awe-agents/payments';
+} from '@AWEtoAgent/core';
+import { createAgentApp } from '@AWEtoAgent/hono';
+import { paymentsFromEnv } from '@AWEtoAgent/payments';
 import { afterEach, describe, expect, it } from 'bun:test';
 
 describe('AgentKit config management', () => {

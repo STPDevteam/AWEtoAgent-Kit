@@ -1062,7 +1062,7 @@ function HomePage() {
 
         <footer className="mt-12 border-t border-zinc-800/50 pt-8 pb-4">
           <div className="flex items-center justify-between text-xs text-zinc-600">
-            <p>Powered by Awe Agents Framework</p>
+            <p>Powered by AWEtoAgent Framework</p>
             <p>Built with TanStack Start</p>
           </div>
         </footer>

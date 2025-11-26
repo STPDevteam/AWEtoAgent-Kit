@@ -1,9 +1,9 @@
-import type { AgentCardWithEntrypoints } from '@awe-agents/types/core';
+import type { AgentCardWithEntrypoints } from '@AWEtoAgent/types/core';
 import type {
   SendMessageResponse,
   Task,
   TaskStatus,
-} from '@awe-agents/types/a2a';
+} from '@AWEtoAgent/types/a2a';
 import { describe, expect, it, mock } from 'bun:test';
 
 import {

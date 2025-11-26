@@ -1,6 +1,6 @@
-import { resolvePrice } from '@awe-agents/payments';
-import type { AgentMeta } from '@awe-agents/types/core';
-import type { PaymentsConfig } from '@awe-agents/types/payments';
+import { resolvePrice } from '@AWEtoAgent/payments';
+import type { AgentMeta } from '@AWEtoAgent/types/core';
+import type { PaymentsConfig } from '@AWEtoAgent/types/payments';
 import { html } from 'hono/html';
 import type { HtmlEscapedString } from 'hono/utils/html';
 

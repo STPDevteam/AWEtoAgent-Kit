@@ -1,4 +1,4 @@
-import type { AgentMeta } from '@awe-agents/types/core';
+import type { AgentMeta } from '@AWEtoAgent/types/core';
 
 /**
  * Validates required agent metadata and throws descriptive errors if invalid.

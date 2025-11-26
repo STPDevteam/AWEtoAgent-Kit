@@ -1,19 +1,19 @@
 import type {
   RegistrationEntry,
   TrustConfig,
-} from '@awe-agents/types/identity';
+} from '@AWEtoAgent/types/identity';
 import type {
   AgentWalletHandle,
   LocalEoaSigner,
-} from '@awe-agents/types/wallets';
-import type { Hex } from '@awe-agents/wallet';
-import { normalizeAddress, toCaip10, ZERO_ADDRESS } from '@awe-agents/wallet';
+} from '@AWEtoAgent/types/wallets';
+import type { Hex } from '@AWEtoAgent/wallet';
+import { normalizeAddress, toCaip10, ZERO_ADDRESS } from '@AWEtoAgent/wallet';
 
 import { normalizeDomain } from '../utils';
 import { signDomainProof } from './signatures';
 import { waitForConfirmation } from './utils';
 
-export { toCaip10 } from '@awe-agents/wallet';
+export { toCaip10 } from '@AWEtoAgent/wallet';
 
 import type {
   IdentityRegistryReadFunctionName,

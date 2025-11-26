@@ -14,7 +14,7 @@ export const Route = createRootRoute({
       },
       {
         name: 'description',
-        content: 'Headless TanStack runtime for Awe Agents',
+        content: 'Headless TanStack runtime for AWEtoAgent',
       },
     ],
   }),

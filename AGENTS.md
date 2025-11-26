@@ -1,14 +1,14 @@
-# Awe Agents Monorepo - AI Coding Guide
+# AWEtoAgent Monorepo - AI Coding Guide
 
-This guide helps AI coding agents understand and work with the awe-agents monorepo effectively.
+This guide helps AI coding agents understand and work with the AWEtoAgent-Kit monorepo effectively.
 
 ## Project Overview
 
 This is a TypeScript/Bun monorepo for building, monetizing, and verifying AI agents. It provides:
 
-- **@awe-agents/agent-kit** - Core framework for creating agent HTTP servers
-- **@awe-agents/agent-kit-identity** - ERC-8004 identity and trust layer
-- **@awe-agents/create-agent-kit** - CLI for scaffolding new agent projects
+- **@AWEtoAgent/agent-kit** - Core framework for creating agent HTTP servers
+- **@AWEtoAgent/agent-kit-identity** - ERC-8004 identity and trust layer
+- **@AWEtoAgent/create-agent-kit** - CLI for scaffolding new agent projects
 
 **Tech Stack:**
 
@@ -36,9 +36,9 @@ agent-kit-identity (ERC-8004 integration)
 
 The framework supports multiple runtime adapters:
 
-- **Hono** (`@awe-agents/agent-kit-hono`) - Traditional HTTP server
-- **Express** (`@awe-agents/agent-kit-express`) - Node.js/Express server with x402 middleware
-- **TanStack Start UI** (`@awe-agents/agent-kit-tanstack`) - Full-stack React with dashboard
+- **Hono** (`@AWEtoAgent/agent-kit-hono`) - Traditional HTTP server
+- **Express** (`@AWEtoAgent/agent-kit-express`) - Node.js/Express server with x402 middleware
+- **TanStack Start UI** (`@AWEtoAgent/agent-kit-tanstack`) - Full-stack React with dashboard
 - **TanStack Start Headless** - API-only variant
 
 Templates are adapter-agnostic and work with any compatible adapter.
@@ -389,7 +389,7 @@ bun run dev
 **createAgentApp(meta, options?)**
 
 ```typescript
-import { createAgentApp } from '@awe-agents/agent-kit-hono';
+import { createAgentApp } from '@AWEtoAgent/agent-kit-hono';
 
 const { app, addEntrypoint } = createAgentApp(
   {
@@ -420,7 +420,7 @@ const { app, addEntrypoint } = createAgentApp(
 **createAgentApp(meta, options?)**
 
 ```typescript
-import { createAgentApp } from '@awe-agents/agent-kit-express';
+import { createAgentApp } from '@AWEtoAgent/agent-kit-express';
 
 const { app, addEntrypoint } = createAgentApp(
   {
@@ -440,7 +440,7 @@ const server = app.listen(process.env.PORT ?? 3000);
 **createTanStackRuntime(meta, options?)**
 
 ```typescript
-import { createTanStackRuntime } from '@awe-agents/agent-kit-tanstack';
+import { createTanStackRuntime } from '@AWEtoAgent/agent-kit-tanstack';
 
 const { runtime, handlers } = createTanStackRuntime(
   {
@@ -484,7 +484,7 @@ addEntrypoint({
 **paymentsFromEnv()**
 
 ```typescript
-import { paymentsFromEnv } from '@awe-agents/agent-kit';
+import { paymentsFromEnv } from '@AWEtoAgent/agent-kit';
 
 const payments = paymentsFromEnv();
 // Returns PaymentsConfig or undefined
@@ -495,7 +495,7 @@ const payments = paymentsFromEnv();
 **createAgentIdentity(options)**
 
 ```typescript
-import { createAgentIdentity } from '@awe-agents/agent-kit-identity';
+import { createAgentIdentity } from '@AWEtoAgent/agent-kit-identity';
 
 const identity = await createAgentIdentity({
   domain: 'agent.example.com',
@@ -512,7 +512,7 @@ const identity = await createAgentIdentity({
 **getTrustConfig(identity)**
 
 ```typescript
-import { getTrustConfig } from '@awe-agents/agent-kit-identity';
+import { getTrustConfig } from '@AWEtoAgent/agent-kit-identity';
 
 const trustConfig = getTrustConfig(identity);
 // Returns TrustConfig for agent manifest
@@ -523,29 +523,29 @@ const trustConfig = getTrustConfig(identity);
 **Interactive Mode**
 
 ```bash
-bunx @awe-agents/create-agent-kit my-agent
+bunx @AWEtoAgent/create-agent-kit my-agent
 ```
 
 **With Adapter Selection**
 
 ```bash
 # Hono adapter (traditional HTTP server)
-bunx @awe-agents/create-agent-kit my-agent --adapter=hono
+bunx @AWEtoAgent/create-agent-kit my-agent --adapter=hono
 
 # Express adapter (Node-style HTTP server)
-bunx @awe-agents/create-agent-kit my-agent --adapter=express
+bunx @AWEtoAgent/create-agent-kit my-agent --adapter=express
 
 # TanStack UI (full dashboard)
-bunx @awe-agents/create-agent-kit my-agent --adapter=tanstack-ui
+bunx @AWEtoAgent/create-agent-kit my-agent --adapter=tanstack-ui
 
 # TanStack Headless (API only)
-bunx @awe-agents/create-agent-kit my-agent --adapter=tanstack-headless
+bunx @AWEtoAgent/create-agent-kit my-agent --adapter=tanstack-headless
 ```
 
 **Non-Interactive Mode**
 
 ```bash
-bunx @awe-agents/create-agent-kit my-agent \
+bunx @AWEtoAgent/create-agent-kit my-agent \
   --adapter=tanstack-ui \
   --template=identity \
   --non-interactive \
@@ -671,7 +671,7 @@ bun run client.ts           # Test against running agent
 ```bash
 # Test template generation
 cd /tmp
-bunx /path/to/awe-agents/packages/create-agent-kit/dist/index.js test-agent --template=blank
+bunx /path/to/AWEtoAgent-Kit/packages/create-agent-kit/dist/index.js test-agent --template=blank
 cd test-agent
 bun install
 bun run dev
@@ -730,7 +730,7 @@ bun run release  # version + publish
 ### General
 
 - **No emojis** - Do not use emojis in code, comments, or commit messages unless explicitly requested by the user
-- **Re-exports are banned** - Do not re-export types or values from other packages. Define types in the appropriate shared types package (`@awe-agents/types`) or in the package where they are used. Re-exports create unnecessary coupling and make it unclear where types are actually defined.
+- **Re-exports are banned** - Do not re-export types or values from other packages. Define types in the appropriate shared types package (`@AWEtoAgent/types`) or in the package where they are used. Re-exports create unnecessary coupling and make it unclear where types are actually defined.
 
 ### TypeScript
 
@@ -812,7 +812,7 @@ type Parsed = z.infer<typeof schema>;
 
 ```typescript
 // agent-kit imports identity types
-import type { TrustConfig } from '@awe-agents/agent-kit-identity';
+import type { TrustConfig } from '@AWEtoAgent/agent-kit-identity';
 
 // agent-kit accepts trust config
 createAgentApp(meta, {
@@ -826,8 +826,8 @@ Templates reference both packages:
 
 ```typescript
 // In generated agent.ts
-import { createAgentApp } from '@awe-agents/agent-kit';
-import { createAgentIdentity } from '@awe-agents/agent-kit-identity';
+import { createAgentApp } from '@AWEtoAgent/agent-kit';
+import { createAgentIdentity } from '@AWEtoAgent/agent-kit-identity';
 ```
 
 The CLI doesn't directly import these; it scaffolds code that uses them.
@@ -868,7 +868,7 @@ Ensure:
 
 1. All packages are built: `bun run build:packages`
 2. Dependencies are installed: `bun install`
-3. Using correct import paths (e.g., `@awe-agents/agent-kit/types`)
+3. Using correct import paths (e.g., `@AWEtoAgent/agent-kit/types`)
 
 ### TypeScript errors in templates
 

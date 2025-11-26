@@ -3,7 +3,7 @@ import { privateKeyToAccount } from 'viem/accounts';
 import type {
   LocalEoaSigner,
   TypedDataPayload,
-} from '@awe-agents/types/wallets';
+} from '@AWEtoAgent/types/wallets';
 
 const normalizePrivateKey = (key: string): `0x${string}` => {
   const trimmed = key.trim();

@@ -1,8 +1,8 @@
-import type { AgentHttpRuntime } from '@awe-agents/core';
-import { toJsonSchemaOrUndefined } from '@awe-agents/core';
-import { resolvePrice, validatePaymentsConfig } from '@awe-agents/payments';
-import type { EntrypointDef } from '@awe-agents/types/core';
-import type { PaymentsConfig } from '@awe-agents/types/payments';
+import type { AgentHttpRuntime } from '@AWEtoAgent/core';
+import { toJsonSchemaOrUndefined } from '@AWEtoAgent/core';
+import { resolvePrice, validatePaymentsConfig } from '@AWEtoAgent/payments';
+import type { EntrypointDef } from '@AWEtoAgent/types/core';
+import type { PaymentsConfig } from '@AWEtoAgent/types/payments';
 import type {
   FacilitatorConfig,
   PaywallConfig,

@@ -1,5 +1,5 @@
 {
-  "name": "@awe-agents/express",
+  "name": "@AWEtoAgent/express",
   "version": "0.2.0",
   "description": "Express adapter for Lucid agent runtime",
   "type": "module",
@@ -26,9 +26,9 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@awe-agents/core": "workspace:*",
-    "@awe-agents/payments": "workspace:*",
-    "@awe-agents/types": "workspace:*",
+    "@AWEtoAgent/core": "workspace:*",
+    "@AWEtoAgent/payments": "workspace:*",
+    "@AWEtoAgent/types": "workspace:*",
     "express": "^4.19.2",
     "x402": "^0.7.1",
     "x402-express": "^0.7.1",

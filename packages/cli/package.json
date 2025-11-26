@@ -1,10 +1,10 @@
 {
-  "name": "@awe-agents/cli",
+  "name": "@AWEtoAgent/cli",
   "version": "1.7.0",
-  "description": "Scaffold a Bun agent app powered by @awe-agents/core.",
+  "description": "Scaffold a Bun agent app powered by @AWEtoAgent/core.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/awe-x402/awe-agents",
+    "url": "https://github.com/awe-x402/AWEtoAgent-Kit",
     "directory": "packages/cli"
   },
   "type": "module",
@@ -37,8 +37,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@awe-agents/core": "workspace:*",
-    "@awe-agents/identity": "workspace:*",
+    "@AWEtoAgent/core": "workspace:*",
+    "@AWEtoAgent/identity": "workspace:*",
     "viem": "^2.21.26"
   },
   "devDependencies": {
@@ -46,7 +46,7 @@
     "bun-types": "^1.1.16",
     "tsup": "^8.5.0",
     "typescript": "^5.9.2",
-    "@awe-agents/eslint-config": "workspace:*",
-    "@awe-agents/prettier-config": "workspace:*"
+    "@AWEtoAgent/eslint-config": "workspace:*",
+    "@AWEtoAgent/prettier-config": "workspace:*"
   }
 }

@@ -9,5 +9,5 @@ export default definePackageConfig({
       index: "src/index.ts",
     },
   },
-  external: ["viem", "@awe-agents/core", "@awe-agents/types", "@awe-agents/wallet"],
+  external: ["viem", "@AWEtoAgent/core", "@AWEtoAgent/types", "@AWEtoAgent/wallet"],
 });

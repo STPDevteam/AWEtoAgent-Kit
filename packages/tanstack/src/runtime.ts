@@ -2,8 +2,8 @@ import {
   createAgentHttpRuntime,
   type AgentHttpRuntime,
   type CreateAgentHttpOptions,
-} from '@awe-agents/core';
-import type { AgentMeta } from '@awe-agents/types/core';
+} from '@AWEtoAgent/core';
+import type { AgentMeta } from '@AWEtoAgent/types/core';
 
 export type TanStackRequestHandler = (ctx: {
   request: Request;

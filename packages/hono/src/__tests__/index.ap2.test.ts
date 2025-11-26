@@ -1,7 +1,7 @@
-import { createAgentApp } from '@awe-agents/hono';
+import { createAgentApp } from '@AWEtoAgent/hono';
 import { describe, expect, it } from 'bun:test';
 
-import { AP2_EXTENSION_URI } from '@awe-agents/ap2';
+import { AP2_EXTENSION_URI } from '@AWEtoAgent/ap2';
 
 describe('createAgentApp AP2 extension', () => {
   const meta = {

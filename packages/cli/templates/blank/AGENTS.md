@@ -4,7 +4,7 @@ This guide helps AI coding agents understand and extend this agent project.
 
 ## Project Overview
 
-This is a minimal Bun HTTP agent built with `@awe-agents/core`. It provides a simple starting point with basic entrypoint configuration and optional payment support.
+This is a minimal Bun HTTP agent built with `@AWEtoAgent/core`. It provides a simple starting point with basic entrypoint configuration and optional payment support.
 
 **Key Files:**
 
@@ -327,7 +327,7 @@ bunx tsc --noEmit
 Common fixes:
 
 - Ensure Zod schemas match your input/output types
-- Import types from `@awe-agents/core/types`
+- Import types from `@AWEtoAgent/core/types`
 - Check that all required fields are present in input objects
 
 ## Next Steps
@@ -339,6 +339,6 @@ Common fixes:
 
 ## Additional Resources
 
-- [@awe-agents/core documentation](../../../core/README.md)
+- [@AWEtoAgent/core documentation](../../../core/README.md)
 - [Agent Payments Protocol (AP2)](https://github.com/google-agentic-commerce/ap2)
 - [A2A Protocol](https://agent2agent.ai/)

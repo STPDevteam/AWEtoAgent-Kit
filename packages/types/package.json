@@ -1,7 +1,7 @@
 {
-  "name": "@awe-agents/types",
+  "name": "@AWEtoAgent/types",
   "version": "1.3.0",
-  "description": "Shared types for awe-agents framework",
+  "description": "Shared types for AWEtoAgent framework",
   "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
@@ -52,7 +52,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/awe-x402/awe-agents",
+    "url": "https://github.com/awe-x402/AWEtoAgent-Kit",
     "directory": "packages/types"
   },
   "scripts": {

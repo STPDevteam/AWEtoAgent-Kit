@@ -6,4 +6,4 @@ export type {
   StreamEnvelope,
   StreamPushEnvelope,
   StreamResult,
-} from '@awe-agents/types/core';
+} from '@AWEtoAgent/types/core';

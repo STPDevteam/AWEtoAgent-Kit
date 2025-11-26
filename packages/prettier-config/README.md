@@ -1,6 +1,6 @@
-# @awe-agents/prettier-config
+# @AWEtoAgent/prettier-config
 
-Shared Prettier configuration for Awe Agents monorepo packages.
+Shared Prettier configuration for AWEtoAgent monorepo packages.
 
 ## Features
 
@@ -17,7 +17,7 @@ Shared Prettier configuration for Awe Agents monorepo packages.
 
 ```bash
 # In your package directory
-bun add -D @awe-agents/prettier-config
+bun add -D @AWEtoAgent/prettier-config
 ```
 
 ### 2. Create `.prettierignore`

@@ -1,7 +1,7 @@
 # Examples
 
 This directory contains runnable scripts that showcase different integration
-patterns for `@awe-agents/core` and `@awe-agents/hono`:
+patterns for `@AWEtoAgent/core` and `@AWEtoAgent/hono`:
 
 ## AxFlow + createAxLLMClient
 
@@ -29,13 +29,13 @@ The agent exposes a single `/entrypoints/brainstorm/invoke` route that accepts a
 ## Full-Stack Agent Example
 
 This script contains a minimal, end-to-end showcase of everything
-`@awe-agents/hono` offers:
+`@AWEtoAgent/hono` offers:
 
-- Building an agent server with `createAgentApp` (from `@awe-agents/hono`), including streaming entrypoints.
+- Building an agent server with `createAgentApp` (from `@AWEtoAgent/hono`), including streaming entrypoints.
 - Enabling x402 monetisation and surfacing the AP2 capability extension.
 - Registering on the ERC-8004 Identity Registry, signing domain ownership proofs, and wiring the resulting trust metadata into the manifest.
 - Fetching the generated AgentCard to verify that trust, payments, and schema metadata are emitted correctly.
-- Ready to pair with `@awe-agents/agent-auth` when you need authenticated wallet flows.
+- Ready to pair with `@AWEtoAgent/agent-auth` when you need authenticated wallet flows.
 
 > The example is intentionally self-contained and uses viem-style clients. Install the peer tooling you need (e.g. `viem`) before running it locally.
 

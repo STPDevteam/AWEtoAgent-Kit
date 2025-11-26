@@ -4,7 +4,7 @@ This guide helps AI coding agents understand and extend this AxLLM-powered agent
 
 ## Project Overview
 
-This is a Bun HTTP agent with `@ax-llm/ax` integration for LLM-powered capabilities. It includes payment support via x402 and uses `@awe-agents/core` for agent app creation.
+This is a Bun HTTP agent with `@ax-llm/ax` integration for LLM-powered capabilities. It includes payment support via x402 and uses `@AWEtoAgent/core` for agent app creation.
 
 **Key Files:**
 - `src/agent.ts` - Agent definition, AxLLM client setup, and entrypoints
@@ -12,7 +12,7 @@ This is a Bun HTTP agent with `@ax-llm/ax` integration for LLM-powered capabilit
 - `.env` - Configuration (API keys, payment settings, etc.)
 
 **Key Dependencies:**
-- `@awe-agents/core` - Agent app framework
+- `@AWEtoAgent/core` - Agent app framework
 - `@ax-llm/ax` - LLM client library
 - `zod` - Schema validation
 
@@ -61,7 +61,7 @@ ANTHROPIC_API_KEY=sk-ant-...
 The template includes a pre-configured `axClient`:
 
 ```typescript
-import { createAxLLMClient } from "@awe-agents/core";
+import { createAxLLMClient } from "@AWEtoAgent/core";
 
 const axClient = createAxLLMClient({
   logger: {
@@ -507,4 +507,4 @@ Ensure:
 - [@ax-llm/ax documentation](https://github.com/dosco/ax)
 - [OpenAI API reference](https://platform.openai.com/docs/api-reference)
 - [Anthropic API reference](https://docs.anthropic.com/claude/reference)
-- [@awe-agents/core docs](../../../core/README.md)
+- [@AWEtoAgent/core docs](../../../core/README.md)

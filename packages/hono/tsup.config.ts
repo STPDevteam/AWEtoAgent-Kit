@@ -9,9 +9,9 @@ export default defineConfig({
   treeshake: true,
   tsconfig: "./tsconfig.build.json",
   external: [
-    '@awe-agents/core',
-    '@awe-agents/payments',
-    '@awe-agents/types',
+    '@AWEtoAgent/core',
+    '@AWEtoAgent/payments',
+    '@AWEtoAgent/types',
     'hono',
     'x402-hono',
     'x402',

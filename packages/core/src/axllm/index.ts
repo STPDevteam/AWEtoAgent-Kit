@@ -1,7 +1,7 @@
 import {
   createX402LLM,
   type CreateX402LLMOptions,
-} from '@awe-agents/payments';
+} from '@AWEtoAgent/payments';
 import type { Hex } from 'viem';
 
 export type AxLLMClientOptions = {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'bun:test';
-import type { AgentCardWithEntrypoints } from '@awe-agents/types/core';
+import type { AgentCardWithEntrypoints } from '@AWEtoAgent/types/core';
 
 import { createAgentCardWithAP2 } from '../manifest';
 import { AP2_EXTENSION_URI } from '../types';

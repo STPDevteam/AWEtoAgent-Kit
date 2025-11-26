@@ -5,8 +5,8 @@ import type {
   Manifest,
   FetchFunction,
   EntrypointDef,
-} from '@awe-agents/types/core';
-import type { BuildAgentCardOptions } from '@awe-agents/types/a2a';
+} from '@AWEtoAgent/types/core';
+import type { BuildAgentCardOptions } from '@AWEtoAgent/types/a2a';
 import { z } from 'zod';
 
 function toJsonSchemaOrUndefined(s?: z.ZodTypeAny) {

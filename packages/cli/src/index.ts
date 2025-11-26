@@ -331,7 +331,7 @@ function parseArgs(args: string[]): ParsedArgs {
 }
 
 function printHelp(logger: RunLogger) {
-  logger.log('Usage: bunx @awe-agents/cli <app-name> [options]');
+  logger.log('Usage: bunx @AWEtoAgent/cli <app-name> [options]');
   logger.log('');
   logger.log('Options:');
   logger.log(
@@ -353,13 +353,13 @@ function printHelp(logger: RunLogger) {
   logger.log('  -h, --help            Show this help');
   logger.log('');
   logger.log('Examples:');
-  logger.log('  bunx @awe-agents/cli my-agent');
-  logger.log('  bunx @awe-agents/cli my-agent --network=solana-devnet');
-  logger.log('  bunx @awe-agents/cli my-agent --template=identity --install');
-  logger.log('  bunx @awe-agents/cli my-agent --wizard=no');
+  logger.log('  bunx @AWEtoAgent/cli my-agent');
+  logger.log('  bunx @AWEtoAgent/cli my-agent --network=solana-devnet');
+  logger.log('  bunx @AWEtoAgent/cli my-agent --template=identity --install');
+  logger.log('  bunx @AWEtoAgent/cli my-agent --wizard=no');
   logger.log('');
   logger.log('Non-interactive with template arguments:');
-  logger.log('  bunx @awe-agents/cli my-agent --template=identity \\');
+  logger.log('  bunx @AWEtoAgent/cli my-agent --template=identity \\');
   logger.log('    --non-interactive \\');
   logger.log('    --AGENT_DESCRIPTION="My agent" \\');
   logger.log('    --PAYMENTS_RECEIVABLE_ADDRESS="0x..."');

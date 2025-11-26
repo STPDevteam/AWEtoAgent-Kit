@@ -2,11 +2,11 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { createAgentHttpRuntime } from '@awe-agents/core';
+import { createAgentHttpRuntime } from '@AWEtoAgent/core';
 import {
   createAgentIdentity,
   generateAgentMetadata,
-} from '@awe-agents/identity';
+} from '@AWEtoAgent/identity';
 import { generatePrivateKey, privateKeyToAccount } from 'viem/accounts';
 
 type ServiceType = 'API_ACCESS' | 'AI_AGENT' | 'MCP_SERVICE';

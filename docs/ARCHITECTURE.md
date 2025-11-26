@@ -1,6 +1,6 @@
-# Awe Agents - SDK Architecture
+# AWEtoAgent - SDK Architecture
 
-High-level architecture overview of the Awe Agents SDK.
+High-level architecture overview of the AWEtoAgent SDK.
 
 ## Package Structure
 
@@ -9,30 +9,30 @@ The SDK is organized into four architectural layers:
 ```mermaid
 graph TB
     subgraph "Layer 0: Types"
-        types["@awe-agents/types<br/>Shared type definitions"]
+        types["@AWEtoAgent/types<br/>Shared type definitions"]
     end
 
     subgraph "Layer 1: Extensions"
-        identity["@awe-agents/identity<br/>ERC-8004 identity & trust"]
-        payments["@awe-agents/payments<br/>x402 bi-directional payments"]
-        wallet["@awe-agents/wallet<br/>Wallet connectors"]
-        a2a["@awe-agents/a2a<br/>A2A protocol support"]
-        ap2["@awe-agents/ap2<br/>AP2 extension"]
+        identity["@AWEtoAgent/identity<br/>ERC-8004 identity & trust"]
+        payments["@AWEtoAgent/payments<br/>x402 bi-directional payments"]
+        wallet["@AWEtoAgent/wallet<br/>Wallet connectors"]
+        a2a["@AWEtoAgent/a2a<br/>A2A protocol support"]
+        ap2["@AWEtoAgent/ap2<br/>AP2 extension"]
         future["Future extensions<br/>(monitoring, etc.)"]
     end
 
     subgraph "Layer 2: Core"
-        core["@awe-agents/core<br/>Core runtime"]
+        core["@AWEtoAgent/core<br/>Core runtime"]
     end
 
     subgraph "Layer 3: Adapters"
-        hono["@awe-agents/hono<br/>Hono framework adapter"]
-        tanstack["@awe-agents/tanstack<br/>TanStack Start adapter"]
+        hono["@AWEtoAgent/hono<br/>Hono framework adapter"]
+        tanstack["@AWEtoAgent/tanstack<br/>TanStack Start adapter"]
         express["Future: Express adapter"]
     end
 
     subgraph "Layer 4: Developer Tools"
-        cli["@awe-agents/cli<br/>CLI scaffolding tool"]
+        cli["@AWEtoAgent/cli<br/>CLI scaffolding tool"]
         templates["Templates<br/>(blank, axllm, identity, etc.)"]
     end
 
@@ -128,13 +128,13 @@ graph LR
     style cli fill:#e57373
 ```
 
-Note: Dependencies are one-directional. @awe-agents/core imports from extensions (both types and runtime functions). All packages import shared types from @awe-agents/types. This pure DAG structure eliminates circular dependencies.
+Note: Dependencies are one-directional. @AWEtoAgent/core imports from extensions (both types and runtime functions). All packages import shared types from @AWEtoAgent/types. This pure DAG structure eliminates circular dependencies.
 
 ## Layer 1: Extensions
 
 Extensions add optional capabilities. They are independent and don't depend on each other.
 
-### @awe-agents/identity
+### @AWEtoAgent/identity
 
 **Purpose:** ERC-8004 on-chain identity and trust layer
 
@@ -149,7 +149,7 @@ Extensions add optional capabilities. They are independent and don't depend on e
 
 ---
 
-### @awe-agents/payments
+### @AWEtoAgent/payments
 
 **Purpose:** x402 payment protocol (bi-directional)
 
@@ -165,7 +165,7 @@ Extensions add optional capabilities. They are independent and don't depend on e
 
 ---
 
-### @awe-agents/wallet
+### @AWEtoAgent/wallet
 
 **Purpose:** Wallet connectors and helpers for agent operations
 
@@ -179,7 +179,7 @@ Extensions add optional capabilities. They are independent and don't depend on e
 
 ---
 
-### @awe-agents/a2a
+### @AWEtoAgent/a2a
 
 **Purpose:** Agent-to-Agent (A2A) protocol implementation
 
@@ -191,11 +191,11 @@ Extensions add optional capabilities. They are independent and don't depend on e
 - Multi-turn conversation support with contextId
 - A2A runtime integration
 
-**Dependencies:** `@awe-agents/types`, `zod`
+**Dependencies:** `@AWEtoAgent/types`, `zod`
 
 ---
 
-### @awe-agents/ap2
+### @AWEtoAgent/ap2
 
 **Purpose:** AP2 (Agent Payments Protocol) extension
 
@@ -205,11 +205,11 @@ Extensions add optional capabilities. They are independent and don't depend on e
 - Agent Card enhancement with AP2 extension metadata
 - AP2 role management (merchant, shopper)
 
-**Dependencies:** `@awe-agents/types`
+**Dependencies:** `@AWEtoAgent/types`
 
 ## Layer 2: Core
 
-### @awe-agents/core
+### @AWEtoAgent/core
 
 **Purpose:** Framework-agnostic agent runtime
 
@@ -223,13 +223,13 @@ Extensions add optional capabilities. They are independent and don't depend on e
 - Configuration management
 - Landing page UI
 
-**Dependencies:** `@awe-agents/payments`, `@awe-agents/identity`, `@awe-agents/wallet`, `@awe-agents/a2a`, `@awe-agents/ap2`
+**Dependencies:** `@AWEtoAgent/payments`, `@AWEtoAgent/identity`, `@AWEtoAgent/wallet`, `@AWEtoAgent/a2a`, `@AWEtoAgent/ap2`
 
 ## Layer 3: Adapters
 
 Adapters integrate the core runtime with specific web frameworks.
 
-### @awe-agents/hono
+### @AWEtoAgent/hono
 
 **Purpose:** Hono framework integration
 
@@ -239,11 +239,11 @@ Adapters integrate the core runtime with specific web frameworks.
 - `withPayments()` - x402-hono middleware wrapper
 - Automatic route registration for tasks, entrypoints, manifest
 
-**Dependencies:** `@awe-agents/core`, `hono`, `x402-hono`
+**Dependencies:** `@AWEtoAgent/core`, `hono`, `x402-hono`
 
 ---
 
-### @awe-agents/tanstack
+### @AWEtoAgent/tanstack
 
 **Purpose:** TanStack Start framework integration
 
@@ -253,11 +253,11 @@ Adapters integrate the core runtime with specific web frameworks.
 - `withPayments()` - x402-tanstack middleware wrapper
 - Route files for tasks, entrypoints, manifest
 
-**Dependencies:** `@awe-agents/core`, `@tanstack/start`, `x402-tanstack-start`
+**Dependencies:** `@AWEtoAgent/core`, `@tanstack/start`, `x402-tanstack-start`
 
 ---
 
-### @awe-agents/express
+### @AWEtoAgent/express
 
 **Purpose:** Express framework integration
 
@@ -267,11 +267,11 @@ Adapters integrate the core runtime with specific web frameworks.
 - `withPayments()` - x402 Express middleware wrapper
 - Automatic route registration for tasks, entrypoints, manifest
 
-**Dependencies:** `@awe-agents/core`, `express`, `x402-express`
+**Dependencies:** `@AWEtoAgent/core`, `express`, `x402-express`
 
 ## Layer 4: Developer Tools
 
-### @awe-agents/cli
+### @AWEtoAgent/cli
 
 **Purpose:** CLI for scaffolding new agent projects
 
@@ -282,7 +282,7 @@ Adapters integrate the core runtime with specific web frameworks.
 - Adapter selection (hono, tanstack-ui, tanstack-headless, express)
 - Merge system (combines adapter + template)
 
-**Dependencies:** All @awe-agents packages
+**Dependencies:** All @AWEtoAgent packages
 
 ## Developer Flow
 
@@ -396,32 +396,32 @@ Note: All extension packages (identity, payments, wallet, a2a, ap2) are independ
 
 | Package                  | Responsibility                                               |
 | ------------------------ | ------------------------------------------------------------ |
-| `@awe-agents/types`    | Shared type definitions (zero dependencies)                  |
-| `@awe-agents/identity` | ERC-8004 on-chain identity, registries, trust models         |
-| `@awe-agents/payments` | x402 protocol, EntrypointDef, pricing, payment client/server |
-| `@awe-agents/wallet`   | Wallet connectors and helpers for agent operations           |
-| `@awe-agents/a2a`      | A2A protocol implementation, Agent Cards, task operations    |
-| `@awe-agents/ap2`      | AP2 extension for Agent Cards                                |
-| `@awe-agents/core`     | Core runtime, HTTP handlers, SSE, manifest, config, UI       |
-| `@awe-agents/hono`     | Hono framework integration, middleware wiring                |
-| `@awe-agents/tanstack` | TanStack framework integration, middleware wiring            |
-| `@awe-agents/express`  | Express framework integration, middleware wiring             |
-| `@awe-agents/cli`      | CLI tool, templates, project scaffolding                     |
+| `@AWEtoAgent/types`    | Shared type definitions (zero dependencies)                  |
+| `@AWEtoAgent/identity` | ERC-8004 on-chain identity, registries, trust models         |
+| `@AWEtoAgent/payments` | x402 protocol, EntrypointDef, pricing, payment client/server |
+| `@AWEtoAgent/wallet`   | Wallet connectors and helpers for agent operations           |
+| `@AWEtoAgent/a2a`      | A2A protocol implementation, Agent Cards, task operations    |
+| `@AWEtoAgent/ap2`      | AP2 extension for Agent Cards                                |
+| `@AWEtoAgent/core`     | Core runtime, HTTP handlers, SSE, manifest, config, UI       |
+| `@AWEtoAgent/hono`     | Hono framework integration, middleware wiring                |
+| `@AWEtoAgent/tanstack` | TanStack framework integration, middleware wiring            |
+| `@AWEtoAgent/express`  | Express framework integration, middleware wiring             |
+| `@AWEtoAgent/cli`      | CLI tool, templates, project scaffolding                     |
 
 ## Extension Independence
 
 ```mermaid
 graph TB
     subgraph "Independent Extensions"
-        identity[@awe-agents/identity<br/>ERC-8004 identity]
-        payments[@awe-agents/payments<br/>x402 payments]
-        wallet[@awe-agents/wallet<br/>Wallet connectors]
-        a2a[@awe-agents/a2a<br/>A2A protocol]
-        ap2[@awe-agents/ap2<br/>AP2 extension]
+        identity[@AWEtoAgent/identity<br/>ERC-8004 identity]
+        payments[@AWEtoAgent/payments<br/>x402 payments]
+        wallet[@AWEtoAgent/wallet<br/>Wallet connectors]
+        a2a[@AWEtoAgent/a2a<br/>A2A protocol]
+        ap2[@AWEtoAgent/ap2<br/>AP2 extension]
     end
 
     subgraph "Core"
-        core[@awe-agents/core<br/>Uses all extensions]
+        core[@AWEtoAgent/core<br/>Uses all extensions]
     end
 
     identity -.->|optional| core
@@ -442,11 +442,11 @@ Extensions are independent modules that core can optionally use. They don't depe
 
 ## Types Package
 
-`@awe-agents/types` is the foundational package containing all shared type definitions.
+`@AWEtoAgent/types` is the foundational package containing all shared type definitions.
 
 ### Key Characteristics
 
-- **Zero dependencies** on other @awe-agents packages
+- **Zero dependencies** on other @AWEtoAgent packages
 - **Only external dependencies**: zod, x402
 - **Pure TypeScript types** - no runtime code
 - **Single source of truth** for type contracts
@@ -460,17 +460,17 @@ Extensions are independent modules that core can optionally use. They don't depe
 
 ### Architecture Benefits
 
-All packages import from @awe-agents/types, creating a clean dependency DAG:
+All packages import from @AWEtoAgent/types, creating a clean dependency DAG:
 
 ```mermaid
 graph TD
-    types[@awe-agents/types]
-    identity[@awe-agents/identity]
-    payments[@awe-agents/payments]
-    core[@awe-agents/core]
-    hono[@awe-agents/hono]
-    tanstack[@awe-agents/tanstack]
-    cli[@awe-agents/cli]
+    types[@AWEtoAgent/types]
+    identity[@AWEtoAgent/identity]
+    payments[@AWEtoAgent/payments]
+    core[@AWEtoAgent/core]
+    hono[@AWEtoAgent/hono]
+    tanstack[@AWEtoAgent/tanstack]
+    cli[@AWEtoAgent/cli]
 
     types --> identity
     types --> payments
@@ -498,15 +498,15 @@ Planned extensions and adapters:
 ```mermaid
 graph TB
     subgraph "Existing"
-        identity_now[@awe-agents/identity]
-        payments_now[@awe-agents/payments]
-        wallet_now[@awe-agents/wallet]
-        a2a_now[@awe-agents/a2a]
-        ap2_now[@awe-agents/ap2]
-        core_now[@awe-agents/core]
-        hono_now[@awe-agents/hono]
-        tanstack_now[@awe-agents/tanstack]
-        express_now[@awe-agents/express]
+        identity_now[@AWEtoAgent/identity]
+        payments_now[@AWEtoAgent/payments]
+        wallet_now[@AWEtoAgent/wallet]
+        a2a_now[@AWEtoAgent/a2a]
+        ap2_now[@AWEtoAgent/ap2]
+        core_now[@AWEtoAgent/core]
+        hono_now[@AWEtoAgent/hono]
+        tanstack_now[@AWEtoAgent/tanstack]
+        express_now[@AWEtoAgent/express]
     end
 
     subgraph "Planned Extensions"
@@ -533,7 +533,7 @@ graph TB
 
 ## Summary
 
-The Awe Agents SDK follows a **layered, modular architecture**:
+The AWEtoAgent SDK follows a **layered, modular architecture**:
 
 1. **Extensions** - Independent capabilities (identity, payments)
 2. **Core** - Framework-agnostic runtime

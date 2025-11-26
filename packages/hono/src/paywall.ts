@@ -2,9 +2,9 @@ import type { Hono } from 'hono';
 import { paymentMiddleware } from 'x402-hono';
 import type { FacilitatorConfig } from 'x402/types';
 import { toJsonSchemaOrUndefined } from './utils';
-import type { EntrypointDef } from '@awe-agents/types/core';
-import type { PaymentsConfig } from '@awe-agents/types/payments';
-import { resolvePrice, validatePaymentsConfig } from '@awe-agents/payments';
+import type { EntrypointDef } from '@AWEtoAgent/types/core';
+import type { PaymentsConfig } from '@AWEtoAgent/types/payments';
+import { resolvePrice, validatePaymentsConfig } from '@AWEtoAgent/payments';
 
 type PaymentMiddlewareFactory = typeof paymentMiddleware;
 

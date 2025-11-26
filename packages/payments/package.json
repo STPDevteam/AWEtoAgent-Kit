@@ -1,10 +1,10 @@
 {
-  "name": "@awe-agents/payments",
+  "name": "@AWEtoAgent/payments",
   "version": "1.7.0",
   "description": "Payment logic for bidirectional agent-to-agent payments",
   "repository": {
     "type": "git",
-    "url": "https://github.com/awe-x402/awe-agents",
+    "url": "https://github.com/awe-x402/AWEtoAgent-Kit",
     "directory": "packages/payments"
   },
   "type": "module",
@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@ax-llm/ax": "catalog:",
-    "@awe-agents/types": "workspace:*",
+    "@AWEtoAgent/types": "workspace:*",
     "x402-fetch": "catalog:",
     "x402": "^0.7.1",
     "viem": "^2.38.5",

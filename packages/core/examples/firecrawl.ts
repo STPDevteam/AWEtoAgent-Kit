@@ -1,6 +1,6 @@
 import { z } from 'zod';
-import { createAgentApp } from '@awe-agents/hono';
-import { AgentKitConfig, createAxLLMClient } from '@awe-agents/core';
+import { createAgentApp } from '@AWEtoAgent/hono';
+import { AgentKitConfig, createAxLLMClient } from '@AWEtoAgent/core';
 import { flow } from '@ax-llm/ax';
 import {
   createSigner,

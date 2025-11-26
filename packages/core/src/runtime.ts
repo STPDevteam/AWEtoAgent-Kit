@@ -1,23 +1,23 @@
-import { createA2ARuntime } from '@awe-agents/a2a';
-import { createAgentCardWithAP2, createAP2Runtime } from '@awe-agents/ap2';
-import { createAgentCardWithIdentity } from '@awe-agents/identity';
+import { createA2ARuntime } from '@AWEtoAgent/a2a';
+import { createAgentCardWithAP2, createAP2Runtime } from '@AWEtoAgent/ap2';
+import { createAgentCardWithIdentity } from '@AWEtoAgent/identity';
 import {
   createAgentCardWithPayments,
   createPaymentsRuntime,
-} from '@awe-agents/payments';
-import type { AP2Config } from '@awe-agents/types/ap2';
+} from '@AWEtoAgent/payments';
+import type { AP2Config } from '@AWEtoAgent/types/ap2';
 import type {
   AgentCardWithEntrypoints,
   AgentKitConfig,
   AgentMeta,
   AgentRuntime,
-} from '@awe-agents/types/core';
-import type { TrustConfig } from '@awe-agents/types/identity';
+} from '@AWEtoAgent/types/core';
+import type { TrustConfig } from '@AWEtoAgent/types/identity';
 import type {
   PaymentsConfig,
   PaymentsRuntime,
-} from '@awe-agents/types/payments';
-import { createWalletsRuntime } from '@awe-agents/wallet';
+} from '@AWEtoAgent/types/payments';
+import { createWalletsRuntime } from '@AWEtoAgent/wallet';
 
 import { getAgentKitConfig, setActiveInstanceConfig } from './config/config';
 import { type AgentCore, createAgentCore } from './core/agent';

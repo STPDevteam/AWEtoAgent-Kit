@@ -2,7 +2,7 @@
  * Shared utilities for ERC-8004 registry clients
  */
 
-import type { Hex } from '@awe-agents/wallet';
+import type { Hex } from '@AWEtoAgent/wallet';
 
 /**
  * Type for public clients that support waiting for transaction receipts

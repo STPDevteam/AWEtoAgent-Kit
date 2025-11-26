@@ -1,21 +1,21 @@
 <div align="center">
-  <h1>Awe Agents</h1>
+  <h1>AWEtoAgent</h1>
   <p><strong>The Multi-Runtime Framework for Building and Monetizing AI Agents</strong></p>
   <p>Build, deploy, and monetize autonomous AI agents with typed entrypoints, on-chain identity, and built-in payment infrastructure.</p>
 </div>
 
 <div align="center">
-  <a href="https://github.com/awe-x402/awe-agents/blob/master/LICENSE"><img src="https://img.shields.io/github/license/awe-x402/awe-agents?style=for-the-badge" alt="License"></a>
-  <a href="https://www.npmjs.com/package/@awe-agents/cli"><img src="https://img.shields.io/npm/v/@awe-agents/cli?style=for-the-badge" alt="NPM Version"></a>
-  <a href="https://github.com/awe-x402/awe-agents/actions"><img src="https://img.shields.io/github/actions/workflow/status/awe-x402/awe-agents/ci.yml?branch=master&style=for-the-badge" alt="CI Status"></a>
+  <a href="https://github.com/awe-x402/AWEtoAgent-Kit/blob/master/LICENSE"><img src="https://img.shields.io/github/license/awe-x402/AWEtoAgent-Kit?style=for-the-badge" alt="License"></a>
+  <a href="https://www.npmjs.com/package/@AWEtoAgent/cli"><img src="https://img.shields.io/npm/v/@AWEtoAgent/cli?style=for-the-badge" alt="NPM Version"></a>
+  <a href="https://github.com/awe-x402/AWEtoAgent-Kit/actions"><img src="https://img.shields.io/github/actions/workflow/status/awe-x402/AWEtoAgent-Kit/ci.yml?branch=master&style=for-the-badge" alt="CI Status"></a>
   <a href="https://bun.sh"><img src="https://img.shields.io/badge/runtime-bun-black?style=for-the-badge&logo=bun" alt="Bun"></a>
 </div>
 
 ---
 
-## What is Awe Agents?
+## What is AWEtoAgent?
 
-Awe Agents is a TypeScript-first framework for building and monetizing AI agents—an agentic commerce and payments SDK. Build AI agents that sell services, facilitate monetary transactions, and participate in agent-to-agent marketplaces.
+AWEtoAgent is a TypeScript-first framework for building and monetizing AI agents—an agentic commerce and payments SDK. Build AI agents that sell services, facilitate monetary transactions, and participate in agent-to-agent marketplaces.
 
 **Core Capabilities:**
 
@@ -31,7 +31,7 @@ Awe Agents is a TypeScript-first framework for building and monetizing AI agents
 - **Multi-Network Support**: EVM (Base, Ethereum, Sepolia) and Solana (mainnet, devnet) payment networks
 - **Developer Experience**: CLI scaffolding, hot reload, comprehensive examples, TypeScript strict mode, and ESM modules
 
-Whether you're building paid AI services, agent marketplaces, or multi-agent systems where agents transact with each other, Awe Agents provides the payments and commerce infrastructure you need.
+Whether you're building paid AI services, agent marketplaces, or multi-agent systems where agents transact with each other, AWEtoAgent provides the payments and commerce infrastructure you need.
 
 ---
 
@@ -50,7 +50,7 @@ Get your first monetized AI agent running in minutes.
 
 ```bash
 # Run CLI in interactive mode
-cd /path/to/awe-agents
+cd /path/to/AWEtoAgent-Kit
 node ./packages/cli/dist/index.js
 ```
 
@@ -171,7 +171,7 @@ curl http://localhost:3000/entrypoints
 # Invoke an entrypoint (example for echo template)
 curl -X POST http://localhost:3000/entrypoints/echo/invoke \
   -H "Content-Type: application/json" \
-  -d '{"input": {"text": "Hello, Awe Agents!"}}'
+  -d '{"input": {"text": "Hello, AWEtoAgent!"}}'
 ```
 
 ### Complete Registration Later (If Skipped)
@@ -195,11 +195,11 @@ bun run agent:onboard
 
 ## Architecture Overview
 
-Awe Agents is a TypeScript monorepo built for multi-runtime agent deployment with a layered architecture:
+AWEtoAgent is a TypeScript monorepo built for multi-runtime agent deployment with a layered architecture:
 
-- **Layer 0: Types** - Shared type definitions (`@awe-agents/types`)
+- **Layer 0: Types** - Shared type definitions (`@AWEtoAgent/types`)
 - **Layer 1: Extensions** - Optional capabilities (identity, payments, wallet, a2a, ap2)
-- **Layer 2: Core** - Framework-agnostic agent runtime (`@awe-agents/core`)
+- **Layer 2: Core** - Framework-agnostic agent runtime (`@AWEtoAgent/core`)
 - **Layer 3: Adapters** - Framework integrations (hono, tanstack, express, next)
 - **Layer 4: Developer Tools** - CLI scaffolding and templates
 
@@ -297,12 +297,12 @@ Awe Agents is a TypeScript monorepo built for multi-runtime agent deployment wit
 
 ### Core Packages
 
-#### [`@awe-agents/core`](packages/core/README.md)
+#### [`@AWEtoAgent/core`](packages/core/README.md)
 
 Core agent runtime with entrypoints, manifests, and streaming support.
 
 ```typescript
-import { createRuntime } from '@awe-agents/core';
+import { createRuntime } from '@AWEtoAgent/core';
 import { z } from 'zod';
 
 const runtime = createRuntime({
@@ -320,12 +320,12 @@ runtime.addEntrypoint({
 });
 ```
 
-#### [`@awe-agents/hono`](packages/hono/README.md)
+#### [`@AWEtoAgent/hono`](packages/hono/README.md)
 
 Hono adapter for building traditional HTTP servers.
 
 ```typescript
-import { createAgentApp } from '@awe-agents/hono';
+import { createAgentApp } from '@AWEtoAgent/hono';
 
 const { app, addEntrypoint } = createAgentApp({
   name: 'my-agent',
@@ -337,12 +337,12 @@ const { app, addEntrypoint } = createAgentApp({
 export default app; // Bun.serve or Hono serve
 ```
 
-#### [`@awe-agents/tanstack`](packages/tanstack/README.md)
+#### [`@AWEtoAgent/tanstack`](packages/tanstack/README.md)
 
 TanStack Start adapter with UI and headless variants.
 
 ```typescript
-import { createTanStackRuntime } from '@awe-agents/tanstack';
+import { createTanStackRuntime } from '@AWEtoAgent/tanstack';
 
 export const { runtime, handlers } = createTanStackRuntime({
   name: 'my-agent',
@@ -350,12 +350,12 @@ export const { runtime, handlers } = createTanStackRuntime({
 });
 ```
 
-#### [`@awe-agents/identity`](packages/identity/README.md)
+#### [`@AWEtoAgent/identity`](packages/identity/README.md)
 
 ERC-8004 toolkit for on-chain identity, reputation, and validation.
 
 ```typescript
-import { createAgentIdentity } from '@awe-agents/identity';
+import { createAgentIdentity } from '@AWEtoAgent/identity';
 
 const identity = await createAgentIdentity({
   domain: 'my-agent.example.com',
@@ -363,23 +363,23 @@ const identity = await createAgentIdentity({
 });
 ```
 
-#### [`@awe-agents/payments`](packages/payments/README.md)
+#### [`@AWEtoAgent/payments`](packages/payments/README.md)
 
 x402 payment utilities for multi-network payment handling.
 
 ```typescript
-import { paymentsFromEnv } from '@awe-agents/payments';
+import { paymentsFromEnv } from '@AWEtoAgent/payments';
 
 const payments = paymentsFromEnv();
 // Auto-detects EVM vs Solana from PAYMENTS_RECEIVABLE_ADDRESS format
 ```
 
-#### [`@awe-agents/a2a`](packages/a2a/README.md)
+#### [`@AWEtoAgent/a2a`](packages/a2a/README.md)
 
 A2A Protocol client for agent-to-agent communication.
 
 ```typescript
-import { fetchAndInvoke, sendMessage, waitForTask } from '@awe-agents/a2a';
+import { fetchAndInvoke, sendMessage, waitForTask } from '@AWEtoAgent/a2a';
 
 // Direct invocation
 const result = await fetchAndInvoke('https://other-agent.com', 'skillId', {
@@ -399,23 +399,23 @@ const { taskId } = await sendMessage(
 const task = await waitForTask(client, card, taskId);
 ```
 
-#### [`@awe-agents/ap2`](packages/ap2/README.md)
+#### [`@AWEtoAgent/ap2`](packages/ap2/README.md)
 
 AP2 (Agent Payments Protocol) extension for Agent Cards.
 
 ```typescript
-import { createAP2Runtime, createAgentCardWithAP2 } from '@awe-agents/ap2';
+import { createAP2Runtime, createAgentCardWithAP2 } from '@AWEtoAgent/ap2';
 
 const ap2Runtime = createAP2Runtime({ roles: ['merchant'] });
 const cardWithAP2 = createAgentCardWithAP2(baseCard, ap2Runtime.config);
 ```
 
-#### [`@awe-agents/wallet`](packages/wallet/README.md)
+#### [`@AWEtoAgent/wallet`](packages/wallet/README.md)
 
 Wallet SDK for agent and developer wallet management.
 
 ```typescript
-import { createAgentWallet } from '@awe-agents/wallet';
+import { createAgentWallet } from '@AWEtoAgent/wallet';
 
 const wallet = await createAgentWallet({
   type: 'local',
@@ -425,16 +425,16 @@ const wallet = await createAgentWallet({
 
 ### CLI Tool
 
-#### [`@awe-agents/cli`](packages/cli/README.md)
+#### [`@AWEtoAgent/cli`](packages/cli/README.md)
 
 CLI for scaffolding new agent projects with templates and interactive configuration.
 
 ```bash
 # Interactive mode
-bunx @awe-agents/cli
+bunx @AWEtoAgent/cli
 
 # With options
-bunx @awe-agents/cli my-agent \
+bunx @AWEtoAgent/cli my-agent \
   --adapter=tanstack-ui \
   --template=axllm \
   --non-interactive
@@ -450,8 +450,8 @@ Here's a complete example showing identity, payments, and LLM integration:
 
 ```typescript
 import { z } from 'zod';
-import { createAgentApp } from '@awe-agents/hono';
-import { createAgentIdentity, getTrustConfig } from '@awe-agents/identity';
+import { createAgentApp } from '@AWEtoAgent/hono';
+import { createAgentIdentity, getTrustConfig } from '@AWEtoAgent/identity';
 import { AI } from '@ax-llm/ax';
 
 // 1. Create on-chain identity
@@ -550,8 +550,8 @@ app.listen(port, () => {
 
 ```bash
 # Clone the repository
-git clone https://github.com/awe-x402/awe-agents.git
-cd awe-agents
+git clone https://github.com/awe-x402/AWEtoAgent-Kit.git
+cd AWEtoAgent-Kit
 
 # Install dependencies
 bun install
@@ -657,16 +657,16 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 ## Contributors
 
-<a href="https://github.com/awe-x402/awe-agents/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=awe-x402/awe-agents" alt="Contributors" />
+<a href="https://github.com/awe-x402/AWEtoAgent-Kit/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=awe-x402/AWEtoAgent-Kit" alt="Contributors" />
 </a>
 
 ---
 
 ## Star History
 
-<a href="https://star-history.com/#awe-x402/awe-agents&Date">
-  <img src="https://api.star-history.com/svg?repos=awe-x402/awe-agents&type=Date" alt="Star History Chart" />
+<a href="https://star-history.com/#awe-x402/AWEtoAgent-Kit&Date">
+  <img src="https://api.star-history.com/svg?repos=awe-x402/AWEtoAgent-Kit&type=Date" alt="Star History Chart" />
 </a>
 
 ---
@@ -674,8 +674,8 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 <div align="center">
   <p>Built with ❤️ by the Awe team</p>
   <p>
-    <a href="https://github.com/awe-x402/awe-agents">GitHub</a> •
-    <a href="https://www.npmjs.com/org/awe-agents">npm</a> •
+    <a href="https://github.com/awe-x402/AWEtoAgent-Kit">GitHub</a> •
+    <a href="https://www.npmjs.com/org/AWEtoAgent">npm</a> •
     <a href="https://twitter.com/awe-x402">Twitter</a>
   </p>
 </div>

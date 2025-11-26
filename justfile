@@ -138,7 +138,7 @@ release:
 
 # Show help
 help:
-    @echo -e $'{{BOLD}}{{GREEN}}Awe Agents Development Commands{{RESET}}'
+    @echo -e $'{{BOLD}}{{GREEN}}AWEtoAgent Development Commands{{RESET}}'
     @echo -e $'{{BOLD}}{{CYAN}}Quick Start:{{RESET}}'
     @echo -e $'  just install-all  # Install dependencies'
     @echo -e $'  just build-all    # Build all packages'

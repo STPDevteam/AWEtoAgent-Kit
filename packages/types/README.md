@@ -1,10 +1,10 @@
-# @awe-agents/types
+# @AWEtoAgent/types
 
 Shared TypeScript type definitions for the awe-agents framework.
 
 ## Overview
 
-This package provides the core type definitions used across all awe-agents packages. It has **zero dependencies** on other `@awe-agents` packages, making it a pure leaf package in the dependency graph.
+This package provides the core type definitions used across all awe-agents packages. It has **zero dependencies** on other `@AWEtoAgent` packages, making it a pure leaf package in the dependency graph.
 
 ## What's Included
 
@@ -17,7 +17,7 @@ This package provides the core type definitions used across all awe-agents packa
 ## Installation
 
 ```bash
-bun add @awe-agents/types
+bun add @AWEtoAgent/types
 ```
 
 ## Usage
@@ -28,7 +28,7 @@ import type {
   EntrypointDef,
   PaymentsConfig,
   Network,
-} from '@awe-agents/types';
+} from '@AWEtoAgent/types';
 
 const meta: AgentMeta = {
   name: 'my-agent',
@@ -61,7 +61,7 @@ This package follows the **types-in-core** pattern used by mature TypeScript fra
 
 ## Dependencies
 
-This package has no dependencies on other `@awe-agents` packages. It only depends on:
+This package has no dependencies on other `@AWEtoAgent` packages. It only depends on:
 
 - `zod` (peer dependency for type inference)
 - `x402` (for `Network` type re-export)

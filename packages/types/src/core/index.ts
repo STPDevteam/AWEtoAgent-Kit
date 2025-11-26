@@ -379,13 +379,13 @@ export type ManifestRuntime = {
 /**
  * Agent runtime interface.
  * This type is defined in the types package to avoid circular dependencies
- * between @awe-agents/core and @awe-agents/payments.
+ * between @AWEtoAgent/core and @AWEtoAgent/payments.
  *
- * The actual implementation is in @awe-agents/core.
+ * The actual implementation is in @AWEtoAgent/core.
  */
 export type AgentRuntime = {
   /**
-   * Agent core instance. The actual type is AgentCore from @awe-agents/core.
+   * Agent core instance. The actual type is AgentCore from @AWEtoAgent/core.
    * Using `any` here to avoid circular dependency - the type will be properly
    * inferred when used with the actual runtime implementation.
    */

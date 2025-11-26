@@ -1,10 +1,10 @@
 {
-  "name": "@awe-agents/a2a",
+  "name": "@AWEtoAgent/a2a",
   "version": "0.2.0",
   "description": "Agent-to-Agent (A2A) protocol support for Lucid agents",
   "repository": {
     "type": "git",
-    "url": "https://github.com/awe-x402/awe-agents",
+    "url": "https://github.com/awe-x402/AWEtoAgent-Kit",
     "directory": "packages/a2a"
   },
   "type": "module",
@@ -33,12 +33,12 @@
     "test": "bun test"
   },
   "dependencies": {
-    "@awe-agents/types": "workspace:*",
+    "@AWEtoAgent/types": "workspace:*",
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@awe-agents/hono": "workspace:*",
-    "@awe-agents/core": "workspace:*",
+    "@AWEtoAgent/hono": "workspace:*",
+    "@AWEtoAgent/core": "workspace:*",
     "tsup": "catalog:",
     "typescript": "catalog:"
   }

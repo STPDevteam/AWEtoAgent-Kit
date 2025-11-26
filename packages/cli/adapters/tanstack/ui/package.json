@@ -12,8 +12,8 @@
     "agent:onboard": "bun run scripts/onboard-agent.ts"
   },
   "dependencies": {
-    "@awe-agents/core": "latest",
-    "@awe-agents/tanstack": "latest",
+    "@AWEtoAgent/core": "latest",
+    "@AWEtoAgent/tanstack": "latest",
     "@reown/appkit": "^1.8.12",
     "@reown/appkit-adapter-solana": "^1.8.12",
     "@reown/appkit-adapter-wagmi": "^1.8.12",

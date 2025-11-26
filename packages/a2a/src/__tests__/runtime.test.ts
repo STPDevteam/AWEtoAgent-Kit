@@ -1,5 +1,5 @@
 import { describe, expect, it, mock } from 'bun:test';
-import type { AgentRuntime } from '@awe-agents/types/core';
+import type { AgentRuntime } from '@AWEtoAgent/types/core';
 import { z } from 'zod';
 
 import { createA2ARuntime } from '../runtime';

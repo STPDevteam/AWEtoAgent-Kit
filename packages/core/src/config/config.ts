@@ -1,6 +1,6 @@
-import { paymentsFromEnv } from '@awe-agents/payments';
-import type { AgentKitConfig } from '@awe-agents/types/core';
-import { walletsFromEnv } from '@awe-agents/wallet';
+import { paymentsFromEnv } from '@AWEtoAgent/payments';
+import type { AgentKitConfig } from '@AWEtoAgent/types/core';
+import { walletsFromEnv } from '@AWEtoAgent/wallet';
 
 import { hasDefinedValue } from '../utils/utils';
 

@@ -1,4 +1,4 @@
-import { createTanStackPaywall } from '@awe-agents/tanstack';
+import { createTanStackPaywall } from '@AWEtoAgent/tanstack';
 import { createFileRoute } from '@tanstack/react-router';
 
 import { handlers, runtime } from '@/lib/agent';
