@@ -6,7 +6,7 @@
 
 <div align="center">
   <a href="https://github.com/awe-x402/AWEtoAgent-Kit/blob/master/LICENSE"><img src="https://img.shields.io/github/license/awe-x402/AWEtoAgent-Kit?style=for-the-badge" alt="License"></a>
-  <a href="https://www.npmjs.com/package/@AWEtoAgent/cli"><img src="https://img.shields.io/npm/v/@AWEtoAgent/cli?style=for-the-badge" alt="NPM Version"></a>
+  <a href="https://www.npmjs.com/package/@aweto-agent/cli"><img src="https://img.shields.io/npm/v/@aweto-agent/cli?style=for-the-badge" alt="NPM Version"></a>
   <a href="https://github.com/awe-x402/AWEtoAgent-Kit/actions"><img src="https://img.shields.io/github/actions/workflow/status/awe-x402/AWEtoAgent-Kit/ci.yml?branch=master&style=for-the-badge" alt="CI Status"></a>
   <a href="https://bun.sh"><img src="https://img.shields.io/badge/runtime-bun-black?style=for-the-badge&logo=bun" alt="Bun"></a>
 </div>
