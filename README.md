@@ -5,9 +5,9 @@
 </div>
 
 <div align="center">
-  <a href="https://github.com/awe-x402/AWEtoAgent-Kit/blob/master/LICENSE"><img src="https://img.shields.io/github/license/awe-x402/AWEtoAgent-Kit?style=for-the-badge" alt="License"></a>
-  <a href="https://www.npmjs.com/package/@AWEtoAgent/cli"><img src="https://img.shields.io/npm/v/@AWEtoAgent/cli?style=for-the-badge" alt="NPM Version"></a>
-  <a href="https://github.com/awe-x402/AWEtoAgent-Kit/actions"><img src="https://img.shields.io/github/actions/workflow/status/awe-x402/AWEtoAgent-Kit/ci.yml?branch=master&style=for-the-badge" alt="CI Status"></a>
+  <a href="https://github.com/STPDevteam/AWEtoAgent-Kit/blob/master/LICENSE"><img src="https://img.shields.io/github/license/STPDevteam/AWEtoAgent-Kit?style=for-the-badge" alt="License"></a>
+  <a href="https://www.npmjs.com/package/@aweto-agent/cli"><img src="https://img.shields.io/npm/v/@aweto-agent/cli?style=for-the-badge" alt="NPM Version"></a>
+  <a href="https://github.com/STPDevteam/AWEtoAgent-Kit/actions"><img src="https://img.shields.io/github/actions/workflow/status/STPDevteam/AWEtoAgent-Kit/ci.yml?branch=master&style=for-the-badge" alt="CI Status"></a>
   <a href="https://bun.sh"><img src="https://img.shields.io/badge/runtime-bun-black?style=for-the-badge&logo=bun" alt="Bun"></a>
 </div>
 
@@ -119,7 +119,7 @@ Auto-register on ERC-8004 registry? Y
 
 **Step 6: Configure Wallet**
 ```
-Agent wallet private key (leave blank to auto-generate): 
+Agent wallet private key (leave blank to auto-generate):
   - Leave blank: Auto-generates new wallet (requires funding later)
   - Enter private key: Uses existing funded wallet for immediate registration
 ```
@@ -550,7 +550,7 @@ app.listen(port, () => {
 
 ```bash
 # Clone the repository
-git clone https://github.com/awe-x402/AWEtoAgent-Kit.git
+git clone https://github.com/STPDevteam/AWEtoAgent-Kit.git
 cd AWEtoAgent-Kit
 
 # Install dependencies
@@ -657,25 +657,26 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 ## Contributors
 
-<a href="https://github.com/awe-x402/AWEtoAgent-Kit/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=awe-x402/AWEtoAgent-Kit" alt="Contributors" />
+<a href="https://github.com/STPDevteam/AWEtoAgent-Kit/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=STPDevteam/AWEtoAgent-Kit" alt="Contributors" />
 </a>
 
 ---
 
 ## Star History
 
-<a href="https://star-history.com/#awe-x402/AWEtoAgent-Kit&Date">
-  <img src="https://api.star-history.com/svg?repos=awe-x402/AWEtoAgent-Kit&type=Date" alt="Star History Chart" />
+<a href="https://star-history.com/#STPDevteam/AWEtoAgent-Kit&Date">
+  <img src="https://api.star-history.com/svg?repos=STPDevteam/AWEtoAgent-Kit&type=Date" alt="Star History Chart" />
 </a>
 
 ---
 
 <div align="center">
-  <p>Built with ❤️ by the Awe team</p>
+  <p>Originally forked from <a href="https://github.com/daydreamsai/lucid-agents">Daydreams</a> — grateful for their foundational work.</p>
+  <p>Built with ❤️ by the AWE team</p>
   <p>
-    <a href="https://github.com/awe-x402/AWEtoAgent-Kit">GitHub</a> •
-    <a href="https://www.npmjs.com/org/AWEtoAgent">npm</a> •
-    <a href="https://twitter.com/awe-x402">Twitter</a>
+    <a href="https://github.com/STPDevteam/AWEtoAgent-Kit">GitHub</a> •
+    <a href="https://www.npmjs.com/package/@aweto-agent/cli">npm</a> •
+    <a href="https://x.com/awenetwork_ai">X (Twitter)</a>
   </p>
 </div>
