@@ -12,7 +12,7 @@
     "agent:onboard": "bun run scripts/onboard-agent.ts"
   },
   "dependencies": {
-    "@AWEtoAgent/core": "latest",
+    "@AWEtoAgent/core": "workspace:*",
     "@tanstack/react-query": "^5.90.6",
     "@reown/appkit": "^1.8.12",
     "@reown/appkit-adapter-solana": "^1.8.12",

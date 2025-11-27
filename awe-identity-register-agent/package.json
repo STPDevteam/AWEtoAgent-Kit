@@ -11,10 +11,10 @@
     "agent:onboard": "bun run scripts/onboard-agent.ts"
   },
   "dependencies": {
-    "@AWEtoAgent/core": "latest",
-    "@AWEtoAgent/hono": "latest",
-    "zod": "^4.1.12",
-    "@AWEtoAgent/wallet": "latest"
+    "@AWEtoAgent/core": "workspace:*",
+    "@AWEtoAgent/hono": "workspace:*",
+    "@AWEtoAgent/wallet": "workspace:*",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "bun-types": "^1.3.0",

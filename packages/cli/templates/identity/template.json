@@ -5,8 +5,8 @@
   "adapters": ["hono", "express", "tanstack-ui", "tanstack-headless", "next"],
   "package": {
     "dependencies": {
-      "@AWEtoAgent/identity": "latest",
-      "@AWEtoAgent/wallet": "latest",
+      "@AWEtoAgent/identity": "workspace:*",
+      "@AWEtoAgent/wallet": "workspace:*",
       "viem": "^2.21.26"
     }
   },

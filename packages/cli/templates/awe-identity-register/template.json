@@ -5,7 +5,7 @@
   "adapters": ["hono", "express", "tanstack-ui", "tanstack-headless", "next"],
   "package": {
     "dependencies": {
-      "@AWEtoAgent/wallet": "latest"
+      "@AWEtoAgent/wallet": "workspace:*"
     }
   },
   "wizard": {

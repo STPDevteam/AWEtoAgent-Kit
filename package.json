@@ -3,7 +3,7 @@
   "workspaces": {
     "packages": [
       "packages/*",
-      "identity-no-register-agent"
+      "awe-identity-register-agent"
     ],
     "catalog": {
       "zod": "^4.1.12",

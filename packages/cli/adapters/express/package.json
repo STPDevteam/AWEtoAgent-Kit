@@ -11,8 +11,8 @@
     "agent:onboard": "bun run scripts/onboard-agent.ts"
   },
   "dependencies": {
-    "@AWEtoAgent/core": "latest",
-    "@AWEtoAgent/express": "latest",
+    "@AWEtoAgent/core": "workspace:*",
+    "@AWEtoAgent/express": "workspace:*",
     "express": "^4.19.2",
     "zod": "^4.1.12"
   },
