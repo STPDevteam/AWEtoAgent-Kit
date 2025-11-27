@@ -1,5 +1,7 @@
 # @lucid-agents/identity
 
+## 1.7.7
+
 ## 1.7.6
 
 ## 1.7.5

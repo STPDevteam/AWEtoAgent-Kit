@@ -1,5 +1,15 @@
 # @lucid-agents/cli
 
+## 1.7.7
+
+### Patch Changes
+
+- eaad80a: Update adapter dependencies to use @aweto-agent/core@1.7.5
+- Updated dependencies
+- Updated dependencies [eaad80a]
+  - @aweto-agent/core@1.7.7
+  - @aweto-agent/identity@1.7.7
+
 ## 1.7.6
 
 ### Patch Changes

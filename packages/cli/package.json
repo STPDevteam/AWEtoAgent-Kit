@@ -1,6 +1,6 @@
 {
   "name": "@aweto-agent/cli",
-  "version": "1.7.6",
+  "version": "1.7.7",
   "description": "Scaffold a Bun agent app powered by @aweto-agent/core.",
   "repository": {
     "type": "git",
@@ -37,8 +37,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@aweto-agent/core": "^1.7.6",
-    "@aweto-agent/identity": "^1.7.6",
+    "@aweto-agent/core": "^1.7.7",
+    "@aweto-agent/identity": "^1.7.7",
     "viem": "^2.21.26"
   },
   "devDependencies": {
