@@ -63,7 +63,7 @@ config: {
   wallets: {
     agent: {
       type: 'private-key',
-      privateKey: process.env.AGENT_WALLET_PRIVATE_KEY,
+      privateKey: process.env.PRIVATE_KEY,
     },
   },
 }
@@ -124,4 +124,3 @@ addEntrypoint({
 - Add risk management
 - Implement backtesting
 - Add streaming for real-time signals
-

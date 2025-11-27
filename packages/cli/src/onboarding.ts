@@ -41,17 +41,17 @@ export async function ensureAgentWalletConfig(params: {
 }): Promise<void> {
   const { targetDir, wizardAnswers, logger } = params;
   const walletPath = path.join(targetDir, WALLET_FILENAME);
-  const existingAnswer = getStringAnswer(wizardAnswers, 'AGENT_WALLET_PRIVATE_KEY');
+  const existingAnswer = getStringAnswer(wizardAnswers, 'PRIVATE_KEY');
 
   if (existingAnswer && existingAnswer.trim().length > 0) {
     const normalized = normalizePrivateKey(existingAnswer);
-    wizardAnswers.set('AGENT_WALLET_PRIVATE_KEY', normalized);
+    wizardAnswers.set('PRIVATE_KEY', normalized);
     logger.log('[cli] Using agent wallet provided via wizard answers.');
     return;
   }
 
   const walletRecord = await loadOrCreateWallet(walletPath, logger);
-  wizardAnswers.set('AGENT_WALLET_PRIVATE_KEY', walletRecord.privateKey);
+  wizardAnswers.set('PRIVATE_KEY', walletRecord.privateKey);
 }
 
 export async function runAutoOnboarding(params: {
@@ -75,7 +75,7 @@ export async function runAutoOnboarding(params: {
 
   logger.log(`[cli] Backend URL: ${backendBaseUrl}`);
 
-  const privateKey = getStringAnswer(wizardAnswers, 'AGENT_WALLET_PRIVATE_KEY');
+  const privateKey = getStringAnswer(wizardAnswers, 'PRIVATE_KEY');
   if (!privateKey) {
     throw new Error('Agent wallet private key not found.');
   }

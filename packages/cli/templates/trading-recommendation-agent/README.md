@@ -7,7 +7,7 @@ This agent buys trading data from a data agent and generates trading signals/rec
 ```sh
 bunx @aweto-agent/create-agent-kit recommendation-agent --template=trading-recommendation-agent --adapter=hono
 cd recommendation-agent
-# Set AGENT_WALLET_PRIVATE_KEY and DATA_AGENT_URL in .env
+# Set PRIVATE_KEY and DATA_AGENT_URL in .env
 bun run dev
 ```
 
@@ -28,7 +28,7 @@ You need a running data agent (created with `trading-data-agent` template) that 
 ### Environment Variables
 
 - `DATA_AGENT_URL` - URL of the data agent (default: http://localhost:3001)
-- `AGENT_WALLET_PRIVATE_KEY` - Wallet private key (pays for data)
+- `PRIVATE_KEY` - Wallet private key (pays for data)
 - `PAYMENTS_NETWORK` - Payment network (must match data agent: base-sepolia, base, solana-devnet, solana)
 
 ### Testing
@@ -53,4 +53,3 @@ The agent will automatically pay the data agent for the market data.
 4. Agent analyzes data → generates trading signal
 
 See `AGENTS.md` for detailed implementation guide.
-

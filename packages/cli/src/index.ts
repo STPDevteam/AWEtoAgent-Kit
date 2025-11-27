@@ -1251,7 +1251,9 @@ async function setupEnvironment(params: {
     // Convert to string, handling boolean false correctly
     const stringValue = value == null ? '' : String(value);
 
-    lines.push(`${prompt.key}=${stringValue}`);
+    // Map AGENT_WALLET_PRIVATE_KEY to PRIVATE_KEY for compatibility with createAxLLMClient
+    const envKey = prompt.key === 'AGENT_WALLET_PRIVATE_KEY' ? 'PRIVATE_KEY' : prompt.key;
+    lines.push(`${envKey}=${stringValue}`);
   }
 
   await fs.writeFile(envPath, lines.join('\n') + '\n', 'utf8');

@@ -12,10 +12,10 @@ const appOptions = {
   // Recommendation agent doesn't receive payments, but needs wallet to pay for data
   config: {
     wallets: {
-      agent: process.env.AGENT_WALLET_PRIVATE_KEY
+      agent: process.env.PRIVATE_KEY
         ? {
             type: 'private-key',
-            privateKey: process.env.AGENT_WALLET_PRIVATE_KEY,
+            privateKey: process.env.PRIVATE_KEY,
           }
         : undefined,
     },
@@ -253,4 +253,3 @@ addEntrypoint({
     };
   },
 });
-

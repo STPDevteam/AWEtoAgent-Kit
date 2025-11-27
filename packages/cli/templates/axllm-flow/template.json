@@ -131,7 +131,7 @@
         "defaultValue": "https://{{AGENT_DOMAIN}}/.well-known/agent-card.json"
       },
       {
-        "key": "AGENT_WALLET_PRIVATE_KEY",
+        "key": "PRIVATE_KEY",
         "type": "input",
         "message": "Agent wallet private key (leave blank to auto-generate)",
         "defaultValue": ""
