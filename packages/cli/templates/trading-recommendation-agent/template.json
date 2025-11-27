@@ -109,7 +109,7 @@
       {
         "key": "PAYMENTS_DEFAULT_PRICE",
         "type": "input",
-        "message": "Default price for entrypoints (micro USDC)",
+        "message": "Default price for entrypoints (micro USDC 1000 -> 0.001 USDC)",
         "defaultValue": "1000"
       },
       {

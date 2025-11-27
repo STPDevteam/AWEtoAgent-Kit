@@ -4,6 +4,9 @@ import { fileURLToPath } from 'node:url';
 const PACKAGE_ROOT = fileURLToPath(new URL('..', import.meta.url));
 const ADAPTER_FILES_ROOT = join(PACKAGE_ROOT, 'adapters');
 
+// Placeholder for price - will be replaced at generation time
+const PRICE_PLACEHOLDER = '{{ENTRYPOINT_DEFAULT_PRICE}}';
+
 export type AdapterSnippets = {
   imports: string;
   preSetup: string;
@@ -55,6 +58,7 @@ const adapterDefinitions: Record<string, AdapterDefinition> = {
       },
     };
   },
+  price: ${PRICE_PLACEHOLDER},
 });`,
       postSetup: ``,
       exports: `export { app };`,
@@ -89,6 +93,7 @@ const adapterDefinitions: Record<string, AdapterDefinition> = {
       },
     };
   },
+  price: ${PRICE_PLACEHOLDER},
 });`,
       postSetup: ``,
       exports: `export { app };`,
@@ -125,6 +130,7 @@ const { runtime, handlers } = tanstack;`,
       },
     };
   },
+  price: ${PRICE_PLACEHOLDER},
 });`,
       postSetup: ``,
       exports: `const { agent } = runtime;
@@ -163,6 +169,7 @@ const { runtime, handlers } = tanstack;`,
       },
     };
   },
+  price: ${PRICE_PLACEHOLDER},
 });`,
       postSetup: ``,
       exports: `const { agent } = runtime;
@@ -201,6 +208,7 @@ const { agent, handlers, addEntrypoint } = runtime;`,
       },
     };
   },
+  price: ${PRICE_PLACEHOLDER},
 });`,
       postSetup: ``,
       exports: `export { agent, handlers, runtime };`,

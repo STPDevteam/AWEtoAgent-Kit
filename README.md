@@ -107,7 +107,7 @@ Payment network:
 Select an option [1-4]: 1
 
 Payment address (0x... for EVM): 0xYourWalletAddress
-Default price for entrypoints (micro USDC): 1000
+Default price for entrypoints (micro USDC 1000 -> 0.001 USDC): 1000
 ```
 
 **Step 5: Configure Blockchain**

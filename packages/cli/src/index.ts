@@ -1065,6 +1065,17 @@ function buildTemplateReplacements(params: {
     }
   }
 
+  // Convert micro USDC to USDC price object for entrypoints
+  const microUsdcStr = answers.get('PAYMENTS_DEFAULT_PRICE');
+  let entrypointDefaultPrice = 'undefined';
+  if (typeof microUsdcStr === 'string' && microUsdcStr.length > 0) {
+    const microUsdc = Number(microUsdcStr);
+    if (!isNaN(microUsdc) && microUsdc > 0) {
+      const usdc = microUsdc / 1_000_000;
+      entrypointDefaultPrice = `{\n    invoke: "${usdc}",\n    stream: "${usdc}",\n  }`;
+    }
+  }
+
   return {
     ...answerEntries,
     AGENT_NAME: projectDirName,
@@ -1078,6 +1089,7 @@ function buildTemplateReplacements(params: {
     ADAPTER_ENTRYPOINT_REGISTRATION: snippets.entrypointRegistration,
     ADAPTER_POST_SETUP: snippets.postSetup,
     ADAPTER_EXPORTS: snippets.exports,
+    ENTRYPOINT_DEFAULT_PRICE: entrypointDefaultPrice,
     ...(adapter.buildReplacements
       ? adapter.buildReplacements({
           answers,
@@ -1195,6 +1207,8 @@ async function applyTemplateTransforms(
     );
 
     await fs.writeFile(agentTargetPath, mergedAgentContent, 'utf8');
+    // Replace placeholders in the generated agent.ts
+    await replaceTemplatePlaceholders(agentTargetPath, params.replacements);
   }
 
   await replaceTemplatePlaceholders(
