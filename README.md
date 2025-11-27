@@ -119,7 +119,7 @@ Auto-register on ERC-8004 registry? Y
 
 **Step 6: Configure Wallet**
 ```
-Agent wallet private key (leave blank to auto-generate): 
+Agent wallet private key (leave blank to auto-generate):
   - Leave blank: Auto-generates new wallet (requires funding later)
   - Enter private key: Uses existing funded wallet for immediate registration
 ```
@@ -672,10 +672,11 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 ---
 
 <div align="center">
-  <p>Built with ❤️ by the Awe team</p>
+  <p>Originally forked from <a href="https://github.com/daydreamsai/lucid-agents">Daydreams</a> — grateful for their foundational work.</p>
+  <p>Built with ❤️ by the AWE team</p>
   <p>
     <a href="https://github.com/awe-x402/AWEtoAgent-Kit">GitHub</a> •
-    <a href="https://www.npmjs.com/org/AWEtoAgent">npm</a> •
-    <a href="https://twitter.com/awe-x402">Twitter</a>
+    <a href="https://www.npmjs.com/package/@aweto-agent/cli">npm</a> •
+    <a href="https://x.com/awenetwork_ai">X (Twitter)</a>
   </p>
 </div>
