@@ -144,77 +144,78 @@ export async function runAutoOnboarding(params: {
       hasBalance = false;
       logger.warn(`[cli] ⚠️  Wallet ${walletAddress} has 0 ETH balance.`);
       if (!skipErc8004Registration) {
-        logger.warn(`[cli] Skipping ERC-8004 on-chain registration (requires gas fees).`);
-        logger.warn(`[cli] To complete registration later:`);
-        logger.warn(`[cli]   1. Fund the wallet with testnet ETH`);
-        logger.warn(`[cli]      Faucets for Base Sepolia:`);
-        logger.warn(`[cli]      - https://www.alchemy.com/faucets/base-sepolia`);
-        logger.warn(`[cli]      - https://faucets.chain.link/base-sepolia`);
-        logger.warn(`[cli]   2. Run: cd ${path.basename(params.targetDir)} && bun run agent:onboard`);
+      logger.warn(`[cli] Skipping ERC-8004 on-chain registration (requires gas fees).`);
+      logger.warn(`[cli] To complete registration later:`);
+      logger.warn(`[cli]   1. Fund the wallet with testnet ETH`);
+      logger.warn(`[cli]      Faucets for Base Sepolia:`);
+      logger.warn(`[cli]      - https://www.alchemy.com/faucets/base-sepolia`);
+      logger.warn(`[cli]      - https://faucets.chain.link/base-sepolia`);
+      logger.warn(`[cli]   2. Run: cd ${path.basename(params.targetDir)} && bun run agent:onboard`);
       }
     } else {
       logger.log(`[cli] Wallet ${walletAddress} balance: ${balanceEth} ETH`);
     }
   }
-
+  
   let agentTokenId: string | undefined;
   
   // Skip ERC-8004 registration if requested (backend will handle it via createTokenWithIdentity)
   if (skipErc8004Registration) {
     logger.log('[cli] Skipping ERC-8004 registration (backend will handle via createTokenWithIdentity)...');
   } else {
-    // If no balance, skip on-chain registration but still create the project
-    if (!hasBalance) {
-      logger.log('[cli] Project created successfully without ERC-8004 registration.');
-      logger.log('[cli] Run `bun run agent:onboard` after funding the wallet to complete setup.');
-      return;
-    }
+  // If no balance, skip on-chain registration but still create the project
+  if (!hasBalance) {
+    logger.log('[cli] Project created successfully without ERC-8004 registration.');
+    logger.log('[cli] Run `bun run agent:onboard` after funding the wallet to complete setup.');
+    return;
+  }
 
-    logger.log('[cli] Registering / checking ERC-8004 identity...');
+  logger.log('[cli] Registering / checking ERC-8004 identity...');
 
-    const envRecord = convertWizardAnswersToEnv(wizardAnswers);
-    const identity = await createAgentIdentity({
-      runtime,
-      domain: agentDomain,
-      autoRegister,
-      chainId,
-      rpcUrl,
-      env: envRecord,
-    });
+  const envRecord = convertWizardAnswersToEnv(wizardAnswers);
+  const identity = await createAgentIdentity({
+    runtime,
+    domain: agentDomain,
+    autoRegister,
+    chainId,
+    rpcUrl,
+    env: envRecord,
+  });
 
-    if (identity.transactionHash) {
-      logger.log(`[cli] Registration tx hash: ${identity.transactionHash}`);
-    }
+  if (identity.transactionHash) {
+    logger.log(`[cli] Registration tx hash: ${identity.transactionHash}`);
+  }
 
-    if (!identity.record?.agentId) {
-      throw new Error('ERC-8004 registry did not return an agentId.');
-    }
+  if (!identity.record?.agentId) {
+    throw new Error('ERC-8004 registry did not return an agentId.');
+  }
     agentTokenId = identity.record.agentId.toString();
-    logger.log(`[cli] Identity Agent ID: ${agentTokenId}`);
+  logger.log(`[cli] Identity Agent ID: ${agentTokenId}`);
 
-    const metadataDir = path.join(targetDir, WELL_KNOWN_DIR);
-    await mkdir(metadataDir, { recursive: true });
-    const metadataPath = path.join(metadataDir, AGENT_METADATA_FILENAME);
+  const metadataDir = path.join(targetDir, WELL_KNOWN_DIR);
+  await mkdir(metadataDir, { recursive: true });
+  const metadataPath = path.join(metadataDir, AGENT_METADATA_FILENAME);
 
-    const capabilities = parseCapabilities(
-      wizardAnswers,
-      agentDescription
-    );
+  const capabilities = parseCapabilities(
+    wizardAnswers,
+    agentDescription
+  );
 
-    const metadata = generateAgentMetadata(identity, {
-      name: agentName,
-      description: agentDescription,
-      capabilities,
-    });
-    await writeFile(metadataPath, JSON.stringify(metadata, null, 2), 'utf8');
+  const metadata = generateAgentMetadata(identity, {
+    name: agentName,
+    description: agentDescription,
+    capabilities,
+  });
+  await writeFile(metadataPath, JSON.stringify(metadata, null, 2), 'utf8');
 
-    logger.log(`[cli] Wrote ERC-8004 metadata to ${metadataPath}`);
+  logger.log(`[cli] Wrote ERC-8004 metadata to ${metadataPath}`);
   }
 
   const shortDescription =
     getStringAnswer(wizardAnswers, 'AGENT_SHORT_DESCRIPTION') ??
     agentDescription;
-  const accessDetails = getStringAnswer(wizardAnswers, 'AGENT_ACCESS_DETAILS');
+  // Access details defaults to agent domain if not provided
+  const accessDetails = getStringAnswer(wizardAnswers, 'AGENT_ACCESS_DETAILS') || `https://${agentDomain}`;
   const resourceLink =
     getStringAnswer(wizardAnswers, 'AGENT_RESOURCE_LINK') ??
     `https://${agentDomain}`;
@@ -236,7 +237,7 @@ export async function runAutoOnboarding(params: {
     getStringAnswer(wizardAnswers, 'AGENT_CARD_URI') ??
     `https://${agentDomain}/.well-known/agent-card.json`;
 
-  const payments = buildPaymentsPayload(wizardAnswers);
+  const payments = buildPaymentsPayload(wizardAnswers, walletAddress);
   const timestamp = Date.now().toString();
   const paymentNetwork =
     payments?.network ??
@@ -285,15 +286,15 @@ export async function runAutoOnboarding(params: {
   let response: Response;
   try {
     response = await fetch(initUrl, {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        'x-agent-address': signer.address,
-        'x-signature': signature,
-        'x-timestamp': timestamp,
-      },
-      body: JSON.stringify(payload),
-    });
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      'x-agent-address': signer.address,
+      'x-signature': signature,
+      'x-timestamp': timestamp,
+    },
+    body: JSON.stringify(payload),
+  });
   } catch (fetchError) {
     const errorMessage = (fetchError as Error).message;
     throw new Error(
@@ -449,10 +450,12 @@ function resolveServiceType(value?: string): ServiceType {
 }
 
 function buildPaymentsPayload(
-  answers: WizardAnswers
+  answers: WizardAnswers,
+  agentWalletAddress?: string
 ): PaymentsPayload | undefined {
   const network = getStringAnswer(answers, 'PAYMENTS_NETWORK');
-  const payTo = getStringAnswer(answers, 'PAYMENTS_RECEIVABLE_ADDRESS');
+  // Use PAYMENTS_RECEIVABLE_ADDRESS if provided, otherwise use agent wallet address
+  const payTo = getStringAnswer(answers, 'PAYMENTS_RECEIVABLE_ADDRESS') || agentWalletAddress;
 
   if (!network || !payTo) {
     return undefined;

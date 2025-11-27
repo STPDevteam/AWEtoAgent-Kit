@@ -153,9 +153,9 @@ export async function runCli(
 
   // Fixed adapter and template - no selection needed
   const selectedAdapter = 'hono';
-  const template = templates.find(t => t.id === 'identity-no-register');
+  const template = templates.find(t => t.id === 'awe-identity-register');
   if (!template) {
-    throw new Error('Template "identity-no-register" not found');
+    throw new Error('Template "awe-identity-register" not found');
   }
 
   const adapterDefinition = getAdapterDefinition(selectedAdapter);
@@ -225,20 +225,20 @@ export async function runCli(
     await runInstall(targetDir, logger);
   }
 
-  // Always run auto onboarding for identity-no-register template
-  try {
-    await runAutoOnboarding({
-      targetDir,
-      wizardAnswers,
-      agentName: projectDirName,
-      logger,
+  // Always run auto onboarding for awe-identity-register template
+    try {
+      await runAutoOnboarding({
+        targetDir,
+        wizardAnswers,
+        agentName: projectDirName,
+        logger,
       skipErc8004Registration: true,
-    });
-  } catch (error) {
-    logger.warn(
-      `Auto onboarding failed: ${(error as Error).message}. ` +
-        'Run `bun run agent:onboard` inside the project to retry later.'
-    );
+      });
+    } catch (error) {
+      logger.warn(
+        `Auto onboarding failed: ${(error as Error).message}. ` +
+          'Run `bun run agent:onboard` inside the project to retry later.'
+      );
   }
 
   const relativeTarget = relative(cwd, targetDir) || '.';
@@ -327,7 +327,7 @@ function printHelp(logger: RunLogger) {
   logger.log('');
   logger.log('Options:');
   logger.log(
-    '  -t, --template <id>   Select template (blank, axllm, axllm-flow, identity, trading-data-agent, trading-recommendation-agent)'
+    '  -t, --template <id>   Select template (blank, axllm, axllm-flow, identity, awe-identity-register, trading-data-agent, trading-recommendation-agent)'
   );
   logger.log(
     '  -a, --adapter <id>    Select runtime adapter (hono, express, tanstack-ui, tanstack-headless, next)'
@@ -337,7 +337,7 @@ function printHelp(logger: RunLogger) {
   logger.log('  --wizard=no           Skip wizard, use template defaults');
   logger.log('  --non-interactive     Same as --wizard=no');
   logger.log(
-    '  --network=<network>   Set payment network (base-sepolia, base, solana-devnet, solana)'
+    '  --network=<network>   Set payment network (base-sepolia, base)'
   );
   logger.log(
     '  --KEY=value           Pass template argument (use with --non-interactive)'
@@ -346,7 +346,7 @@ function printHelp(logger: RunLogger) {
   logger.log('');
   logger.log('Examples:');
   logger.log('  bunx @AWEtoAgent/cli my-agent');
-  logger.log('  bunx @AWEtoAgent/cli my-agent --network=solana-devnet');
+  logger.log('  bunx @AWEtoAgent/cli my-agent --template=awe-identity-register');
   logger.log('  bunx @AWEtoAgent/cli my-agent --template=identity --install');
   logger.log('  bunx @AWEtoAgent/cli my-agent --wizard=no');
   logger.log('');
@@ -677,15 +677,24 @@ async function collectWizardAnswers(params: {
       continue;
     }
 
-    if (!shouldAskWizardPrompt(question, answers)) {
-      continue;
-    }
-
     const defaultValue = resolveWizardDefault({
       question,
       context,
       answers,
     });
+
+    // Skip prompts that shouldn't be asked (empty message or conditional)
+    // but still set their default value
+    if (!shouldAskWizardPrompt(question, answers)) {
+      if (question.type === 'confirm') {
+        const boolValue = typeof defaultValue === 'boolean' ? defaultValue : false;
+        answers.set(question.key, boolValue);
+      } else {
+        const stringValue = typeof defaultValue === 'string' ? defaultValue : '';
+        answers.set(question.key, sanitizeAnswerString(stringValue));
+      }
+      continue;
+    }
 
     const response = await askWizardPrompt({
       promptApi: prompt,
@@ -707,6 +716,10 @@ function shouldAskWizardPrompt(
   question: WizardPrompt,
   answers: WizardAnswers
 ): boolean {
+  // Skip prompts with empty message - they use default values silently
+  if (!question.message || question.message.trim() === '') {
+    return false;
+  }
   if (!question.when) return true;
   const gateValue = answers.get(question.when.key);
   if (question.when.equals !== undefined) {

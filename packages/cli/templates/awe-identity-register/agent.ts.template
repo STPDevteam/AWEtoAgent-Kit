@@ -1,0 +1,24 @@
+{{ADAPTER_IMPORTS}}
+import { walletsFromEnv } from "@AWEtoAgent/wallet";
+
+{{ADAPTER_PRE_SETUP}}
+// Configure wallets for signing operations
+const appOptions = {
+  config: {
+    wallets: walletsFromEnv(),
+  },
+};
+
+{{ADAPTER_POST_SETUP}}
+// Note: This template uses AWE backend-managed ERC-8004 identity registration.
+// The backend calls createTokenWithIdentity which handles both token creation
+// and ERC-8004 registration in a single transaction.
+// No on-chain registration is needed from this agent.
+
+const agentName = process.env.AGENT_NAME ?? "agent";
+const agentDomain = process.env.AGENT_DOMAIN ?? "localhost";
+
+console.log(`[${agentName}] Agent started successfully`);
+console.log(`[${agentName}] Domain: ${agentDomain}`);
+console.log(`[${agentName}] ERC-8004 identity is managed by AWE backend`);
+

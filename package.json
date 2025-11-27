@@ -2,7 +2,8 @@
   "name": "@AWEtoAgent/root",
   "workspaces": {
     "packages": [
-      "packages/*"
+      "packages/*",
+      "identity-no-register-agent"
     ],
     "catalog": {
       "zod": "^4.1.12",

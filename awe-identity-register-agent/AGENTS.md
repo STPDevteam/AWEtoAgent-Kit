@@ -1,10 +1,10 @@
-# Identity No-Register Agent Template - AI Coding Guide
+# AWE Identity Agent Template - AI Coding Guide
 
-This guide helps AI coding agents understand and extend this backend-managed identity agent project.
+This guide helps AI coding agents understand and extend this AWE backend-managed identity agent project.
 
 ## Project Overview
 
-This is a Bun HTTP agent with backend-managed ERC-8004 identity registration. Unlike the standard "identity" template, this template delegates ERC-8004 registration to the backend via `createTokenWithIdentity`.
+This is a Bun HTTP agent with ERC-8004 identity registration managed by the AWE backend. The backend handles identity registration via `createTokenWithIdentity`, which creates both the token and ERC-8004 identity in a single transaction.
 
 **Key Files:**
 - `src/agent.ts` - Agent definition with entrypoints
@@ -13,8 +13,7 @@ This is a Bun HTTP agent with backend-managed ERC-8004 identity registration. Un
 
 **Key Dependencies:**
 - `@AWEtoAgent/core` - Agent app framework
-- `@AWEtoAgent/identity` - ERC-8004 identity helpers
-- `viem` - Ethereum client library
+- `@AWEtoAgent/wallet` - Wallet utilities
 - `zod` - Schema validation
 
 ## Build & Development Commands
@@ -35,17 +34,17 @@ bunx tsc --noEmit
 
 ## How Identity Registration Works
 
-Unlike the standard "identity" template which performs client-side ERC-8004 registration, this template:
+This template uses the AWE backend to manage ERC-8004 identity registration:
 
-1. **Skips client-side registration** - No local ERC-8004 registry calls
-2. **Calls backend with `registerIdentity: true`** - The CLI posts to `/api/agents/init`
-3. **Backend uses `createTokenWithIdentity`** - The factory contract handles both token creation and ERC-8004 registration in one transaction
+1. **CLI generates agent wallet** - Auto-generates a wallet if not provided
+2. **CLI calls backend `/api/agents/init`** - Posts with `registerIdentity: true`
+3. **Backend uses `createTokenWithIdentity`** - Factory contract handles both token creation and ERC-8004 registration in one transaction
 4. **Identity NFT transferred to creator** - The factory transfers the ERC-8004 NFT to the creator address
 
 This approach has several benefits:
-- Simpler agent setup (no gas needed for registration)
+- Simpler agent setup (no gas needed for registration from agent side)
 - Single transaction for token + identity
-- Backend manages the registration process
+- Backend manages the registration process and gas costs
 
 ## Template Arguments
 
@@ -55,11 +54,10 @@ This template accepts the following configuration arguments:
 - `AGENT_DESCRIPTION` - Human-readable description
 - `AGENT_VERSION` - Semantic version
 - `AGENT_DOMAIN` - Domain that hosts your agent (e.g., "agent.example.com")
-- `PAYMENTS_FACILITATOR_URL` - x402 facilitator endpoint
-- `PAYMENTS_NETWORK` - Network identifier
-- `PAYMENTS_RECEIVABLE_ADDRESS` - Address for receiving payments
-- `RPC_URL` - Blockchain RPC endpoint (e.g., "https://sepolia.base.org")
-- `CHAIN_ID` - Chain ID (e.g., "84532" for Base Sepolia)
+- `PAYMENTS_NETWORK` - Network identifier (base-sepolia or base)
+- `PAYMENTS_RECEIVABLE_ADDRESS` - Address for x402 payments (optional, defaults to token contract)
+- `RPC_URL` - Blockchain RPC endpoint
+- `CHAIN_ID` - Chain ID
 - `AGENT_WALLET_PRIVATE_KEY` - Wallet private key (leave blank to auto-generate)
 
 ## Environment Variables Guide
@@ -69,10 +67,10 @@ Key fields in `.env`:
 ```bash
 # Agent metadata
 AGENT_NAME=my-agent
-AGENT_DESCRIPTION=Agent with backend-managed identity
+AGENT_DESCRIPTION=AWE Identity Agent
 AGENT_VERSION=0.1.0
 AGENT_DOMAIN=agent.example.com
-AGENT_SHORT_DESCRIPTION=Agent with backend-managed identity
+AGENT_SHORT_DESCRIPTION=AWE Identity Agent
 
 # Backend + token creation
 AGENT_BACKEND_BASE_URL=http://localhost:3000/api
@@ -81,9 +79,9 @@ AGENT_TOKEN_NAME=Agent Token
 AGENT_TOKEN_SYMBOL=AGENTA
 
 # Payments
-PAYMENTS_FACILITATOR_URL=https://facilitator.daydreams.systems
+PAYMENTS_FACILITATOR_URL=https://facilitator.world.fun/
 PAYMENTS_NETWORK=base-sepolia
-PAYMENTS_RECEIVABLE_ADDRESS=0x...
+PAYMENTS_RECEIVABLE_ADDRESS=  # Optional, leave blank to use token contract
 PAYMENTS_DEFAULT_PRICE=1000
 
 # Blockchain configuration
@@ -92,7 +90,6 @@ CHAIN_ID=84532
 
 # Wallets
 AGENT_WALLET_PRIVATE_KEY=0x...  # Leave blank to auto-generate
-DEVELOPER_WALLET_PRIVATE_KEY=
 ```
 
 ## How to Add Entrypoints
@@ -146,13 +143,13 @@ For this template, wallet funding is only needed for:
 - Signing messages (no gas required)
 - Any contract interactions your entrypoints might make
 
-The ERC-8004 registration gas is paid by the backend.
+The ERC-8004 registration gas is paid by the AWE backend.
 
 ## Security Considerations
 
 1. **Private Key Security**: Never commit `.env` to version control
 2. **Domain Verification**: Ensure you control the domain you register
-3. **Backend Trust**: This template trusts the backend to manage identity registration
+3. **Backend Trust**: This template trusts the AWE backend to manage identity registration
 
 ## Next Steps
 
@@ -164,6 +161,6 @@ The ERC-8004 registration gas is paid by the backend.
 ## Additional Resources
 
 - [ERC-8004 Specification](https://github.com/ethereum/ERCs/issues/8004)
-- [@AWEtoAgent/identity docs](../../../identity/README.md)
+- [AWE Backend Documentation](../../README.md)
 - [viem documentation](https://viem.sh/)
 - [Base network docs](https://docs.base.org/)

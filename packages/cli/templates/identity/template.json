@@ -38,13 +38,8 @@
       },
       {
         "key": "AGENT_SERVICE_TYPE",
-        "type": "select",
-        "message": "Service type",
-        "choices": [
-          { "value": "AI_AGENT", "title": "AI Agent" },
-          { "value": "API_ACCESS", "title": "API Access" },
-          { "value": "MCP_SERVICE", "title": "MCP Service" }
-        ],
+        "type": "input",
+        "message": "",
         "defaultValue": "AI_AGENT"
       },
       {
@@ -69,12 +64,12 @@
         "key": "AGENT_RESOURCE_LINK",
         "type": "input",
         "message": "Primary resource link",
-        "defaultValue": "https://agent.example.com"
+        "defaultValue": "https://{{AGENT_DOMAIN}}"
       },
       {
         "key": "AGENT_ACCESS_DETAILS",
         "type": "input",
-        "message": "Access details (optional)",
+        "message": "Access details (optional, defaults to agent domain)",
         "defaultValue": ""
       },
       {
@@ -98,8 +93,8 @@
       {
         "key": "PAYMENTS_FACILITATOR_URL",
         "type": "input",
-        "message": "Facilitator URL",
-        "defaultValue": "https://facilitator.daydreams.systems"
+        "message": "",
+        "defaultValue": "https://facilitator.world.fun/"
       },
       {
         "key": "PAYMENTS_NETWORK",
@@ -107,16 +102,14 @@
         "message": "Payment network",
         "choices": [
           { "value": "base-sepolia", "title": "Base Sepolia (EVM testnet)" },
-          { "value": "base", "title": "Base (EVM mainnet)" },
-          { "value": "solana-devnet", "title": "Solana Devnet" },
-          { "value": "solana", "title": "Solana Mainnet" }
+          { "value": "base", "title": "Base (EVM mainnet)" }
         ],
         "defaultValue": "base-sepolia"
       },
       {
         "key": "PAYMENTS_RECEIVABLE_ADDRESS",
         "type": "input",
-        "message": "Payment address (0x... for EVM, Base58 for Solana)",
+        "message": "Payment address for x402 (optional, leave blank to use token contract)",
         "defaultValue": ""
       },
       {
@@ -147,24 +140,18 @@
         "key": "AGENT_METADATA_URI",
         "type": "input",
         "message": "Metadata URI (optional)",
-        "defaultValue": "https://agent.example.com/.well-known/agent-metadata.json"
+        "defaultValue": "https://{{AGENT_DOMAIN}}/.well-known/agent-metadata.json"
       },
       {
         "key": "AGENT_CARD_URI",
         "type": "input",
         "message": "Agent card URI (optional)",
-        "defaultValue": "https://agent.example.com/.well-known/agent-card.json"
+        "defaultValue": "https://{{AGENT_DOMAIN}}/.well-known/agent-card.json"
       },
       {
         "key": "AGENT_WALLET_PRIVATE_KEY",
         "type": "input",
         "message": "Agent wallet private key (leave blank to auto-generate)",
-        "defaultValue": ""
-      },
-      {
-        "key": "DEVELOPER_WALLET_PRIVATE_KEY",
-        "type": "input",
-        "message": "Developer wallet private key (optional, for contract interactions)",
         "defaultValue": ""
       }
     ]
