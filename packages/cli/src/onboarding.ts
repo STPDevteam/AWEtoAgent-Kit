@@ -281,8 +281,8 @@ export async function runAutoOnboarding(params: {
   if (documentLink) payload.documentLink = documentLink;
   if (payments) payload.payments = payments;
 
-  const initUrl = buildBackendUrl(backendBaseUrl, '/agents/init');
-  logger.log(`[cli] Calling backend /agents/init endpoint: ${initUrl}`);
+  const initUrl = buildBackendUrl(backendBaseUrl, '/api/agents/init');
+  logger.log(`[cli] Calling backend /api/agents/init endpoint: ${initUrl}`);
 
   let response: Response;
   try {
@@ -324,7 +324,7 @@ export async function runAutoOnboarding(params: {
   }
 
   const contractAddress = body.data?.contractAddress ?? 'unknown';
-  const txHash = body.data?.txHash;
+  const txHash = body.data?.transactionHash;
   
   logger.log(`[cli] Backend onboarding complete.`);
   logger.log(`[cli]   Token Contract: ${contractAddress}`);
