@@ -128,7 +128,7 @@ export async function runAutoOnboarding(params: {
   // Check wallet balance before attempting registration
   const signer = privateKeyToAccount(normalizePrivateKey(privateKey));
   const walletAddress = signer.address;
-  
+
   let hasBalance = true;
   const chain = CHAIN_MAP[chainId];
   if (chain) {
@@ -136,10 +136,10 @@ export async function runAutoOnboarding(params: {
       chain,
       transport: http(rpcUrl),
     });
-    
+
     const balance = await publicClient.getBalance({ address: walletAddress });
     const balanceEth = formatEther(balance);
-    
+
     if (balance === 0n) {
       hasBalance = false;
       logger.warn(`[cli] ⚠️  Wallet ${walletAddress} has 0 ETH balance.`);
@@ -156,9 +156,9 @@ export async function runAutoOnboarding(params: {
       logger.log(`[cli] Wallet ${walletAddress} balance: ${balanceEth} ETH`);
     }
   }
-  
+
   let agentTokenId: string | undefined;
-  
+
   // Skip ERC-8004 registration if requested (backend will handle it via createTokenWithIdentity)
   if (skipErc8004Registration) {
     logger.log('[cli] Skipping ERC-8004 registration (backend will handle via createTokenWithIdentity)...');
@@ -325,19 +325,30 @@ export async function runAutoOnboarding(params: {
 
   const contractAddress = body.data?.contractAddress ?? 'unknown';
   const txHash = body.data?.transactionHash;
-  
+  const agentId = body.data?.agentId;
+
   logger.log(`[cli] Backend onboarding complete.`);
   logger.log(`[cli]   Token Contract: ${contractAddress}`);
-  
+
   if (txHash) {
     // Determine explorer URL based on network
-    const explorerBaseUrl = paymentNetwork === 'base' 
-      ? 'https://basescan.org' 
+    const explorerBaseUrl = paymentNetwork === 'base'
+      ? 'https://basescan.org'
       : paymentNetwork === 'base-sepolia'
         ? 'https://sepolia.basescan.org'
         : 'https://basescan.org';
-    
+
     logger.log(`[cli]   Transaction: ${explorerBaseUrl}/tx/${txHash}`);
+  }
+
+  if (agentId) {
+    // Determine marketplace URL based on network
+    const marketplaceBaseUrl = initUrl.includes('dev')
+      ? 'https://x402-dev.world.fun'
+      : 'https://x402.world.fun';
+
+    logger.log(`[cli]   Agent ID: ${agentId}`);
+    logger.log(`[cli]   You can view your service token at: ${marketplaceBaseUrl}/services?tokenId=${agentId}`);
   }
 }
 
@@ -513,4 +524,3 @@ function buildBackendUrl(baseUrl: string, pathname: string): string {
     : `/${pathname}`;
   return `${normalizedBase}${normalizedPath}`;
 }
-
