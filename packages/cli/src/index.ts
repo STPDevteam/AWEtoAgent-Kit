@@ -1253,7 +1253,9 @@ async function setupEnvironment(params: {
 
     // Map AGENT_WALLET_PRIVATE_KEY to PRIVATE_KEY for compatibility with createAxLLMClient
     const envKey = prompt.key === 'AGENT_WALLET_PRIVATE_KEY' ? 'PRIVATE_KEY' : prompt.key;
-    lines.push(`${envKey}=${stringValue}`);
+    // Quote values containing spaces to avoid shell parsing issues
+    const quotedValue = stringValue.includes(' ') ? `"${stringValue}"` : stringValue;
+    lines.push(`${envKey}=${quotedValue}`);
   }
 
   await fs.writeFile(envPath, lines.join('\n') + '\n', 'utf8');
