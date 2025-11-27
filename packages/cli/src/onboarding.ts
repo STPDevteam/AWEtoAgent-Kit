@@ -242,7 +242,7 @@ export async function runAutoOnboarding(params: {
   const paymentNetwork =
     payments?.network ??
     getStringAnswer(wizardAnswers, 'PAYMENTS_NETWORK') ??
-    'base-sepolia';
+    'base';
   const message = [
     'AgentInit',
     agentName,
@@ -262,7 +262,8 @@ export async function runAutoOnboarding(params: {
     tokenName,
     tokenSymbol,
     metadataUri,
-    agentCardUri,
+    // Pass metadataUri as agentCardUri (tokenURI) to backend for createTokenWithIdentityAndURI
+    agentCardUri: metadataUri,
     message,
     // If we skipped ERC-8004 registration, tell backend to use createTokenWithIdentity
     registerIdentity: skipErc8004Registration === true,
@@ -322,11 +323,22 @@ export async function runAutoOnboarding(params: {
     );
   }
 
-  logger.log(
-    `[cli] Backend onboarding complete. Token: ${
-      body.data?.contractAddress ?? 'unknown'
-    }`
-  );
+  const contractAddress = body.data?.contractAddress ?? 'unknown';
+  const txHash = body.data?.txHash;
+  
+  logger.log(`[cli] Backend onboarding complete.`);
+  logger.log(`[cli]   Token Contract: ${contractAddress}`);
+  
+  if (txHash) {
+    // Determine explorer URL based on network
+    const explorerBaseUrl = paymentNetwork === 'base' 
+      ? 'https://basescan.org' 
+      : paymentNetwork === 'base-sepolia'
+        ? 'https://sepolia.basescan.org'
+        : 'https://basescan.org';
+    
+    logger.log(`[cli]   Transaction: ${explorerBaseUrl}/tx/${txHash}`);
+  }
 }
 
 function getStringAnswer(

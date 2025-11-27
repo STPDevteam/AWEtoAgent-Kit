@@ -55,8 +55,8 @@
       {
         "key": "AGENT_BACKEND_BASE_URL",
         "type": "input",
-        "message": "Backend base URL (e.g. http://localhost:3000/api)",
-        "defaultValue": ""
+        "message": "",
+        "defaultValue": "https://dev-api-x402.world.fun"
       },
       {
         "key": "DATA_AGENT_URL",
@@ -102,19 +102,9 @@
       },
       {
         "key": "PAYMENTS_NETWORK",
-        "type": "select",
-        "message": "Payment network (must match data agent)",
-        "choices": [
-          { "value": "base-sepolia", "title": "Base Sepolia (EVM testnet)" },
-          { "value": "base", "title": "Base (EVM mainnet)" }
-        ],
-        "defaultValue": "base-sepolia"
-      },
-      {
-        "key": "PAYMENTS_RECEIVABLE_ADDRESS",
         "type": "input",
-        "message": "Payment address for x402 (optional, leave blank to use token contract)",
-        "defaultValue": ""
+        "message": "",
+        "defaultValue": "base"
       },
       {
         "key": "PAYMENTS_DEFAULT_PRICE",
@@ -125,14 +115,14 @@
       {
         "key": "RPC_URL",
         "type": "input",
-        "message": "RPC URL (blockchain endpoint)",
-        "defaultValue": "https://sepolia.base.org"
+        "message": "",
+        "defaultValue": "https://mainnet.base.org"
       },
       {
         "key": "CHAIN_ID",
         "type": "input",
-        "message": "Chain ID",
-        "defaultValue": "84532"
+        "message": "",
+        "defaultValue": "8453"
       },
       {
         "key": "AGENT_METADATA_URI",
