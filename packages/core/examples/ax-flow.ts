@@ -1,6 +1,6 @@
 import { z } from 'zod';
-import { createAgentApp } from '@AWEtoAgent/hono';
-import { AgentKitConfig, createAxLLMClient } from '@AWEtoAgent/core';
+import { createAgentApp } from '@aweto-agent/hono';
+import { AgentKitConfig, createAxLLMClient } from '@aweto-agent/core';
 import { flow } from '@ax-llm/ax';
 
 /**

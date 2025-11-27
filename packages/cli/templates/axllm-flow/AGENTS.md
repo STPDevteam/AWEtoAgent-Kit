@@ -4,7 +4,7 @@ This guide helps AI coding agents understand and extend this AxLLM Flow-powered 
 
 ## Project Overview
 
-This is a Bun HTTP agent with `@ax-llm/ax` Flow integration for multi-step LLM workflows. It includes payment support via x402 and uses `@AWEtoAgent/core` for agent app creation.
+This is a Bun HTTP agent with `@ax-llm/ax` Flow integration for multi-step LLM workflows. It includes payment support via x402 and uses `@aweto-agent/core` for agent app creation.
 
 **Key Files:**
 - `src/agent.ts` - Agent definition, AxLLM client setup, and flow-based entrypoints
@@ -12,7 +12,7 @@ This is a Bun HTTP agent with `@ax-llm/ax` Flow integration for multi-step LLM w
 - `.env` - Configuration (API keys, payment settings, etc.)
 
 **Key Dependencies:**
-- `@AWEtoAgent/core` - Agent app framework
+- `@aweto-agent/core` - Agent app framework
 - `@ax-llm/ax` - LLM client library with Flow support
 - `zod` - Schema validation
 
@@ -421,7 +421,7 @@ OPENAI_API_KEY=sk-...
 ANTHROPIC_API_KEY=sk-ant-...
 
 # Payment configuration
-PAYMENTS_FACILITATOR_URL=https://facilitator.daydreams.systems
+PAYMENTS_FACILITATOR_URL=https://facilitator.world.fun/
 PAYMENTS_NETWORK=base-sepolia
 PAYMENTS_RECEIVABLE_ADDRESS=0x...
 
@@ -568,4 +568,4 @@ For long flows:
 
 - [@ax-llm/ax Flow documentation](https://github.com/dosco/ax)
 - [Chain-of-thought prompting](https://www.promptingguide.ai/techniques/cot)
-- [@AWEtoAgent/core docs](../../../core/README.md)
+- [@aweto-agent/core docs](../../../core/README.md)

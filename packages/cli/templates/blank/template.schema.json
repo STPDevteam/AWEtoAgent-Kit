@@ -23,7 +23,7 @@
     "PAYMENTS_FACILITATOR_URL": {
       "type": "string",
       "description": "x402 facilitator endpoint URL for payment processing",
-      "default": "https://facilitator.daydreams.systems",
+      "default": "https://facilitator.world.fun/",
       "format": "uri"
     },
     "PAYMENTS_NETWORK": {

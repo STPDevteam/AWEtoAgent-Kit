@@ -1,8 +1,8 @@
-# @AWEtoAgent/core
+# @aweto-agent/core
 
-`@AWEtoAgent/core` is the core runtime for building AI agents with typed entrypoints, discovery endpoints, monetization hooks, and trust metadata. It provides the shared runtime logic used by adapter packages like `@AWEtoAgent/hono` and `@AWEtoAgent/tanstack`.
+`@aweto-agent/core` is the core runtime for building AI agents with typed entrypoints, discovery endpoints, monetization hooks, and trust metadata. It provides the shared runtime logic used by adapter packages like `@aweto-agent/hono` and `@aweto-agent/tanstack`.
 
-**Note:** For most use cases, you'll want to use one of the adapter packages (`@AWEtoAgent/hono` or `@AWEtoAgent/tanstack`) rather than importing from this core package directly.
+**Note:** For most use cases, you'll want to use one of the adapter packages (`@aweto-agent/hono` or `@aweto-agent/tanstack`) rather than importing from this core package directly.
 
 ## Highlights
 
@@ -21,35 +21,35 @@ This is the core runtime package. For building agents, use one of the adapter pa
 **Hono Adapter:**
 
 ```ts
-import { createAgentApp } from '@AWEtoAgent/hono';
-import type { EntrypointDef, AgentMeta } from '@AWEtoAgent/core';
+import { createAgentApp } from '@aweto-agent/hono';
+import type { EntrypointDef, AgentMeta } from '@aweto-agent/core';
 ```
 
 **Express Adapter:**
 
 ```ts
-import { createAgentApp } from '@AWEtoAgent/express';
-import type { EntrypointDef, AgentMeta } from '@AWEtoAgent/core';
+import { createAgentApp } from '@aweto-agent/express';
+import type { EntrypointDef, AgentMeta } from '@aweto-agent/core';
 ```
 
 **TanStack Adapter:**
 
 ```ts
-import { createTanStackRuntime } from '@AWEtoAgent/tanstack';
-import type { EntrypointDef, AgentMeta } from '@AWEtoAgent/core';
+import { createTanStackRuntime } from '@aweto-agent/tanstack';
+import type { EntrypointDef, AgentMeta } from '@aweto-agent/core';
 ```
 
 Subpath exports (shared across adapters):
 
-- `@AWEtoAgent/core` — main exports including types (EntrypointDef, AgentMeta, etc.)
-- `@AWEtoAgent/core/utils` — focused helpers (`toJsonSchemaOrUndefined`, etc.)
-- `@AWEtoAgent/core/axllm` — AxLLM client integration
+- `@aweto-agent/core` — main exports including types (EntrypointDef, AgentMeta, etc.)
+- `@aweto-agent/core/utils` — focused helpers (`toJsonSchemaOrUndefined`, etc.)
+- `@aweto-agent/core/axllm` — AxLLM client integration
 
 ## Core Concepts
 
 ### Core Runtime
 
-This package provides the core runtime logic. Adapter packages like `@AWEtoAgent/hono` and `@AWEtoAgent/tanstack` wrap this runtime with framework-specific implementations.
+This package provides the core runtime logic. Adapter packages like `@aweto-agent/hono` and `@aweto-agent/tanstack` wrap this runtime with framework-specific implementations.
 
 The runtime manages:
 
@@ -71,7 +71,7 @@ The return value exposes:
 
 ```ts
 import { z } from 'zod';
-import { createAgentApp } from '@AWEtoAgent/hono';
+import { createAgentApp } from '@aweto-agent/hono';
 
 const { app, addEntrypoint } = createAgentApp({
   name: 'hello-agent',
@@ -98,7 +98,7 @@ export default app;
 
 ```ts
 import { z } from 'zod';
-import { createAgentApp } from '@AWEtoAgent/express';
+import { createAgentApp } from '@aweto-agent/express';
 
 const { app, addEntrypoint } = createAgentApp({
   name: 'hello-agent',
@@ -125,7 +125,7 @@ app.listen(process.env.PORT ?? 3000);
 
 ```ts
 import { z } from 'zod';
-import { createTanStackRuntime } from '@AWEtoAgent/tanstack';
+import { createTanStackRuntime } from '@aweto-agent/tanstack';
 
 const { runtime, handlers } = createTanStackRuntime({
   name: 'hello-agent',
@@ -183,7 +183,7 @@ const { app, addEntrypoint } = createAgentApp(
     payments: {
       payTo: '9yPGxVrYi7C5JLMGjEZhK8qQ4tn7SzMWwQHvz3vGJCKz', // Solana address
       network: 'solana-devnet',
-      facilitatorUrl: 'https://facilitator.daydreams.systems',
+      facilitatorUrl: 'https://facilitator.world.fun/',
     },
   }
 );
@@ -264,7 +264,7 @@ import {
   configureAgentKit,
   getAgentKitConfig,
   paymentsFromEnv,
-} from '@AWEtoAgent/core';
+} from '@aweto-agent/core';
 
 configureAgentKit({
   payments: {
@@ -293,14 +293,14 @@ When a `PaymentsConfig` is active, `createAgentApp` automatically wraps invoke/s
 - Each entrypoint must explicitly define its `price` (string or `{ invoke?, stream? }` object)
 - If no price is set, the entrypoint is free (no paywall)
 
-`resolvePrice(entrypoint, payments, kind)` (from `@AWEtoAgent/payments`) returns the price or `null`.
+`resolvePrice(entrypoint, payments, kind)` (from `@aweto-agent/payments`) returns the price or `null`.
 
 For authenticated wallet access, pair your agent with
-`@AWEtoAgent/agent-auth` and reuse the generated SDK surface:
+`@aweto-agent/agent-auth` and reuse the generated SDK surface:
 
 ```ts
-import { AgentRuntime } from '@AWEtoAgent/agent-auth';
-import { createRuntimePaymentContext } from '@AWEtoAgent/payments';
+import { AgentRuntime } from '@aweto-agent/agent-auth';
+import { createRuntimePaymentContext } from '@aweto-agent/payments';
 
 const { runtime } = await AgentRuntime.load({
   wallet: {
@@ -352,10 +352,10 @@ The manifest is automatically generated by `createAgentApp` using the A2A protoc
 
 ## Trust & Identity (ERC-8004)
 
-Trust metadata is modelled by `TrustConfig`. For ERC-8004 identity management, use the dedicated `@AWEtoAgent/identity` package:
+Trust metadata is modelled by `TrustConfig`. For ERC-8004 identity management, use the dedicated `@aweto-agent/identity` package:
 
 ```ts
-import { createAgentIdentity, getTrustConfig } from '@AWEtoAgent/identity';
+import { createAgentIdentity, getTrustConfig } from '@aweto-agent/identity';
 
 // Register agent identity with auto-registration
 const identity = await createAgentIdentity({
@@ -381,14 +381,14 @@ The package also exports lower-level helpers for advanced use cases:
 - `signAgentDomainProof({ domain, address, chainId, signer })` — manually sign domain ownership proofs.
 - `buildTrustConfigFromIdentity(record, { signature, chainId, namespace, trustOverrides })` — convert registry records into `TrustConfig`.
 
-See [`@AWEtoAgent/identity` documentation](../@AWEtoAgent/identity/README.md) for complete examples and API reference.
+See [`@aweto-agent/identity` documentation](../@aweto-agent/identity/README.md) for complete examples and API reference.
 
 ## Agent-to-Agent (A2A) Client
 
 Agents can call other agents using the A2A protocol. The A2A client is available through the runtime:
 
 ```ts
-import { createRuntimePaymentContext } from '@AWEtoAgent/payments';
+import { createRuntimePaymentContext } from '@aweto-agent/payments';
 
 addEntrypoint({
   key: 'delegate',
@@ -426,7 +426,7 @@ addEntrypoint({
 ### Convenience Functions
 
 ```ts
-import { fetchAndInvoke } from '@AWEtoAgent/a2a';
+import { fetchAndInvoke } from '@aweto-agent/a2a';
 
 // Fetch card and invoke in one call
 const result = await fetchAndInvoke(

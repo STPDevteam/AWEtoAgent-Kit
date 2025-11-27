@@ -1,4 +1,4 @@
-# @AWEtoAgent/types
+# @aweto-agent/types
 
 Shared TypeScript type definitions for the awe-agents framework.
 
@@ -17,7 +17,7 @@ This package provides the core type definitions used across all awe-agents packa
 ## Installation
 
 ```bash
-bun add @AWEtoAgent/types
+bun add @aweto-agent/types
 ```
 
 ## Usage
@@ -28,7 +28,7 @@ import type {
   EntrypointDef,
   PaymentsConfig,
   Network,
-} from '@AWEtoAgent/types';
+} from '@aweto-agent/types';
 
 const meta: AgentMeta = {
   name: 'my-agent',

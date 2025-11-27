@@ -1,5 +1,5 @@
 {
-  "name": "@AWEtoAgent/eslint-config",
+  "name": "@aweto-agent/eslint-config",
   "version": "1.0.0",
   "description": "Shared ESLint configuration for AWEtoAgent monorepo",
   "main": "index.js",

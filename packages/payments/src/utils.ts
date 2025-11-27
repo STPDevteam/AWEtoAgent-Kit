@@ -1,4 +1,4 @@
-import type { PaymentsConfig } from '@AWEtoAgent/types/payments';
+import type { PaymentsConfig } from '@aweto-agent/types/payments';
 
 /**
  * Creates PaymentsConfig from environment variables and optional overrides.

@@ -24,59 +24,45 @@
         "prettier": "^3.0.0",
       },
     },
-    "awe-identity-register-agent": {
-      "name": "awe-identity-register-agent",
-      "version": "0.0.1",
+    "packages/a2a": {
+      "name": "@aweto-agent/a2a",
+      "version": "0.2.1",
       "dependencies": {
-        "@AWEtoAgent/core": "workspace:*",
-        "@AWEtoAgent/hono": "workspace:*",
-        "@AWEtoAgent/wallet": "workspace:*",
+        "@aweto-agent/types": "^1.3.0",
         "zod": "^4.1.12",
       },
       "devDependencies": {
-        "bun-types": "^1.3.0",
+        "@aweto-agent/core": "^1.7.0",
+        "@aweto-agent/hono": "^0.6.0",
+        "tsup": "^8.5.0",
         "typescript": "^5.9.2",
       },
     },
-    "packages/a2a": {
-      "name": "@AWEtoAgent/a2a",
-      "version": "0.2.0",
-      "dependencies": {
-        "@AWEtoAgent/types": "workspace:*",
-        "zod": "catalog:",
-      },
-      "devDependencies": {
-        "@AWEtoAgent/core": "workspace:*",
-        "@AWEtoAgent/hono": "workspace:*",
-        "tsup": "catalog:",
-        "typescript": "catalog:",
-      },
-    },
     "packages/ap2": {
-      "name": "@AWEtoAgent/ap2",
-      "version": "0.2.0",
+      "name": "@aweto-agent/ap2",
+      "version": "0.2.1",
       "dependencies": {
-        "@AWEtoAgent/types": "workspace:*",
+        "@aweto-agent/types": "^1.3.0",
       },
       "devDependencies": {
-        "tsup": "catalog:",
-        "typescript": "catalog:",
+        "tsup": "^8.5.0",
+        "typescript": "^5.9.2",
       },
     },
     "packages/cli": {
-      "name": "@AWEtoAgent/cli",
-      "version": "1.7.0",
+      "name": "@aweto-agent/cli",
+      "version": "1.7.4",
       "bin": {
         "create-agent-kit": "dist/index.js",
       },
       "dependencies": {
-        "@AWEtoAgent/core": "workspace:*",
-        "@AWEtoAgent/identity": "workspace:*",
+        "@aweto-agent/core": "workspace:*",
+        "@aweto-agent/identity": "workspace:*",
         "viem": "^2.21.26",
       },
       "devDependencies": {
-        "@AWEtoAgent/eslint-config": "workspace:*",
-        "@AWEtoAgent/prettier-config": "workspace:*",
+        "@aweto-agent/eslint-config": "workspace:*",
+        "@aweto-agent/prettier-config": "workspace:*",
         "@types/node": "^24.3.1",
         "bun-types": "^1.1.16",
         "tsup": "^8.5.0",
@@ -84,159 +70,159 @@
       },
     },
     "packages/core": {
-      "name": "@AWEtoAgent/core",
-      "version": "1.7.0",
+      "name": "@aweto-agent/core",
+      "version": "1.7.2",
       "dependencies": {
-        "@AWEtoAgent/a2a": "workspace:*",
-        "@AWEtoAgent/ap2": "workspace:*",
-        "@AWEtoAgent/identity": "workspace:*",
-        "@AWEtoAgent/payments": "workspace:*",
-        "@AWEtoAgent/types": "workspace:*",
-        "@AWEtoAgent/wallet": "workspace:*",
+        "@aweto-agent/a2a": "^0.2.0",
+        "@aweto-agent/ap2": "^0.2.0",
+        "@aweto-agent/identity": "^1.7.0",
+        "@aweto-agent/payments": "^1.7.2",
+        "@aweto-agent/types": "^1.3.0",
+        "@aweto-agent/wallet": "^0.2.1",
         "@ax-llm/ax": "^14.0.37",
         "@ax-llm/ax-tools": "^14.0.37",
-        "hono": "catalog:",
+        "hono": "4.10.1",
         "viem": "^2.38.5",
         "x402": "^0.7.1",
-        "x402-fetch": "catalog:",
-        "zod": "catalog:",
+        "x402-fetch": "^0.7.1",
+        "zod": "^4.1.12",
       },
       "devDependencies": {
-        "@AWEtoAgent/eslint-config": "workspace:*",
-        "@AWEtoAgent/hono": "workspace:*",
-        "@AWEtoAgent/prettier-config": "workspace:*",
-        "tsup": "catalog:",
-        "typescript": "catalog:",
+        "@aweto-agent/eslint-config": "workspace:*",
+        "@aweto-agent/hono": "^0.6.0",
+        "@aweto-agent/prettier-config": "workspace:*",
+        "tsup": "^8.5.0",
+        "typescript": "^5.9.2",
       },
     },
     "packages/eslint-config": {
-      "name": "@AWEtoAgent/eslint-config",
+      "name": "@aweto-agent/eslint-config",
       "version": "1.0.0",
     },
     "packages/express": {
-      "name": "@AWEtoAgent/express",
-      "version": "0.2.0",
+      "name": "@aweto-agent/express",
+      "version": "0.2.2",
       "dependencies": {
-        "@AWEtoAgent/core": "workspace:*",
-        "@AWEtoAgent/payments": "workspace:*",
-        "@AWEtoAgent/types": "workspace:*",
+        "@aweto-agent/core": "^1.7.0",
+        "@aweto-agent/payments": "^1.7.2",
+        "@aweto-agent/types": "^1.3.0",
         "express": "^4.19.2",
         "x402": "^0.7.1",
         "x402-express": "^0.7.1",
-        "zod": "catalog:",
+        "zod": "^4.1.12",
       },
       "devDependencies": {
         "@types/express": "^4.17.21",
-        "tsup": "catalog:",
-        "typescript": "catalog:",
+        "tsup": "^8.5.0",
+        "typescript": "^5.9.2",
       },
     },
     "packages/hono": {
-      "name": "@AWEtoAgent/hono",
-      "version": "0.6.0",
+      "name": "@aweto-agent/hono",
+      "version": "0.6.2",
       "dependencies": {
-        "@AWEtoAgent/ap2": "workspace:*",
-        "@AWEtoAgent/core": "workspace:*",
-        "@AWEtoAgent/payments": "workspace:*",
-        "@AWEtoAgent/types": "workspace:*",
-        "hono": "catalog:",
+        "@aweto-agent/ap2": "^0.2.0",
+        "@aweto-agent/core": "^1.7.0",
+        "@aweto-agent/payments": "^1.7.2",
+        "@aweto-agent/types": "^1.3.0",
+        "hono": "4.10.1",
         "x402": "^0.7.1",
         "x402-hono": "^0.7.1",
-        "zod": "catalog:",
+        "zod": "^4.1.12",
       },
       "devDependencies": {
-        "tsup": "catalog:",
-        "typescript": "catalog:",
+        "tsup": "^8.5.0",
+        "typescript": "^5.9.2",
       },
     },
     "packages/identity": {
-      "name": "@AWEtoAgent/identity",
-      "version": "1.7.0",
+      "name": "@aweto-agent/identity",
+      "version": "1.7.1",
       "dependencies": {
-        "@AWEtoAgent/types": "workspace:*",
-        "@AWEtoAgent/wallet": "workspace:*",
+        "@aweto-agent/types": "^1.3.0",
+        "@aweto-agent/wallet": "^0.2.1",
         "viem": "^2.38.1",
       },
       "devDependencies": {
-        "@AWEtoAgent/eslint-config": "workspace:*",
-        "@AWEtoAgent/prettier-config": "workspace:*",
+        "@aweto-agent/eslint-config": "workspace:*",
+        "@aweto-agent/prettier-config": "workspace:*",
         "tsup": "^8.5.0",
         "typescript": "^5.9.2",
       },
     },
     "packages/payments": {
-      "name": "@AWEtoAgent/payments",
-      "version": "1.7.0",
+      "name": "@aweto-agent/payments",
+      "version": "1.7.2",
       "dependencies": {
-        "@AWEtoAgent/types": "workspace:*",
-        "@ax-llm/ax": "catalog:",
+        "@aweto-agent/types": "^1.3.0",
+        "@ax-llm/ax": "^14.0.37",
         "viem": "^2.38.5",
         "x402": "^0.7.1",
-        "x402-fetch": "catalog:",
-        "zod": "catalog:",
+        "x402-fetch": "^0.7.1",
+        "zod": "^4.1.12",
       },
       "devDependencies": {
-        "tsup": "catalog:",
-        "typescript": "catalog:",
+        "tsup": "^8.5.0",
+        "typescript": "^5.9.2",
       },
     },
     "packages/prettier-config": {
-      "name": "@AWEtoAgent/prettier-config",
+      "name": "@aweto-agent/prettier-config",
       "version": "1.0.0",
     },
     "packages/tanstack": {
-      "name": "@AWEtoAgent/tanstack",
-      "version": "0.5.1",
+      "name": "@aweto-agent/tanstack",
+      "version": "0.5.3",
       "dependencies": {
-        "@AWEtoAgent/core": "workspace:*",
-        "@AWEtoAgent/payments": "workspace:*",
-        "@AWEtoAgent/types": "workspace:*",
-        "@AWEtoAgent/x402-tanstack-start": "workspace:*",
+        "@aweto-agent/core": "^1.7.0",
+        "@aweto-agent/payments": "^1.7.2",
+        "@aweto-agent/types": "^1.3.0",
+        "@aweto-agent/x402-tanstack-start": "^0.1.0",
         "viem": "^2.21.26",
-        "x402": "catalog:",
+        "x402": "^0.7.1",
       },
       "devDependencies": {
-        "tsup": "catalog:",
-        "typescript": "catalog:",
+        "tsup": "^8.5.0",
+        "typescript": "^5.9.2",
       },
     },
     "packages/types": {
-      "name": "@AWEtoAgent/types",
-      "version": "1.3.0",
+      "name": "@aweto-agent/types",
+      "version": "1.3.1",
       "devDependencies": {
-        "tsup": "catalog:",
-        "typescript": "catalog:",
-        "x402": "catalog:",
-        "zod": "catalog:",
+        "tsup": "^8.5.0",
+        "typescript": "^5.9.2",
+        "x402": "^0.7.1",
+        "zod": "^4.1.12",
       },
       "peerDependencies": {
         "zod": "^4.0.0",
       },
     },
     "packages/wallet": {
-      "name": "@AWEtoAgent/wallet",
-      "version": "0.2.1",
+      "name": "@aweto-agent/wallet",
+      "version": "0.2.2",
       "dependencies": {
-        "@AWEtoAgent/types": "workspace:*",
+        "@aweto-agent/types": "^1.3.0",
         "viem": "^2.38.5",
       },
       "devDependencies": {
-        "tsup": "catalog:",
-        "typescript": "catalog:",
+        "tsup": "^8.5.0",
+        "typescript": "^5.9.2",
       },
     },
     "packages/x402-tanstack-start": {
-      "name": "@AWEtoAgent/x402-tanstack-start",
-      "version": "0.1.0",
+      "name": "@aweto-agent/x402-tanstack-start",
+      "version": "0.1.1",
       "dependencies": {
         "@solana/kit": "^2.1.1",
         "@tanstack/react-start": "^1.134.13",
-        "viem": "catalog:",
-        "x402": "catalog:",
+        "viem": "^2.38.5",
+        "x402": "^0.7.1",
       },
       "devDependencies": {
-        "tsup": "catalog:",
-        "typescript": "catalog:",
+        "tsup": "^8.5.0",
+        "typescript": "^5.9.2",
       },
     },
   },
@@ -252,35 +238,35 @@
     "zod": "^4.1.12",
   },
   "packages": {
-    "@AWEtoAgent/a2a": ["@AWEtoAgent/a2a@workspace:packages/a2a"],
-
-    "@AWEtoAgent/ap2": ["@AWEtoAgent/ap2@workspace:packages/ap2"],
-
-    "@AWEtoAgent/cli": ["@AWEtoAgent/cli@workspace:packages/cli"],
-
-    "@AWEtoAgent/core": ["@AWEtoAgent/core@workspace:packages/core"],
-
-    "@AWEtoAgent/eslint-config": ["@AWEtoAgent/eslint-config@workspace:packages/eslint-config"],
-
-    "@AWEtoAgent/express": ["@AWEtoAgent/express@workspace:packages/express"],
-
-    "@AWEtoAgent/hono": ["@AWEtoAgent/hono@workspace:packages/hono"],
-
-    "@AWEtoAgent/identity": ["@AWEtoAgent/identity@workspace:packages/identity"],
-
-    "@AWEtoAgent/payments": ["@AWEtoAgent/payments@workspace:packages/payments"],
-
-    "@AWEtoAgent/prettier-config": ["@AWEtoAgent/prettier-config@workspace:packages/prettier-config"],
-
-    "@AWEtoAgent/tanstack": ["@AWEtoAgent/tanstack@workspace:packages/tanstack"],
-
-    "@AWEtoAgent/types": ["@AWEtoAgent/types@workspace:packages/types"],
-
-    "@AWEtoAgent/wallet": ["@AWEtoAgent/wallet@workspace:packages/wallet"],
-
-    "@AWEtoAgent/x402-tanstack-start": ["@AWEtoAgent/x402-tanstack-start@workspace:packages/x402-tanstack-start"],
-
     "@adraffy/ens-normalize": ["@adraffy/ens-normalize@1.11.1", "", {}, "sha512-nhCBV3quEgesuf7c7KYfperqSS14T8bYuvJ8PcLJp6znkZpFc0AuW4qBtr8eKVyPPe/8RSr7sglCWPU5eaxwKQ=="],
+
+    "@aweto-agent/a2a": ["@aweto-agent/a2a@workspace:packages/a2a"],
+
+    "@aweto-agent/ap2": ["@aweto-agent/ap2@workspace:packages/ap2"],
+
+    "@aweto-agent/cli": ["@aweto-agent/cli@workspace:packages/cli"],
+
+    "@aweto-agent/core": ["@aweto-agent/core@workspace:packages/core"],
+
+    "@aweto-agent/eslint-config": ["@aweto-agent/eslint-config@workspace:packages/eslint-config"],
+
+    "@aweto-agent/express": ["@aweto-agent/express@workspace:packages/express"],
+
+    "@aweto-agent/hono": ["@aweto-agent/hono@workspace:packages/hono"],
+
+    "@aweto-agent/identity": ["@aweto-agent/identity@workspace:packages/identity"],
+
+    "@aweto-agent/payments": ["@aweto-agent/payments@workspace:packages/payments"],
+
+    "@aweto-agent/prettier-config": ["@aweto-agent/prettier-config@workspace:packages/prettier-config"],
+
+    "@aweto-agent/tanstack": ["@aweto-agent/tanstack@workspace:packages/tanstack"],
+
+    "@aweto-agent/types": ["@aweto-agent/types@workspace:packages/types"],
+
+    "@aweto-agent/wallet": ["@aweto-agent/wallet@workspace:packages/wallet"],
+
+    "@aweto-agent/x402-tanstack-start": ["@aweto-agent/x402-tanstack-start@workspace:packages/x402-tanstack-start"],
 
     "@ax-llm/ax": ["@ax-llm/ax@14.0.39", "", { "dependencies": { "@opentelemetry/api": "^1.9.0", "dayjs": "^1.11.13" } }, "sha512-9pM32i5DLeJC9gc9oYX0m0FhRoQslXLmIKW5lSGAUQAInfl+cHwFpdYyqWoc6g6ofB3lEky1LP3M1fZlkzpLDA=="],
 
@@ -931,8 +917,6 @@
     "atomic-sleep": ["atomic-sleep@1.0.0", "", {}, "sha512-kNOjDqAh7px0XWNI+4QbzoiR/nTkHAWNud2uvnJquD1/x5a7EQZMJT0AczqK0Qn67oY/TTQ1LbUKajZpp3I9tQ=="],
 
     "available-typed-arrays": ["available-typed-arrays@1.0.7", "", { "dependencies": { "possible-typed-array-names": "^1.0.0" } }, "sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ=="],
-
-    "awe-identity-register-agent": ["awe-identity-register-agent@workspace:awe-identity-register-agent"],
 
     "axios": ["axios@1.13.2", "", { "dependencies": { "follow-redirects": "^1.15.6", "form-data": "^4.0.4", "proxy-from-env": "^1.1.0" } }, "sha512-VPk9ebNqPcy5lRGuSlKx752IlDatOjT9paPlm8A7yOuW2Fbvp4X3JznJtT4f0GzGLLiWE9W8onz51SqLYwzGaA=="],
 
@@ -1974,7 +1958,7 @@
 
     "vary": ["vary@1.1.2", "", {}, "sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg=="],
 
-    "viem": ["viem@2.40.2", "", { "dependencies": { "@noble/curves": "1.9.1", "@noble/hashes": "1.8.0", "@scure/bip32": "1.7.0", "@scure/bip39": "1.6.0", "abitype": "1.1.0", "isows": "1.0.7", "ox": "0.9.6", "ws": "8.18.3" }, "peerDependencies": { "typescript": ">=5.0.4" }, "optionalPeers": ["typescript"] }, "sha512-iZXVl5Uip1BUQv0PI9yOq+vHGRTnJ0a8azC5IAAJMSrvdkGrvghIwGskp3+g243fpzFlO/iqAFrWIG15SDoiTQ=="],
+    "viem": ["viem@2.40.3", "", { "dependencies": { "@noble/curves": "1.9.1", "@noble/hashes": "1.8.0", "@scure/bip32": "1.7.0", "@scure/bip39": "1.6.0", "abitype": "1.1.0", "isows": "1.0.7", "ox": "0.9.6", "ws": "8.18.3" }, "peerDependencies": { "typescript": ">=5.0.4" }, "optionalPeers": ["typescript"] }, "sha512-feYfEpbgjRkZYQpwcgxqkWzjxHI5LSDAjcGetHHwDRuX9BRQHUdV8ohrCosCYpdEhus/RknD3/bOd4qLYVPPuA=="],
 
     "vite": ["vite@7.2.2", "", { "dependencies": { "esbuild": "^0.25.0", "fdir": "^6.5.0", "picomatch": "^4.0.3", "postcss": "^8.5.6", "rollup": "^4.43.0", "tinyglobby": "^0.2.15" }, "optionalDependencies": { "fsevents": "~2.3.3" }, "peerDependencies": { "@types/node": "^20.19.0 || >=22.12.0", "jiti": ">=1.21.0", "less": "^4.0.0", "lightningcss": "^1.21.0", "sass": "^1.70.0", "sass-embedded": "^1.70.0", "stylus": ">=0.54.8", "sugarss": "^5.0.0", "terser": "^5.16.0", "tsx": "^4.8.1", "yaml": "^2.4.2" }, "optionalPeers": ["@types/node", "jiti", "less", "lightningcss", "sass", "sass-embedded", "stylus", "sugarss", "terser", "tsx", "yaml"], "bin": { "vite": "bin/vite.js" } }, "sha512-BxAKBWmIbrDgrokdGZH1IgkIk/5mMHDreLDmCJ0qpyJaAteP8NvMhkwr/ZCQNqNH97bw/dANTE9PDzqwJghfMQ=="],
 
@@ -2043,16 +2027,6 @@
     "zod": ["zod@4.1.12", "", {}, "sha512-JInaHOamG8pt5+Ey8kGmdcAcg3OL9reK8ltczgHTAwNhMys/6ThXHityHxVV2p3fkw/c+MAvBHFVYHFZDmjMCQ=="],
 
     "zustand": ["zustand@5.0.0", "", { "peerDependencies": { "@types/react": ">=18.0.0", "immer": ">=9.0.6", "react": ">=18.0.0", "use-sync-external-store": ">=1.2.0" }, "optionalPeers": ["@types/react", "immer", "react", "use-sync-external-store"] }, "sha512-LE+VcmbartOPM+auOjCCLQOsQ05zUTp8RkgwRzefUk+2jISdMMFnxvyTjA4YNWr5ZGXYbVsEMZosttuxUBkojQ=="],
-
-    "@AWEtoAgent/core/viem": ["viem@2.40.3", "", { "dependencies": { "@noble/curves": "1.9.1", "@noble/hashes": "1.8.0", "@scure/bip32": "1.7.0", "@scure/bip39": "1.6.0", "abitype": "1.1.0", "isows": "1.0.7", "ox": "0.9.6", "ws": "8.18.3" }, "peerDependencies": { "typescript": ">=5.0.4" }, "optionalPeers": ["typescript"] }, "sha512-feYfEpbgjRkZYQpwcgxqkWzjxHI5LSDAjcGetHHwDRuX9BRQHUdV8ohrCosCYpdEhus/RknD3/bOd4qLYVPPuA=="],
-
-    "@AWEtoAgent/identity/viem": ["viem@2.40.3", "", { "dependencies": { "@noble/curves": "1.9.1", "@noble/hashes": "1.8.0", "@scure/bip32": "1.7.0", "@scure/bip39": "1.6.0", "abitype": "1.1.0", "isows": "1.0.7", "ox": "0.9.6", "ws": "8.18.3" }, "peerDependencies": { "typescript": ">=5.0.4" }, "optionalPeers": ["typescript"] }, "sha512-feYfEpbgjRkZYQpwcgxqkWzjxHI5LSDAjcGetHHwDRuX9BRQHUdV8ohrCosCYpdEhus/RknD3/bOd4qLYVPPuA=="],
-
-    "@AWEtoAgent/payments/viem": ["viem@2.40.3", "", { "dependencies": { "@noble/curves": "1.9.1", "@noble/hashes": "1.8.0", "@scure/bip32": "1.7.0", "@scure/bip39": "1.6.0", "abitype": "1.1.0", "isows": "1.0.7", "ox": "0.9.6", "ws": "8.18.3" }, "peerDependencies": { "typescript": ">=5.0.4" }, "optionalPeers": ["typescript"] }, "sha512-feYfEpbgjRkZYQpwcgxqkWzjxHI5LSDAjcGetHHwDRuX9BRQHUdV8ohrCosCYpdEhus/RknD3/bOd4qLYVPPuA=="],
-
-    "@AWEtoAgent/wallet/viem": ["viem@2.40.3", "", { "dependencies": { "@noble/curves": "1.9.1", "@noble/hashes": "1.8.0", "@scure/bip32": "1.7.0", "@scure/bip39": "1.6.0", "abitype": "1.1.0", "isows": "1.0.7", "ox": "0.9.6", "ws": "8.18.3" }, "peerDependencies": { "typescript": ">=5.0.4" }, "optionalPeers": ["typescript"] }, "sha512-feYfEpbgjRkZYQpwcgxqkWzjxHI5LSDAjcGetHHwDRuX9BRQHUdV8ohrCosCYpdEhus/RknD3/bOd4qLYVPPuA=="],
-
-    "@AWEtoAgent/x402-tanstack-start/viem": ["viem@2.40.3", "", { "dependencies": { "@noble/curves": "1.9.1", "@noble/hashes": "1.8.0", "@scure/bip32": "1.7.0", "@scure/bip39": "1.6.0", "abitype": "1.1.0", "isows": "1.0.7", "ox": "0.9.6", "ws": "8.18.3" }, "peerDependencies": { "typescript": ">=5.0.4" }, "optionalPeers": ["typescript"] }, "sha512-feYfEpbgjRkZYQpwcgxqkWzjxHI5LSDAjcGetHHwDRuX9BRQHUdV8ohrCosCYpdEhus/RknD3/bOd4qLYVPPuA=="],
 
     "@babel/core/@babel/code-frame": ["@babel/code-frame@7.27.1", "", { "dependencies": { "@babel/helper-validator-identifier": "^7.27.1", "js-tokens": "^4.0.0", "picocolors": "^1.1.1" } }, "sha512-cjQ7ZlQ0Mv3b47hABuTevyTuYN4i+loJKGeV9flcCgIK37cCXRh+L1bd3iBHlynerhQ7BhCkn2BPbQUL+rGqFg=="],
 
@@ -2396,6 +2370,8 @@
 
     "x402/@solana/kit": ["@solana/kit@5.0.0", "", { "dependencies": { "@solana/accounts": "5.0.0", "@solana/addresses": "5.0.0", "@solana/codecs": "5.0.0", "@solana/errors": "5.0.0", "@solana/functional": "5.0.0", "@solana/instruction-plans": "5.0.0", "@solana/instructions": "5.0.0", "@solana/keys": "5.0.0", "@solana/programs": "5.0.0", "@solana/rpc": "5.0.0", "@solana/rpc-parsed-types": "5.0.0", "@solana/rpc-spec-types": "5.0.0", "@solana/rpc-subscriptions": "5.0.0", "@solana/rpc-types": "5.0.0", "@solana/signers": "5.0.0", "@solana/sysvars": "5.0.0", "@solana/transaction-confirmation": "5.0.0", "@solana/transaction-messages": "5.0.0", "@solana/transactions": "5.0.0" }, "peerDependencies": { "typescript": ">=5.3.3" } }, "sha512-3ahtzmmMgU+1l2YMhQJSKKm14IdvCycOE/m4XNMu/4icBIptmBgZxrmgRpPHqBilBa+Krp/hBuTg4HWl9IAgWw=="],
 
+    "x402/viem": ["viem@2.40.2", "", { "dependencies": { "@noble/curves": "1.9.1", "@noble/hashes": "1.8.0", "@scure/bip32": "1.7.0", "@scure/bip39": "1.6.0", "abitype": "1.1.0", "isows": "1.0.7", "ox": "0.9.6", "ws": "8.18.3" }, "peerDependencies": { "typescript": ">=5.0.4" }, "optionalPeers": ["typescript"] }, "sha512-iZXVl5Uip1BUQv0PI9yOq+vHGRTnJ0a8azC5IAAJMSrvdkGrvghIwGskp3+g243fpzFlO/iqAFrWIG15SDoiTQ=="],
+
     "x402/zod": ["zod@3.25.76", "", {}, "sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ=="],
 
     "x402-express/viem": ["viem@2.39.0", "", { "dependencies": { "@noble/curves": "1.9.1", "@noble/hashes": "1.8.0", "@scure/bip32": "1.7.0", "@scure/bip39": "1.6.0", "abitype": "1.1.0", "isows": "1.0.7", "ox": "0.9.6", "ws": "8.18.3" }, "peerDependencies": { "typescript": ">=5.0.4" }, "optionalPeers": ["typescript"] }, "sha512-rCN+IfnMESlrg/iPyyVL+M9NS/BHzyyNy72470tFmbTuscY3iPaZGMtJDcHKKV8TC6HV9DjWk0zWX6cpu0juyA=="],
@@ -2403,6 +2379,8 @@
     "x402-express/x402": ["x402@0.7.2", "", { "dependencies": { "@scure/base": "^1.2.6", "@solana-program/compute-budget": "^0.8.0", "@solana-program/token": "^0.5.1", "@solana-program/token-2022": "^0.4.2", "@solana/kit": "^2.1.1", "@solana/transaction-confirmation": "^2.1.1", "@solana/wallet-standard-features": "^1.3.0", "@wallet-standard/app": "^1.1.0", "@wallet-standard/base": "^1.1.0", "@wallet-standard/features": "^1.1.0", "viem": "^2.21.26", "wagmi": "^2.15.6", "zod": "^3.24.2" } }, "sha512-JleP1GmeOP1bEuwzFVtjusL3t5H1PGufROrBKg5pj/MfcGswkBvfB6j5Gm5UeA+kwp0ZmOkkHAqkoHF1WexbsQ=="],
 
     "x402-express/zod": ["zod@3.25.76", "", {}, "sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ=="],
+
+    "x402-fetch/viem": ["viem@2.40.2", "", { "dependencies": { "@noble/curves": "1.9.1", "@noble/hashes": "1.8.0", "@scure/bip32": "1.7.0", "@scure/bip39": "1.6.0", "abitype": "1.1.0", "isows": "1.0.7", "ox": "0.9.6", "ws": "8.18.3" }, "peerDependencies": { "typescript": ">=5.0.4" }, "optionalPeers": ["typescript"] }, "sha512-iZXVl5Uip1BUQv0PI9yOq+vHGRTnJ0a8azC5IAAJMSrvdkGrvghIwGskp3+g243fpzFlO/iqAFrWIG15SDoiTQ=="],
 
     "x402-fetch/zod": ["zod@3.25.76", "", {}, "sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ=="],
 

@@ -1,4 +1,4 @@
-# @AWEtoAgent/eslint-config
+# @aweto-agent/eslint-config
 
 Shared ESLint configuration for AWEtoAgent monorepo packages.
 
@@ -16,7 +16,7 @@ Shared ESLint configuration for AWEtoAgent monorepo packages.
 
 ```bash
 # In your package directory
-bun add -D @AWEtoAgent/eslint-config
+bun add -D @aweto-agent/eslint-config
 ```
 
 ### 2. Create `.eslintrc.cjs`
@@ -31,7 +31,7 @@ Or create manually:
 
 ```js
 module.exports = {
-  extends: ['@AWEtoAgent/eslint-config'],
+  extends: ['@aweto-agent/eslint-config'],
   env: {
     node: true,
     es2022: true,
@@ -61,7 +61,7 @@ If ESLint doesn't recognize certain globals:
 
 ```js
 module.exports = {
-  extends: ['@AWEtoAgent/eslint-config'],
+  extends: ['@aweto-agent/eslint-config'],
   globals: {
     NodeJS: 'readonly',
     RequestInfo: 'readonly',
@@ -76,7 +76,7 @@ For interactive CLI prompts:
 
 ```js
 module.exports = {
-  extends: ['@AWEtoAgent/eslint-config'],
+  extends: ['@aweto-agent/eslint-config'],
   rules: {
     'no-constant-condition': ['error', { checkLoops: false }],
   },

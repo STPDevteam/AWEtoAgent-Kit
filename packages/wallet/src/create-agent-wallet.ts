@@ -13,8 +13,8 @@ import type {
   LocalWalletOptions,
   AweWalletOptions,
   WalletConnector,
-} from '@AWEtoAgent/types/wallets';
-import type { AgentKitConfig } from '@AWEtoAgent/types/core';
+} from '@aweto-agent/types/wallets';
+import type { AgentKitConfig } from '@aweto-agent/types/core';
 
 export const createAgentWallet = (
   options: AgentWalletFactoryOptions

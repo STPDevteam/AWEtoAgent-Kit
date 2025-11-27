@@ -1,6 +1,6 @@
 {
-  "name": "@AWEtoAgent/tanstack",
-  "version": "0.5.1",
+  "name": "@aweto-agent/tanstack",
+  "version": "0.5.3",
   "description": "TanStack Start adapter for Lucid agent runtime",
   "repository": {
     "type": "git",
@@ -32,15 +32,15 @@
     "type-check": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@AWEtoAgent/core": "workspace:*",
-    "@AWEtoAgent/payments": "workspace:*",
-    "@AWEtoAgent/types": "workspace:*",
-    "@AWEtoAgent/x402-tanstack-start": "workspace:*",
+    "@aweto-agent/core": "^1.7.0",
+    "@aweto-agent/payments": "^1.7.2",
+    "@aweto-agent/types": "^1.3.0",
+    "@aweto-agent/x402-tanstack-start": "^0.1.0",
     "viem": "^2.21.26",
-    "x402": "catalog:"
+    "x402": "^0.7.1"
   },
   "devDependencies": {
-    "tsup": "catalog:",
-    "typescript": "catalog:"
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2"
   }
 }

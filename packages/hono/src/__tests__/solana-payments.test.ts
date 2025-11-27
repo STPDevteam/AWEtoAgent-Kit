@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'bun:test';
 import { z } from 'zod';
-import { createAgentApp } from '@AWEtoAgent/hono';
-import type { PaymentsConfig } from '@AWEtoAgent/types/payments';
+import { createAgentApp } from '@aweto-agent/hono';
+import type { PaymentsConfig } from '@aweto-agent/types/payments';
 
 describe('Hono Solana Payments', () => {
   const solanaPayments: PaymentsConfig = {

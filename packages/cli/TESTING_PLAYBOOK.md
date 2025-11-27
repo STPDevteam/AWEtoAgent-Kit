@@ -49,31 +49,31 @@ MONOREPO_ROOT=/path/to/awe-agents
 TEST_PROJECT=/tmp/test-agent
 
 # Copy each package
-cp -r $MONOREPO_ROOT/packages/types/dist $TEST_PROJECT/node_modules/@AWEtoAgent/types/
-cp $MONOREPO_ROOT/packages/types/package.json $TEST_PROJECT/node_modules/@AWEtoAgent/types/
+cp -r $MONOREPO_ROOT/packages/types/dist $TEST_PROJECT/node_modules/@aweto-agent/types/
+cp $MONOREPO_ROOT/packages/types/package.json $TEST_PROJECT/node_modules/@aweto-agent/types/
 
-cp -r $MONOREPO_ROOT/packages/wallet/dist $TEST_PROJECT/node_modules/@AWEtoAgent/wallet/
-cp $MONOREPO_ROOT/packages/wallet/package.json $TEST_PROJECT/node_modules/@AWEtoAgent/wallet/
+cp -r $MONOREPO_ROOT/packages/wallet/dist $TEST_PROJECT/node_modules/@aweto-agent/wallet/
+cp $MONOREPO_ROOT/packages/wallet/package.json $TEST_PROJECT/node_modules/@aweto-agent/wallet/
 
-cp -r $MONOREPO_ROOT/packages/payments/dist $TEST_PROJECT/node_modules/@AWEtoAgent/payments/
-cp $MONOREPO_ROOT/packages/payments/package.json $TEST_PROJECT/node_modules/@AWEtoAgent/payments/
+cp -r $MONOREPO_ROOT/packages/payments/dist $TEST_PROJECT/node_modules/@aweto-agent/payments/
+cp $MONOREPO_ROOT/packages/payments/package.json $TEST_PROJECT/node_modules/@aweto-agent/payments/
 
-cp -r $MONOREPO_ROOT/packages/identity/dist $TEST_PROJECT/node_modules/@AWEtoAgent/identity/
-cp $MONOREPO_ROOT/packages/identity/package.json $TEST_PROJECT/node_modules/@AWEtoAgent/identity/
+cp -r $MONOREPO_ROOT/packages/identity/dist $TEST_PROJECT/node_modules/@aweto-agent/identity/
+cp $MONOREPO_ROOT/packages/identity/package.json $TEST_PROJECT/node_modules/@aweto-agent/identity/
 
-cp -r $MONOREPO_ROOT/packages/core/dist $TEST_PROJECT/node_modules/@AWEtoAgent/core/
-cp $MONOREPO_ROOT/packages/core/package.json $TEST_PROJECT/node_modules/@AWEtoAgent/core/
+cp -r $MONOREPO_ROOT/packages/core/dist $TEST_PROJECT/node_modules/@aweto-agent/core/
+cp $MONOREPO_ROOT/packages/core/package.json $TEST_PROJECT/node_modules/@aweto-agent/core/
 
-cp -r $MONOREPO_ROOT/packages/hono/dist $TEST_PROJECT/node_modules/@AWEtoAgent/hono/
-cp $MONOREPO_ROOT/packages/hono/package.json $TEST_PROJECT/node_modules/@AWEtoAgent/hono/
+cp -r $MONOREPO_ROOT/packages/hono/dist $TEST_PROJECT/node_modules/@aweto-agent/hono/
+cp $MONOREPO_ROOT/packages/hono/package.json $TEST_PROJECT/node_modules/@aweto-agent/hono/
 
 # For express adapter (if used)
-cp -r $MONOREPO_ROOT/packages/express/dist $TEST_PROJECT/node_modules/@AWEtoAgent/express/
-cp $MONOREPO_ROOT/packages/express/package.json $TEST_PROJECT/node_modules/@AWEtoAgent/express/
+cp -r $MONOREPO_ROOT/packages/express/dist $TEST_PROJECT/node_modules/@aweto-agent/express/
+cp $MONOREPO_ROOT/packages/express/package.json $TEST_PROJECT/node_modules/@aweto-agent/express/
 
 # For tanstack adapter (if used)
-cp -r $MONOREPO_ROOT/packages/tanstack/dist $TEST_PROJECT/node_modules/@AWEtoAgent/tanstack/
-cp $MONOREPO_ROOT/packages/tanstack/package.json $TEST_PROJECT/node_modules/@AWEtoAgent/tanstack/
+cp -r $MONOREPO_ROOT/packages/tanstack/dist $TEST_PROJECT/node_modules/@aweto-agent/tanstack/
+cp $MONOREPO_ROOT/packages/tanstack/package.json $TEST_PROJECT/node_modules/@aweto-agent/tanstack/
 ```
 
 ### 3. Update package.json files in node_modules
@@ -125,9 +125,9 @@ packages.forEach(pkg => {
     Object.keys(pkgJson.dependencies).forEach(dep => {
       if (
         pkgJson.dependencies[dep] === 'workspace:*' &&
-        dep.startsWith('@AWEtoAgent/')
+        dep.startsWith('@aweto-agent/')
       ) {
-        const depName = dep.replace('@AWEtoAgent/', '');
+        const depName = dep.replace('@aweto-agent/', '');
         pkgJson.dependencies[dep] = 'file:../' + depName;
       } else if (pkgJson.dependencies[dep] === 'catalog:') {
         pkgJson.dependencies[dep] = catalogVersions[dep] || 'latest';
@@ -154,11 +154,11 @@ Update the test project's `package.json` to use `file:` paths:
 ```json
 {
   "dependencies": {
-    "@AWEtoAgent/core": "file:./node_modules/@AWEtoAgent/core",
-    "@AWEtoAgent/hono": "file:./node_modules/@AWEtoAgent/hono",
-    "@AWEtoAgent/wallet": "file:./node_modules/@AWEtoAgent/wallet",
-    "@AWEtoAgent/identity": "file:./node_modules/@AWEtoAgent/identity",
-    "@AWEtoAgent/types": "file:./node_modules/@AWEtoAgent/types",
+    "@aweto-agent/core": "file:./node_modules/@aweto-agent/core",
+    "@aweto-agent/hono": "file:./node_modules/@aweto-agent/hono",
+    "@aweto-agent/wallet": "file:./node_modules/@aweto-agent/wallet",
+    "@aweto-agent/identity": "file:./node_modules/@aweto-agent/identity",
+    "@aweto-agent/types": "file:./node_modules/@aweto-agent/types",
     "zod": "^4.1.12",
     "viem": "^2.21.26",
     "hono": "^4.10.1"
@@ -173,7 +173,7 @@ cd /tmp/test-agent
 bun install
 ```
 
-This will install external dependencies (zod, viem, hono, etc.) while using the local copies of `@AWEtoAgent/*` packages.
+This will install external dependencies (zod, viem, hono, etc.) while using the local copies of `@aweto-agent/*` packages.
 
 ### 6. Run the project
 
@@ -212,8 +212,8 @@ mkdir -p node_modules/@AWEtoAgent
 for pkg in types wallet payments identity core hono express tanstack; do
   if [ -d "$MONOREPO_ROOT/packages/$pkg/dist" ]; then
     echo "Copying $pkg..."
-    cp -r "$MONOREPO_ROOT/packages/$pkg/dist" "node_modules/@AWEtoAgent/$pkg/"
-    cp "$MONOREPO_ROOT/packages/$pkg/package.json" "node_modules/@AWEtoAgent/$pkg/"
+    cp -r "$MONOREPO_ROOT/packages/$pkg/dist" "node_modules/@aweto-agent/$pkg/"
+    cp "$MONOREPO_ROOT/packages/$pkg/package.json" "node_modules/@aweto-agent/$pkg/"
   fi
 done
 
@@ -243,8 +243,8 @@ packages.forEach(pkg => {
 
   if (pkgJson.dependencies) {
     Object.keys(pkgJson.dependencies).forEach(dep => {
-      if (pkgJson.dependencies[dep] === 'workspace:*' && dep.startsWith('@AWEtoAgent/')) {
-        const depName = dep.replace('@AWEtoAgent/', '');
+      if (pkgJson.dependencies[dep] === 'workspace:*' && dep.startsWith('@aweto-agent/')) {
+        const depName = dep.replace('@aweto-agent/', '');
         pkgJson.dependencies[dep] = 'file:../' + depName;
       } else if (pkgJson.dependencies[dep] === 'catalog:') {
         pkgJson.dependencies[dep] = catalogVersions[dep] || 'latest';
@@ -272,31 +272,31 @@ To test different adapters, generate projects with different `--adapter` flags:
 
 ```bash
 # Hono
-bunx @AWEtoAgent/create-agent-kit test-hono --adapter=hono --template=identity
+bunx @aweto-agent/create-agent-kit test-hono --adapter=hono --template=identity
 
 # Express
-bunx @AWEtoAgent/create-agent-kit test-express --adapter=express --template=identity
+bunx @aweto-agent/create-agent-kit test-express --adapter=express --template=identity
 
 # TanStack UI
-bunx @AWEtoAgent/create-agent-kit test-tanstack-ui --adapter=tanstack-ui --template=identity
+bunx @aweto-agent/create-agent-kit test-tanstack-ui --adapter=tanstack-ui --template=identity
 
 # TanStack Headless
-bunx @AWEtoAgent/create-agent-kit test-tanstack-headless --adapter=tanstack-headless --template=identity
+bunx @aweto-agent/create-agent-kit test-tanstack-headless --adapter=tanstack-headless --template=identity
 ```
 
 Then follow the same process for each.
 
 ## Troubleshooting
 
-### "Cannot find module '@AWEtoAgent/...'"
+### "Cannot find module '@aweto-agent/...'"
 
-- Ensure the package was copied to `node_modules/@AWEtoAgent/<package-name>/`
+- Ensure the package was copied to `node_modules/@aweto-agent/<package-name>/`
 - Check that `package.json` exists in the package directory
 - Verify the `file:` paths in the test project's `package.json` are correct
 
 ### "Workspace dependency not found"
 
-- The package.json files in `node_modules/@AWEtoAgent/*` still have `workspace:*` references
+- The package.json files in `node_modules/@aweto-agent/*` still have `workspace:*` references
 - Re-run the fix script to update them
 
 ### "catalog: failed to resolve"

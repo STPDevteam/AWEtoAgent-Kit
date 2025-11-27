@@ -1,4 +1,4 @@
-# @AWEtoAgent/identity
+# @aweto-agent/identity
 
 ERC-8004 identity helpers for Lucid agents. Register your agent on the ERC-8004 registry and include verifiable on-chain identity in your agent manifest.
 
@@ -25,7 +25,7 @@ This package enables you to:
 ## Installation
 
 ```bash
-bun add @AWEtoAgent/identity
+bun add @aweto-agent/identity
 ```
 
 ## Quick Start
@@ -53,7 +53,7 @@ REGISTER_IDENTITY=true
 ### 2. Register Your Agent
 
 ```typescript
-import { createAgentIdentity } from '@AWEtoAgent/identity';
+import { createAgentIdentity } from '@aweto-agent/identity';
 
 // Register with auto-configuration from env vars
 const identity = await createAgentIdentity({
@@ -80,7 +80,7 @@ https://my-agent.example.com/.well-known/agent-metadata.json
 You can also generate custom metadata using the helper:
 
 ```typescript
-import { generateAgentMetadata } from '@AWEtoAgent/identity';
+import { generateAgentMetadata } from '@aweto-agent/identity';
 
 const metadata = generateAgentMetadata(identity, {
   name: 'My Agent',
@@ -96,8 +96,8 @@ const metadata = generateAgentMetadata(identity, {
 ## Usage with Agent Kit
 
 ```typescript
-import { createAgentIdentity, getTrustConfig } from '@AWEtoAgent/identity';
-import { createAgentApp } from '@AWEtoAgent/core';
+import { createAgentIdentity, getTrustConfig } from '@aweto-agent/identity';
+import { createAgentApp } from '@aweto-agent/core';
 
 // 1. Create identity with all three registry clients
 const identity = await createAgentIdentity({

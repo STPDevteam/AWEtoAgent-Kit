@@ -11,21 +11,21 @@
  */
 
 import { z } from 'zod';
-import { createAgentApp } from '@AWEtoAgent/hono';
+import { createAgentApp } from '@aweto-agent/hono';
 import {
   createRuntimePaymentContext,
   type AgentKitConfig,
-} from '@AWEtoAgent/core';
+} from '@aweto-agent/core';
 import {
   createAgentIdentity,
   getTrustConfig,
   type AgentIdentity,
-} from '@AWEtoAgent/identity';
+} from '@aweto-agent/identity';
 import {
   AgentRuntime,
   MemoryStorageAdapter,
   type AgentRuntimeWallet,
-} from '@AWEtoAgent/agent-auth';
+} from '@aweto-agent/agent-auth';
 import { privateKeyToAccount } from 'viem/accounts';
 
 type RuntimeBootstrap = {
@@ -258,7 +258,7 @@ async function main() {
       payments: {
         facilitatorUrl:
           (process.env.FACILITATOR_URL as any) ??
-          'https://facilitator.daydreams.systems',
+          'https://facilitator.world.fun/',
         payTo:
           (process.env.PAYMENTS_RECEIVABLE_ADDRESS as `0x${string}`) ??
           '0xb308ed39d67D0d4BAe5BC2FAEF60c66BBb6AE429',

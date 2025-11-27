@@ -1,6 +1,6 @@
 {
-  "name": "@AWEtoAgent/ap2",
-  "version": "0.2.0",
+  "name": "@aweto-agent/ap2",
+  "version": "0.2.1",
   "description": "AP2 (Agent Payments Protocol) extension for Lucid agents",
   "repository": {
     "type": "git",
@@ -33,10 +33,10 @@
     "test": "bun test"
   },
   "dependencies": {
-    "@AWEtoAgent/types": "workspace:*"
+    "@aweto-agent/types": "^1.3.0"
   },
   "devDependencies": {
-    "tsup": "catalog:",
-    "typescript": "catalog:"
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2"
   }
 }

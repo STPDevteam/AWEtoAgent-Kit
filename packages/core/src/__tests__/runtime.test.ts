@@ -1,9 +1,9 @@
 import {
   createRuntimePaymentContext,
   type RuntimePaymentOptions,
-} from '@AWEtoAgent/payments';
-import type { AgentRuntime } from '@AWEtoAgent/types/core';
-import type { PaymentsConfig } from '@AWEtoAgent/types/payments';
+} from '@aweto-agent/payments';
+import type { AgentRuntime } from '@aweto-agent/types/core';
+import type { PaymentsConfig } from '@aweto-agent/types/payments';
 import { afterEach, describe, expect, it, mock } from 'bun:test';
 import { z } from 'zod';
 

@@ -1,8 +1,8 @@
 import { describe, expect, it } from "bun:test";
-import type { PaymentsConfig } from "@AWEtoAgent/types/payments";
+import type { PaymentsConfig } from "@aweto-agent/types/payments";
 import { createTanStackPaywall } from "../paywall";
 import type { RoutesConfig } from "x402/types";
-import type { TanStackRequestMiddleware } from "@AWEtoAgent/x402-tanstack-start";
+import type { TanStackRequestMiddleware } from "@aweto-agent/x402-tanstack-start";
 
 describe("createTanStackPaywall", () => {
   const payments: PaymentsConfig = {
@@ -53,7 +53,7 @@ describe("createTanStackPaywall", () => {
       _paywall
     ) => {
       return (() => Promise.resolve(new Response())) as unknown as TanStackRequestMiddleware;
-    }) satisfies typeof import("@AWEtoAgent/x402-tanstack-start").paymentMiddleware;
+    }) satisfies typeof import("@aweto-agent/x402-tanstack-start").paymentMiddleware;
 
     const spyingFactory: typeof middlewareFactory = (payTo, routes, facilitator, paywall) => {
       capturedRoutes.push(routes as RoutesConfig);

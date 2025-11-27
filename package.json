@@ -1,9 +1,8 @@
 {
-  "name": "@AWEtoAgent/root",
+  "name": "@aweto-agent/root",
   "workspaces": {
     "packages": [
-      "packages/*",
-      "awe-identity-register-agent"
+      "packages/*"
     ],
     "catalog": {
       "zod": "^4.1.12",

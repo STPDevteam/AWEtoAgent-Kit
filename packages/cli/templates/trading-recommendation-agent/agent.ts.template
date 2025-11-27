@@ -4,8 +4,8 @@ import {
   fetchAndSendMessage,
   type Task,
   type TaskStatus,
-} from '@lucid-agents/a2a';
-import { createRuntimePaymentContext } from '@lucid-agents/payments';
+} from '@aweto-agent/a2a';
+import { createRuntimePaymentContext } from '@aweto-agent/payments';
 
 {{ADAPTER_PRE_SETUP}}
 const appOptions = {

@@ -1,12 +1,12 @@
 import type { Network } from 'x402/types';
-import type { EntrypointDef, AgentCore } from '@AWEtoAgent/types/core';
-import type { EntrypointPrice } from '@AWEtoAgent/types/payments';
+import type { EntrypointDef, AgentCore } from '@aweto-agent/types/core';
+import type { EntrypointPrice } from '@aweto-agent/types/payments';
 import type {
   PaymentsConfig,
   PaymentRequirement,
   RuntimePaymentRequirement,
-} from '@AWEtoAgent/types/payments';
-import type { AgentKitConfig } from '@AWEtoAgent/types/core';
+} from '@aweto-agent/types/payments';
+import type { AgentKitConfig } from '@aweto-agent/types/core';
 import { resolvePrice } from './pricing';
 
 /**
@@ -153,7 +153,7 @@ export const paymentRequiredResponse = (
 export function createPaymentsRuntime(
   paymentsOption: PaymentsConfig | false | undefined,
   agentConfig: AgentKitConfig
-): import('@AWEtoAgent/types/payments').PaymentsRuntime | undefined {
+): import('@aweto-agent/types/payments').PaymentsRuntime | undefined {
   const config: PaymentsConfig | undefined =
     paymentsOption === false
       ? undefined

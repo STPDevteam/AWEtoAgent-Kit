@@ -4,10 +4,10 @@
   "commit": false,
   "fixed": [
     [
-      "@AWEtoAgent/core",
-      "@AWEtoAgent/identity",
-      "@AWEtoAgent/payments",
-      "@AWEtoAgent/cli"
+      "@aweto-agent/core",
+      "@aweto-agent/identity",
+      "@aweto-agent/payments",
+      "@aweto-agent/cli"
     ]
   ],
   "linked": [],

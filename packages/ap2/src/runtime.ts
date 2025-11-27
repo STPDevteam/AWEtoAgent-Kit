@@ -1,4 +1,4 @@
-import type { AP2Config, AP2Runtime } from '@AWEtoAgent/types/ap2';
+import type { AP2Config, AP2Runtime } from '@aweto-agent/types/ap2';
 
 /**
  * Creates AP2 runtime from configuration.

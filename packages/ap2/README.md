@@ -1,4 +1,4 @@
-# @AWEtoAgent/ap2
+# @aweto-agent/ap2
 
 AP2 (Agent Payments Protocol) extension for Lucid agents. Adds AP2 extension metadata to Agent Cards, enabling agents to declare payment-related capabilities and roles.
 
@@ -9,7 +9,7 @@ AP2 (Agent Payments Protocol) is an extension to the A2A Protocol that enables a
 ## Installation
 
 ```bash
-bun add @AWEtoAgent/ap2
+bun add @aweto-agent/ap2
 ```
 
 ## Quick Start
@@ -17,8 +17,8 @@ bun add @AWEtoAgent/ap2
 ### Basic Usage
 
 ```typescript
-import { createAgentCardWithAP2, createAP2Runtime } from '@AWEtoAgent/ap2';
-import { buildAgentCard } from '@AWEtoAgent/a2a';
+import { createAgentCardWithAP2, createAP2Runtime } from '@aweto-agent/ap2';
+import { buildAgentCard } from '@aweto-agent/a2a';
 
 // Build base Agent Card
 let card = buildAgentCard({
@@ -42,8 +42,8 @@ const ap2Runtime = createAP2Runtime({
 ### Integration with Agent Runtime
 
 ```typescript
-import { createAgentApp } from '@AWEtoAgent/hono';
-import { createAP2Runtime } from '@AWEtoAgent/ap2';
+import { createAgentApp } from '@aweto-agent/hono';
+import { createAP2Runtime } from '@aweto-agent/ap2';
 
 const { app, runtime } = createAgentApp(
   {
@@ -73,7 +73,7 @@ if (runtime.ap2) {
 Creates an AP2 runtime from configuration. Returns `undefined` if no config provided.
 
 ```typescript
-import { createAP2Runtime } from '@AWEtoAgent/ap2';
+import { createAP2Runtime } from '@aweto-agent/ap2';
 
 const ap2Runtime = createAP2Runtime({
   roles: ['merchant', 'shopper'],
@@ -87,7 +87,7 @@ const ap2Runtime = createAP2Runtime({
 Adds AP2 extension metadata to an Agent Card. Returns a new card (immutable).
 
 ```typescript
-import { createAgentCardWithAP2 } from '@AWEtoAgent/ap2';
+import { createAgentCardWithAP2 } from '@aweto-agent/ap2';
 
 const enhancedCard = createAgentCardWithAP2(card, {
   roles: ['merchant'],
@@ -100,9 +100,9 @@ const enhancedCard = createAgentCardWithAP2(card, {
 The canonical URI for the AP2 extension.
 
 ```typescript
-import { AP2_EXTENSION_URI } from '@AWEtoAgent/ap2';
+import { AP2_EXTENSION_URI } from '@aweto-agent/ap2';
 
-console.log(AP2_EXTENSION_URI); // 'https://ap2.daydreams.systems'
+console.log(AP2_EXTENSION_URI);
 ```
 
 ## AP2 Roles
@@ -118,12 +118,11 @@ When payments are configured in the agent runtime, the `merchant` role is automa
 
 ## Related Packages
 
-- `@AWEtoAgent/a2a` - A2A Protocol implementation (Agent Cards)
-- `@AWEtoAgent/payments` - x402 payment protocol utilities
-- `@AWEtoAgent/core` - Core agent runtime
+- `@aweto-agent/a2a` - A2A Protocol implementation (Agent Cards)
+- `@aweto-agent/payments` - x402 payment protocol utilities
+- `@aweto-agent/core` - Core agent runtime
 
 ## Resources
 
 - [A2A Protocol Specification](https://a2a-protocol.org/) - Agent-to-Agent communication protocol
-- [AP2 Extension Documentation](https://ap2.daydreams.systems) - AP2 extension details
 

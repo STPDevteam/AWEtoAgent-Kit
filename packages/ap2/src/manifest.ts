@@ -1,5 +1,5 @@
-import type { AgentCardWithEntrypoints, AgentCapabilities } from '@AWEtoAgent/types/core';
-import type { AP2Config, AP2ExtensionDescriptor, AP2Role } from '@AWEtoAgent/types/ap2';
+import type { AgentCardWithEntrypoints, AgentCapabilities } from '@aweto-agent/types/core';
+import type { AP2Config, AP2ExtensionDescriptor, AP2Role } from '@aweto-agent/types/ap2';
 
 import { AP2_EXTENSION_URI } from './types';
 

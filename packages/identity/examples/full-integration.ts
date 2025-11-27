@@ -7,7 +7,7 @@
  * - Reputation Registry (feedback, responses, queries)
  *
  * Prerequisites:
- * 1. Install @AWEtoAgent/core: bun add @AWEtoAgent/core
+ * 1. Install @aweto-agent/core: bun add @aweto-agent/core
  * 2. Create a .env file with required variables:
  *    - AGENT_DOMAIN=your-agent.example.com
  *    - RPC_URL=https://sepolia.base.org
@@ -16,8 +16,8 @@
  * 3. Run: bun run examples/full-integration.ts
  */
 
-import { createAgentRuntime } from '@AWEtoAgent/core';
-import { walletsFromEnv } from '@AWEtoAgent/wallet';
+import { createAgentRuntime } from '@aweto-agent/core';
+import { walletsFromEnv } from '@aweto-agent/wallet';
 
 import { createAgentIdentity } from '../src/index';
 

@@ -32,7 +32,7 @@ const adapterDefinitions: Record<string, AdapterDefinition> = {
     filesDir: join(ADAPTER_FILES_ROOT, 'hono'),
     placeholderTargets: ['src/lib/agent.ts.template'],
     snippets: {
-      imports: `import { createAgentApp } from "@AWEtoAgent/hono";`,
+      imports: `import { createAgentApp } from "@aweto-agent/hono";`,
       preSetup: ``,
       appCreation: `const { app, runtime, addEntrypoint } = createAgentApp(
   {
@@ -66,7 +66,7 @@ const adapterDefinitions: Record<string, AdapterDefinition> = {
     filesDir: join(ADAPTER_FILES_ROOT, 'express'),
     placeholderTargets: ['src/lib/agent.ts.template'],
     snippets: {
-      imports: `import { createAgentApp } from "@AWEtoAgent/express";`,
+      imports: `import { createAgentApp } from "@aweto-agent/express";`,
       preSetup: ``,
       appCreation: `const { app, runtime, addEntrypoint } = createAgentApp(
   {
@@ -100,7 +100,7 @@ const adapterDefinitions: Record<string, AdapterDefinition> = {
     filesDir: join(ADAPTER_FILES_ROOT, 'tanstack', 'ui'),
     placeholderTargets: ['src/lib/agent.ts.template'],
     snippets: {
-      imports: `import { createTanStackRuntime } from "@AWEtoAgent/tanstack";`,
+      imports: `import { createTanStackRuntime } from "@aweto-agent/tanstack";`,
       preSetup: ``,
       appCreation: `const tanstack = createTanStackRuntime(
   {
@@ -138,7 +138,7 @@ export { agent, handlers, runtime };`,
     filesDir: join(ADAPTER_FILES_ROOT, 'tanstack', 'headless'),
     placeholderTargets: ['src/lib/agent.ts.template'],
     snippets: {
-      imports: `import { createTanStackRuntime } from "@AWEtoAgent/tanstack";`,
+      imports: `import { createTanStackRuntime } from "@aweto-agent/tanstack";`,
       preSetup: ``,
       appCreation: `const tanstack = createTanStackRuntime(
   {
@@ -176,7 +176,7 @@ export { agent, handlers, runtime };`,
     filesDir: join(ADAPTER_FILES_ROOT, 'next'),
     placeholderTargets: ['lib/agent.ts.template'],
     snippets: {
-      imports: `import { createAgentHttpRuntime } from "@AWEtoAgent/core";`,
+      imports: `import { createAgentHttpRuntime } from "@aweto-agent/core";`,
       preSetup: ``,
       appCreation: `const runtime = createAgentHttpRuntime(
   {

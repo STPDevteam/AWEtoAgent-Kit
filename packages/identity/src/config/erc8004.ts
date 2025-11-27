@@ -3,7 +3,7 @@
  * Contract addresses and constants
  */
 
-import type { Hex } from '@AWEtoAgent/wallet';
+import type { Hex } from '@aweto-agent/wallet';
 
 /**
  * Official ERC-8004 registry addresses by chain

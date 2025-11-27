@@ -90,7 +90,7 @@ const { app, addEntrypoint } = createAgentApp(
     payments: {
       payTo: '0xabc0000000000000000000000000000000000000',
       network: 'base-sepolia',
-      facilitatorUrl: 'https://facilitator.daydreams.systems',
+      facilitatorUrl: 'https://facilitator.world.fun/',
     },
     ap2: { roles: ['merchant', 'shopper'] },
     trust: {
@@ -138,7 +138,7 @@ const payments = paymentsFromEnv(); // returns the config you supplied earlier
 ```
 
 For wallet-authenticated calls, pair your agent with
-`@AWEtoAgent/agent-auth` and reuse its `AgentRuntime` helpers instead of the
+`@aweto-agent/agent-auth` and reuse its `AgentRuntime` helpers instead of the
 now-removed `createAgentPaymentContext` flow.
 `createRuntimePaymentContext({ runtime })` will hand you the same x402-enabled
 fetch + signer wiring backed by the agent wallet.
@@ -251,7 +251,7 @@ addEntrypoint({
 To pay for agent calls, create a payment-enabled fetch using `createRuntimePaymentContext`:
 
 ```ts
-import { createRuntimePaymentContext } from '@AWEtoAgent/payments';
+import { createRuntimePaymentContext } from '@aweto-agent/payments';
 
 handler: async ctx => {
   const runtime = ctx.runtime;
@@ -285,7 +285,7 @@ handler: async ctx => {
 The A2A client provides convenience functions:
 
 ```ts
-import { fetchAndInvoke } from '@AWEtoAgent/a2a';
+import { fetchAndInvoke } from '@aweto-agent/a2a';
 
 // Fetch card and invoke in one call
 const result = await fetchAndInvoke(
@@ -363,7 +363,7 @@ Key shapes:
 - `AgentContext`: `{ key, input, signal, headers, runId }`
 - `PaymentsConfig`: `{ payTo, facilitatorUrl, network }`
 - `CreateAgentAppOptions`: `{ config?, payments?, ap2?, trust?, entrypoints? }`
-- `CreateAgentAppReturn<TApp>`: `{ app: TApp, runtime, agent, addEntrypoint, config }` (generic type in `@AWEtoAgent/types/core`)
+- `CreateAgentAppReturn<TApp>`: `{ app: TApp, runtime, agent, addEntrypoint, config }` (generic type in `@aweto-agent/types/core`)
 
 ## Utils
 
@@ -414,7 +414,7 @@ const { app, addEntrypoint } = createAgentApp(
     payments: {
       payTo: '9yPGxVrYi7C5JLMGjEZhK8qQ4tn7SzMWwQHvz3vGJCKz', // Solana Base58 address
       network: 'solana-devnet',
-      facilitatorUrl: 'https://facilitator.daydreams.systems',
+      facilitatorUrl: 'https://facilitator.world.fun/',
     },
   }
 );

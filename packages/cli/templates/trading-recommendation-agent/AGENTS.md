@@ -41,7 +41,7 @@ const price = dataCard?.entrypoints?.getMarketData?.pricing?.invoke;
 
 ### 3. Calling Other Agents
 
-Use `fetchAndInvoke` from `@AWEtoAgent/a2a`:
+Use `fetchAndInvoke` from `@aweto-agent/a2a`:
 
 ```typescript
 const result = await fetchAndInvoke(

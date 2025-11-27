@@ -1,6 +1,6 @@
-import { paymentsFromEnv } from '@AWEtoAgent/payments';
-import type { AgentKitConfig } from '@AWEtoAgent/types/core';
-import { walletsFromEnv } from '@AWEtoAgent/wallet';
+import { paymentsFromEnv } from '@aweto-agent/payments';
+import type { AgentKitConfig } from '@aweto-agent/types/core';
+import { walletsFromEnv } from '@aweto-agent/wallet';
 
 import { hasDefinedValue } from '../utils/utils';
 

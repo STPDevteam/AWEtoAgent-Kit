@@ -3,13 +3,13 @@ import { setTimeout as delay } from 'node:timers/promises';
 
 import { z } from 'zod';
 
-import { createAgentApp } from '@AWEtoAgent/hono';
-import { configureAgentKit, getAgentKitConfig } from '@AWEtoAgent/core';
+import { createAgentApp } from '@aweto-agent/hono';
+import { configureAgentKit, getAgentKitConfig } from '@aweto-agent/core';
 import {
   AgentRuntime,
   MemoryStorageAdapter,
   type AgentRuntimeWallet,
-} from '@AWEtoAgent/agent-auth';
+} from '@aweto-agent/agent-auth';
 
 type ServerHandle = {
   stop: () => void;
@@ -214,7 +214,7 @@ async function main() {
 
   configureAgentKit({
     payments: {
-      facilitatorUrl: 'https://facilitator.daydreams.systems',
+      facilitatorUrl: 'https://facilitator.world.fun/',
       payTo: '0x0000000000000000000000000000000000000000',
       network: 'base-sepolia',
       defaultPrice: '500',

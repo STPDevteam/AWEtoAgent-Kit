@@ -1,7 +1,7 @@
 import { z } from 'zod';
-import { createAgentApp } from '@AWEtoAgent/hono';
-import { AgentKitConfig, createAxLLMClient } from '@AWEtoAgent/core';
-import { paymentsFromEnv } from '@AWEtoAgent/payments';
+import { createAgentApp } from '@aweto-agent/hono';
+import { AgentKitConfig, createAxLLMClient } from '@aweto-agent/core';
+import { paymentsFromEnv } from '@aweto-agent/payments';
 import { flow } from '@ax-llm/ax';
 
 /**

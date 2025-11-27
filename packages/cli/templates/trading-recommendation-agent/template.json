@@ -4,7 +4,9 @@
   "description": "Agent that buys trading data and generates trading signals/recommendations (shopper agent)",
   "adapters": ["hono", "express"],
   "package": {
-    "dependencies": {}
+    "dependencies": {
+      "viem": "^2.21.26"
+    }
   },
   "wizard": {
     "prompts": [
@@ -21,16 +23,82 @@
         "defaultValue": "0.1.0"
       },
       {
+        "key": "AGENT_DOMAIN",
+        "type": "input",
+        "message": "What domain will host your agent?",
+        "defaultValue": "agent.example.com"
+      },
+      {
+        "key": "AGENT_SHORT_DESCRIPTION",
+        "type": "input",
+        "message": "Short description for listings (one sentence)",
+        "defaultValue": "Trading signal generator with on-chain identity"
+      },
+      {
+        "key": "AGENT_SERVICE_TYPE",
+        "type": "input",
+        "message": "",
+        "defaultValue": "AI_AGENT"
+      },
+      {
+        "key": "AGENT_TOKEN_NAME",
+        "type": "input",
+        "message": "Token name (for backend factory)",
+        "defaultValue": "Agent Token"
+      },
+      {
+        "key": "AGENT_TOKEN_SYMBOL",
+        "type": "input",
+        "message": "Token symbol (max 10 chars)",
+        "defaultValue": "AGENTA"
+      },
+      {
+        "key": "AGENT_BACKEND_BASE_URL",
+        "type": "input",
+        "message": "Backend base URL (e.g. http://localhost:3000/api)",
+        "defaultValue": ""
+      },
+      {
         "key": "DATA_AGENT_URL",
         "type": "input",
         "message": "Data agent URL (the agent you'll buy data from)",
         "defaultValue": "http://localhost:3001"
       },
       {
-        "key": "AGENT_WALLET_PRIVATE_KEY",
+        "key": "AGENT_RESOURCE_LINK",
         "type": "input",
-        "message": "Agent wallet private key (pays for data)",
+        "message": "Primary resource link",
+        "defaultValue": "https://{{AGENT_DOMAIN}}"
+      },
+      {
+        "key": "AGENT_ACCESS_DETAILS",
+        "type": "input",
+        "message": "Access details (optional, defaults to agent domain)",
         "defaultValue": ""
+      },
+      {
+        "key": "AGENT_GITHUB_LINK",
+        "type": "input",
+        "message": "GitHub link (optional)",
+        "defaultValue": ""
+      },
+      {
+        "key": "AGENT_TWITTER_LINK",
+        "type": "input",
+        "message": "Twitter/X link (optional)",
+        "defaultValue": ""
+      },
+      {
+        "key": "AGENT_DOCUMENT_LINK",
+        "type": "input",
+        "message": "Documentation link (optional)",
+        "defaultValue": ""
+      },
+      {
+        "key": "PAYMENTS_FACILITATOR_URL",
+        "type": "input",
+        "message": "",
+        "defaultValue": "https://facilitator.world.fun/"
       },
       {
         "key": "PAYMENTS_NETWORK",
@@ -38,13 +106,52 @@
         "message": "Payment network (must match data agent)",
         "choices": [
           { "value": "base-sepolia", "title": "Base Sepolia (EVM testnet)" },
-          { "value": "base", "title": "Base (EVM mainnet)" },
-          { "value": "solana-devnet", "title": "Solana Devnet" },
-          { "value": "solana", "title": "Solana Mainnet" }
+          { "value": "base", "title": "Base (EVM mainnet)" }
         ],
         "defaultValue": "base-sepolia"
+      },
+      {
+        "key": "PAYMENTS_RECEIVABLE_ADDRESS",
+        "type": "input",
+        "message": "Payment address for x402 (optional, leave blank to use token contract)",
+        "defaultValue": ""
+      },
+      {
+        "key": "PAYMENTS_DEFAULT_PRICE",
+        "type": "input",
+        "message": "Default price for entrypoints (micro USDC)",
+        "defaultValue": "1000"
+      },
+      {
+        "key": "RPC_URL",
+        "type": "input",
+        "message": "RPC URL (blockchain endpoint)",
+        "defaultValue": "https://sepolia.base.org"
+      },
+      {
+        "key": "CHAIN_ID",
+        "type": "input",
+        "message": "Chain ID",
+        "defaultValue": "84532"
+      },
+      {
+        "key": "AGENT_METADATA_URI",
+        "type": "input",
+        "message": "Metadata URI (optional)",
+        "defaultValue": "https://{{AGENT_DOMAIN}}/.well-known/agent-metadata.json"
+      },
+      {
+        "key": "AGENT_CARD_URI",
+        "type": "input",
+        "message": "Agent card URI (optional)",
+        "defaultValue": "https://{{AGENT_DOMAIN}}/.well-known/agent-card.json"
+      },
+      {
+        "key": "AGENT_WALLET_PRIVATE_KEY",
+        "type": "input",
+        "message": "Agent wallet private key (leave blank to auto-generate)",
+        "defaultValue": ""
       }
     ]
   }
 }
-

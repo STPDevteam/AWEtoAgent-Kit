@@ -1,5 +1,5 @@
 import { describe, expect, it, mock } from 'bun:test';
-import type { AgentCardWithEntrypoints } from '@AWEtoAgent/types/core';
+import type { AgentCardWithEntrypoints } from '@aweto-agent/types/core';
 
 import { fetchAndInvoke, invokeAgent, streamAgent } from '../client';
 import { buildAgentCard } from '../card';

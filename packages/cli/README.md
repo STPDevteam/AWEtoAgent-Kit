@@ -1,4 +1,4 @@
-# @AWEtoAgent/cli
+# @aweto-agent/cli
 
 CLI scaffolding tool to quickly generate new agent projects with built-in templates and interactive configuration.
 
@@ -7,7 +7,7 @@ CLI scaffolding tool to quickly generate new agent projects with built-in templa
 Create a new agent in seconds:
 
 ```bash
-bunx @AWEtoAgent/cli@latest my-agent
+bunx @aweto-agent/cli@latest my-agent
 ```
 
 The wizard will guide you through template selection and configuration. That's it!
@@ -85,7 +85,7 @@ When you select an adapter, the CLI copies the corresponding runtime framework f
 **Available Adapters:**
 
 - `hono` - Traditional HTTP server with Hono framework
-- `express` - Node-style HTTP server built on Express with `@AWEtoAgent/agent-kit-express`
+- `express` - Node-style HTTP server built on Express with `@aweto-agent/agent-kit-express`
 - `tanstack-ui` - TanStack Start with full UI dashboard (wallet integration, entrypoint testing, schema forms)
 - `tanstack-headless` - TanStack Start API-only (no UI components)
 - `next` – Next.js App Router shell with x402-next middleware and the dashboard UI
@@ -95,7 +95,7 @@ The adapter provides the runtime skeleton (routing, server setup, build config),
 ## CLI Options
 
 ```bash
-bunx @AWEtoAgent/cli <app-name> [options]
+bunx @aweto-agent/cli <app-name> [options]
 
 Options:
   -t, --template <id>   Select template (blank, axllm, axllm-flow, identity)
@@ -113,37 +113,37 @@ Options:
 
 ```bash
 # Interactive setup (recommended)
-bunx @AWEtoAgent/cli@latest my-agent
+bunx @aweto-agent/cli@latest my-agent
 
 # With specific template
-bunx @AWEtoAgent/cli@latest my-agent --template=identity
+bunx @aweto-agent/cli@latest my-agent --template=identity
 
 # With Solana payment network
-bunx @AWEtoAgent/cli@latest my-agent --network=solana-devnet
+bunx @aweto-agent/cli@latest my-agent --network=solana-devnet
 
 # With Base mainnet
-bunx @AWEtoAgent/cli@latest my-agent --network=base
+bunx @aweto-agent/cli@latest my-agent --network=base
 
 # Identity template with Solana payments
-bunx @AWEtoAgent/cli@latest my-agent --template=identity --network=solana
+bunx @aweto-agent/cli@latest my-agent --template=identity --network=solana
 
 # With Express adapter
-bunx @AWEtoAgent/cli@latest my-agent --adapter=express --template=blank
+bunx @aweto-agent/cli@latest my-agent --adapter=express --template=blank
 
 # With Hono adapter
-bunx @AWEtoAgent/cli@latest my-agent --adapter=hono --template=blank
+bunx @aweto-agent/cli@latest my-agent --adapter=hono --template=blank
 
 # With TanStack UI (full dashboard)
-bunx @AWEtoAgent/cli@latest my-agent --adapter=tanstack-ui --template=blank
+bunx @aweto-agent/cli@latest my-agent --adapter=tanstack-ui --template=blank
 
 # With TanStack headless (API only, no UI)
-bunx @AWEtoAgent/cli@latest my-agent --adapter=tanstack-headless --template=blank
+bunx @aweto-agent/cli@latest my-agent --adapter=tanstack-headless --template=blank
 
 # Auto-install dependencies
-bunx @AWEtoAgent/cli@latest my-agent --install
+bunx @aweto-agent/cli@latest my-agent --install
 
 # Non-interactive with defaults
-bunx @AWEtoAgent/cli@latest my-agent --template=blank --wizard=no
+bunx @aweto-agent/cli@latest my-agent --template=blank --wizard=no
 ```
 
 ### Network Selection
@@ -166,10 +166,10 @@ Use the `--network` flag to specify the network:
 
 ```bash
 # Solana devnet
-bunx @AWEtoAgent/cli my-agent --network=solana-devnet --non-interactive
+bunx @aweto-agent/cli my-agent --network=solana-devnet --non-interactive
 
 # Base mainnet
-bunx @AWEtoAgent/cli my-agent --network=base --non-interactive
+bunx @aweto-agent/cli my-agent --network=base --non-interactive
 ```
 
 **Important Notes:**
@@ -186,7 +186,7 @@ Perfect for CI/CD, automation, or AI coding agents:
 
 ```bash
 # Blank template with custom configuration
-bunx @AWEtoAgent/cli@latest my-agent \
+bunx @aweto-agent/cli@latest my-agent \
   --template=blank \
   --non-interactive \
   --AGENT_DESCRIPTION="Custom agent for automation" \
@@ -194,14 +194,14 @@ bunx @AWEtoAgent/cli@latest my-agent \
   --PAYMENTS_RECEIVABLE_ADDRESS="0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb0"
 
 # Identity template with full configuration
-bunx @AWEtoAgent/cli@latest verified-agent \
+bunx @aweto-agent/cli@latest verified-agent \
   --template=identity \
   --non-interactive \
   --install \
   --AGENT_DESCRIPTION="Verifiable agent with on-chain identity" \
   --AGENT_VERSION="0.1.0" \
   --AGENT_DOMAIN="agent.example.com" \
-  --PAYMENTS_FACILITATOR_URL="https://facilitator.daydreams.systems" \
+  --PAYMENTS_FACILITATOR_URL="https://facilitator.world.fun/" \
   --PAYMENTS_NETWORK="base-sepolia" \
   --PAYMENTS_RECEIVABLE_ADDRESS="0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb0" \
   --PAYMENTS_DEFAULT_PRICE="0.1" \
@@ -210,7 +210,7 @@ bunx @AWEtoAgent/cli@latest verified-agent \
   --IDENTITY_AUTO_REGISTER="true"
 
 # AxLLM template
-bunx @AWEtoAgent/cli@latest ai-agent \
+bunx @aweto-agent/cli@latest ai-agent \
   --template=axllm \
   --non-interactive \
   --AGENT_DESCRIPTION="AI-powered agent" \
@@ -237,7 +237,7 @@ AGENT_VERSION=0.1.0
 AGENT_DESCRIPTION=Your agent description
 
 # Payments
-PAYMENTS_FACILITATOR_URL=https://facilitator.daydreams.systems
+PAYMENTS_FACILITATOR_URL=https://facilitator.world.fun/
 PAYMENTS_RECEIVABLE_ADDRESS=0xYourWalletAddress
 PAYMENTS_NETWORK=base-sepolia
 PAYMENTS_DEFAULT_PRICE=0.1
@@ -351,8 +351,8 @@ Note: While the CLI works with Node/npx, generated projects require Bun.
 
 ## Related Packages
 
-- [`@AWEtoAgent/core`](../core/README.md) - Core agent runtime
-- [`@AWEtoAgent/identity`](../identity/README.md) - ERC-8004 identity
+- [`@aweto-agent/core`](../core/README.md) - Core agent runtime
+- [`@aweto-agent/identity`](../identity/README.md) - ERC-8004 identity
 
 ## Contributing
 

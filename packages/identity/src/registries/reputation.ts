@@ -3,8 +3,8 @@
  * Handles peer feedback system for agent reputation
  */
 
-import type { Hex, SignerWalletClient } from '@AWEtoAgent/wallet';
-import { normalizeAddress } from '@AWEtoAgent/wallet';
+import type { Hex, SignerWalletClient } from '@aweto-agent/wallet';
+import { normalizeAddress } from '@aweto-agent/wallet';
 
 import { REPUTATION_REGISTRY_ABI } from '../abi/types';
 import type { PublicClientLike, WalletClientLike } from './identity';

@@ -3,8 +3,8 @@
  * These functions provide a streamlined API for common use cases.
  */
 
-import type { AgentRuntime } from '@AWEtoAgent/types/core';
-import type { TrustConfig } from '@AWEtoAgent/types/identity';
+import type { AgentRuntime } from '@aweto-agent/types/core';
+import type { TrustConfig } from '@aweto-agent/types/identity';
 
 import { getRegistryAddresses } from './config';
 import {
@@ -181,7 +181,7 @@ export type AgentIdentity = BootstrapIdentityResult & {
  *
  * @example
  * ```ts
- * import { createAgentIdentity } from "@AWEtoAgent/identity";
+ * import { createAgentIdentity } from "@aweto-agent/identity";
  *
  * // Minimal usage - uses env vars for everything
  * const identity = await createAgentIdentity({ autoRegister: true });
@@ -415,7 +415,7 @@ export async function createAgentIdentity(
  *
  * @example
  * ```ts
- * import { registerAgent } from "@AWEtoAgent/identity";
+ * import { registerAgent } from "@aweto-agent/identity";
  *
  * const result = await registerAgent({
  *   domain: "my-agent.example.com"
@@ -443,7 +443,7 @@ export async function registerAgent(
  *
  * @example
  * ```ts
- * import { createAgentIdentity, getTrustConfig } from "@AWEtoAgent/identity";
+ * import { createAgentIdentity, getTrustConfig } from "@aweto-agent/identity";
  *
  * const identity = await createAgentIdentity({ autoRegister: true });
  * const trustConfig = getTrustConfig(identity);

@@ -8,13 +8,13 @@ import express, {
 import { Readable } from 'node:stream';
 import type { ReadableStream as WebReadableStream } from 'node:stream/web';
 import type { TLSSocket } from 'node:tls';
-import type { AgentHttpRuntime, EntrypointDef } from '@AWEtoAgent/core';
-import type { AgentMeta } from '@AWEtoAgent/types/core';
-import type { CreateAgentAppReturn } from '@AWEtoAgent/types/core';
+import type { AgentHttpRuntime, EntrypointDef } from '@aweto-agent/core';
+import type { AgentMeta } from '@aweto-agent/types/core';
+import type { CreateAgentAppReturn } from '@aweto-agent/types/core';
 import {
   createAgentHttpRuntime,
   type CreateAgentHttpOptions,
-} from '@AWEtoAgent/core';
+} from '@aweto-agent/core';
 import { withPayments } from './paywall';
 
 type NodeRequestInit = RequestInit & { duplex?: 'half' };

@@ -151,12 +151,14 @@ export async function runCli(
     throw new Error(`No templates found in ${templateRoot}`);
   }
 
-  // Fixed adapter and template - no selection needed
-  const selectedAdapter = 'hono';
-  const template = templates.find(t => t.id === 'awe-identity-register');
-  if (!template) {
-    throw new Error('Template "awe-identity-register" not found');
-  }
+  // Resolve template and adapter - allow selection for both
+  const { template, adapter: selectedAdapter } = await resolveTemplate({
+    templates,
+    requestedId: parsed.options.templateId,
+    requestedAdapter: parsed.options.adapterId,
+    prompt,
+    logger,
+  });
 
   const adapterDefinition = getAdapterDefinition(selectedAdapter);
 
@@ -225,14 +227,14 @@ export async function runCli(
     await runInstall(targetDir, logger);
   }
 
-  // Always run auto onboarding for awe-identity-register template
+  // Always run auto onboarding to register with backend
     try {
       await runAutoOnboarding({
         targetDir,
         wizardAnswers,
         agentName: projectDirName,
         logger,
-      skipErc8004Registration: true,
+      skipErc8004Registration: true, // Backend handles identity registration
       });
     } catch (error) {
       logger.warn(
@@ -323,7 +325,7 @@ function parseArgs(args: string[]): ParsedArgs {
 }
 
 function printHelp(logger: RunLogger) {
-  logger.log('Usage: bunx @AWEtoAgent/cli <app-name> [options]');
+  logger.log('Usage: bunx @aweto-agent/cli <app-name> [options]');
   logger.log('');
   logger.log('Options:');
   logger.log(
@@ -345,13 +347,13 @@ function printHelp(logger: RunLogger) {
   logger.log('  -h, --help            Show this help');
   logger.log('');
   logger.log('Examples:');
-  logger.log('  bunx @AWEtoAgent/cli my-agent');
-  logger.log('  bunx @AWEtoAgent/cli my-agent --template=awe-identity-register');
-  logger.log('  bunx @AWEtoAgent/cli my-agent --template=identity --install');
-  logger.log('  bunx @AWEtoAgent/cli my-agent --wizard=no');
+  logger.log('  bunx @aweto-agent/cli my-agent');
+  logger.log('  bunx @aweto-agent/cli my-agent --template=awe-identity-register');
+  logger.log('  bunx @aweto-agent/cli my-agent --template=identity --install');
+  logger.log('  bunx @aweto-agent/cli my-agent --wizard=no');
   logger.log('');
   logger.log('Non-interactive with template arguments:');
-  logger.log('  bunx @AWEtoAgent/cli my-agent --template=identity \\');
+  logger.log('  bunx @aweto-agent/cli my-agent --template=identity \\');
   logger.log('    --non-interactive \\');
   logger.log('    --AGENT_DESCRIPTION="My agent" \\');
   logger.log('    --PAYMENTS_RECEIVABLE_ADDRESS="0x..."');

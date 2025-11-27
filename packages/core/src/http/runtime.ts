@@ -7,15 +7,15 @@ import type {
   TaskError,
   TaskResult,
   TaskStatus,
-} from '@AWEtoAgent/types/a2a';
-import type { AP2Config } from '@AWEtoAgent/types/ap2';
+} from '@aweto-agent/types/a2a';
+import type { AP2Config } from '@aweto-agent/types/ap2';
 import type {
   AgentKitConfig,
   AgentMeta,
   AgentRuntime,
-} from '@AWEtoAgent/types/core';
-import type { TrustConfig } from '@AWEtoAgent/types/identity';
-import type { PaymentsConfig } from '@AWEtoAgent/types/payments';
+} from '@aweto-agent/types/core';
+import type { TrustConfig } from '@aweto-agent/types/identity';
+import type { PaymentsConfig } from '@aweto-agent/types/payments';
 
 import { ZodValidationError } from '../core/agent';
 import { createAgentRuntime, type CreateAgentRuntimeOptions } from '../runtime';

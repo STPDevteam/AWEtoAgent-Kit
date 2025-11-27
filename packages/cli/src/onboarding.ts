@@ -2,11 +2,11 @@ import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
-import { createAgentHttpRuntime } from '@AWEtoAgent/core';
+import { createAgentHttpRuntime } from '@aweto-agent/core';
 import {
   createAgentIdentity,
   generateAgentMetadata,
-} from '@AWEtoAgent/identity';
+} from '@aweto-agent/identity';
 import { createPublicClient, formatEther, http } from 'viem';
 import { baseSepolia, base, sepolia, mainnet } from 'viem/chains';
 import { generatePrivateKey, privateKeyToAccount } from 'viem/accounts';

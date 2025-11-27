@@ -3,7 +3,7 @@ import type {
   DeveloperWalletConfig,
   LocalWalletWithPrivateKeyOptions,
   WalletsConfig,
-} from '@AWEtoAgent/types/wallets';
+} from '@aweto-agent/types/wallets';
 
 type EnvRecord = Record<string, string | undefined>;
 

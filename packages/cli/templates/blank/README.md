@@ -1,6 +1,6 @@
 ## {{AGENT_NAME}}
 
-This project was scaffolded with `create-agent-kit` and ships with a ready-to-run agent app built on [`@AWEtoAgent/core`](https://www.npmjs.com/package/@AWEtoAgent/core).
+This project was scaffolded with `create-agent-kit` and ships with a ready-to-run agent app built on [`@aweto-agent/core`](https://www.npmjs.com/package/@aweto-agent/core).
 
 ### Quick start
 
@@ -30,6 +30,6 @@ The dev command runs `bun` in watch mode, starts the HTTP server, and reloads wh
 ### Next steps
 
 - Update `src/agent.ts` with your use case.
-- Wire up `@AWEtoAgent/core` configuration and secrets (see `AGENTS.md` in the repo for details).
+- Wire up `@aweto-agent/core` configuration and secrets (see `AGENTS.md` in the repo for details).
 - Update `.env` with your actual PRIVATE_KEY and configuration values.
 - Deploy with your preferred Bun-compatible platform when you're ready.

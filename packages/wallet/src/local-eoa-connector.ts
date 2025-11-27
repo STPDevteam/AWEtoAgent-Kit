@@ -4,7 +4,7 @@ import type {
   TypedDataPayload,
   WalletConnector,
   WalletMetadata,
-} from '@AWEtoAgent/types/wallets';
+} from '@aweto-agent/types/wallets';
 
 import {
   detectMessageEncoding,

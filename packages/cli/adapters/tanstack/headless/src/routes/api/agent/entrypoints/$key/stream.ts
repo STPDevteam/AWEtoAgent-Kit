@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { createTanStackPaywall } from '@AWEtoAgent/tanstack';
+import { createTanStackPaywall } from '@aweto-agent/tanstack';
 import { handlers, runtime } from '@/lib/agent';
 
 const paywall = createTanStackPaywall({

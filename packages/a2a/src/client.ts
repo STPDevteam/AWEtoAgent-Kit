@@ -1,7 +1,7 @@
 import type {
   AgentCardWithEntrypoints,
   FetchFunction,
-} from '@AWEtoAgent/types/core';
+} from '@aweto-agent/types/core';
 import type {
   InvokeAgentResult,
   StreamEmit,
@@ -14,7 +14,7 @@ import type {
   ListTasksResponse,
   CancelTaskRequest,
   CancelTaskResponse,
-} from '@AWEtoAgent/types/a2a';
+} from '@aweto-agent/types/a2a';
 
 import { fetchAgentCard, findSkill } from './card';
 

@@ -20,10 +20,10 @@
  */
 
 import { z } from 'zod';
-import { createAgentApp } from '@AWEtoAgent/hono';
-import { createAgentRuntime } from '@AWEtoAgent/core';
+import { createAgentApp } from '@aweto-agent/hono';
+import { createAgentRuntime } from '@aweto-agent/core';
 import { createA2ARuntime, fetchAndInvoke, waitForTask } from '../src/index';
-import type { A2ARuntime } from '@AWEtoAgent/types/a2a';
+import type { A2ARuntime } from '@aweto-agent/types/a2a';
 
 // Helper to start a simple HTTP server
 async function startServer(

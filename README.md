@@ -98,7 +98,7 @@ Backend base URL: http://localhost:3000/api
 
 **Step 4: Configure Payments**
 ```
-Facilitator URL: https://facilitator.daydreams.systems
+Facilitator URL: https://facilitator.world.fun/
 Payment network:
   1. Base Sepolia (EVM testnet)  ← For testing
   2. Base (EVM mainnet)
@@ -479,7 +479,7 @@ const { app, addEntrypoint } = createAgentApp(
       payments: {
         payTo: process.env.PAYMENTS_RECEIVABLE_ADDRESS!,
         network: 'base-sepolia',
-        facilitatorUrl: 'https://facilitator.daydreams.systems',
+        facilitatorUrl: 'https://facilitator.world.fun/',
         defaultPrice: '5000', // 0.005 USDC per request
       },
     },

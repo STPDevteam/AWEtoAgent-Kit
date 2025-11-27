@@ -1,6 +1,6 @@
-import type { AgentCardWithEntrypoints, Manifest, PaymentMethod } from '@AWEtoAgent/types/core';
-import type { EntrypointDef } from '@AWEtoAgent/types/core';
-import type { PaymentsConfig } from '@AWEtoAgent/types/payments';
+import type { AgentCardWithEntrypoints, Manifest, PaymentMethod } from '@aweto-agent/types/core';
+import type { EntrypointDef } from '@aweto-agent/types/core';
+import type { PaymentsConfig } from '@aweto-agent/types/payments';
 
 import { resolvePrice } from './pricing';
 

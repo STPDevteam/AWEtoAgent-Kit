@@ -1,6 +1,6 @@
 {
-  "name": "@AWEtoAgent/wallet",
-  "version": "0.2.1",
+  "name": "@aweto-agent/wallet",
+  "version": "0.2.2",
   "description": "Wallet connectors and helpers for Lucid agents",
   "repository": {
     "type": "git",
@@ -33,11 +33,11 @@
     "test": "bun test"
   },
   "dependencies": {
-    "@AWEtoAgent/types": "workspace:*",
+    "@aweto-agent/types": "^1.3.0",
     "viem": "^2.38.5"
   },
   "devDependencies": {
-    "tsup": "catalog:",
-    "typescript": "catalog:"
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2"
   }
 }

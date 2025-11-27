@@ -2,7 +2,7 @@ import { describe, expect, it } from 'bun:test';
 import { z } from 'zod';
 import { createAgentApp } from '../app';
 
-describe('@AWEtoAgent/express', () => {
+describe('@aweto-agent/express', () => {
   it('creates an Express app and registers entrypoints', () => {
     const { app, addEntrypoint } = createAgentApp({
       name: 'express-agent',

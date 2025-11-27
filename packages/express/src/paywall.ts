@@ -1,10 +1,10 @@
 import type { Express, RequestHandler } from 'express';
 import { paymentMiddleware } from 'x402-express';
 import type { FacilitatorConfig } from 'x402/types';
-import type { EntrypointDef } from '@AWEtoAgent/types/core';
-import type { PaymentsConfig } from '@AWEtoAgent/types/payments';
-import { resolvePrice, validatePaymentsConfig } from '@AWEtoAgent/payments';
-import { toJsonSchemaOrUndefined } from '@AWEtoAgent/core/utils';
+import type { EntrypointDef } from '@aweto-agent/types/core';
+import type { PaymentsConfig } from '@aweto-agent/types/payments';
+import { resolvePrice, validatePaymentsConfig } from '@aweto-agent/payments';
+import { toJsonSchemaOrUndefined } from '@aweto-agent/core/utils';
 
 type PaymentMiddlewareFactory = typeof paymentMiddleware;
 

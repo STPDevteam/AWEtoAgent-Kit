@@ -3,7 +3,7 @@ import { describe, expect, it } from 'bun:test';
 import type {
   AgentChallengeResponse,
   LocalEoaSigner,
-} from '@AWEtoAgent/types/wallets';
+} from '@aweto-agent/types/wallets';
 
 import { LocalEoaWalletConnector } from '../../local-eoa-connector';
 

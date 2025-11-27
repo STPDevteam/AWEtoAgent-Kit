@@ -3,7 +3,7 @@ import {
   SupportedSVMNetworks,
   type Network,
 } from 'x402/types';
-import type { PaymentsConfig } from '@AWEtoAgent/types/payments';
+import type { PaymentsConfig } from '@aweto-agent/types/payments';
 
 const SUPPORTED_NETWORKS: Network[] = [
   ...SupportedEVMNetworks,

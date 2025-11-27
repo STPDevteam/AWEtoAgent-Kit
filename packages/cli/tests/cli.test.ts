@@ -237,7 +237,7 @@ describe('create-agent-kit CLI', () => {
 
     expect(tanstackAgent).toContain('createTanStackRuntime');
     expect(
-      Object.prototype.hasOwnProperty.call(deps, '@AWEtoAgent/tanstack')
+      Object.prototype.hasOwnProperty.call(deps, '@aweto-agent/tanstack')
     ).toBe(true);
   });
 
@@ -380,7 +380,7 @@ describe('create-agent-kit CLI', () => {
     await runCli(['--help'], { cwd, logger });
 
     expect(messages.join('\n')).toContain(
-      'Usage: bunx @AWEtoAgent/cli <app-name>'
+      'Usage: bunx @aweto-agent/cli <app-name>'
     );
     const entries = await readdir(cwd);
     expect(entries.length).toBe(0);
@@ -409,7 +409,7 @@ describe('create-agent-kit CLI', () => {
     expect(env).toContain('AGENT_NAME=env-agent');
     expect(env).toContain('PAYMENTS_NETWORK=base-sepolia');
     expect(env).toContain(
-      'PAYMENTS_FACILITATOR_URL=https://facilitator.daydreams.systems'
+      'PAYMENTS_FACILITATOR_URL=https://facilitator.world.fun/'
     );
     expect(env).toContain('DEVELOPER_WALLET_PRIVATE_KEY=');
   });

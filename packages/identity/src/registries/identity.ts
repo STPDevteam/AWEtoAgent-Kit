@@ -1,19 +1,19 @@
 import type {
   RegistrationEntry,
   TrustConfig,
-} from '@AWEtoAgent/types/identity';
+} from '@aweto-agent/types/identity';
 import type {
   AgentWalletHandle,
   LocalEoaSigner,
-} from '@AWEtoAgent/types/wallets';
-import type { Hex } from '@AWEtoAgent/wallet';
-import { normalizeAddress, toCaip10, ZERO_ADDRESS } from '@AWEtoAgent/wallet';
+} from '@aweto-agent/types/wallets';
+import type { Hex } from '@aweto-agent/wallet';
+import { normalizeAddress, toCaip10, ZERO_ADDRESS } from '@aweto-agent/wallet';
 
 import { normalizeDomain } from '../utils';
 import { signDomainProof } from './signatures';
 import { waitForConfirmation } from './utils';
 
-export { toCaip10 } from '@AWEtoAgent/wallet';
+export { toCaip10 } from '@aweto-agent/wallet';
 
 import type {
   IdentityRegistryReadFunctionName,

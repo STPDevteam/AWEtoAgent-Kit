@@ -1,5 +1,9 @@
 # @lucid-agents/identity
 
+## 1.7.6
+
+## 1.7.5
+
 ## 1.7.0
 
 ### Minor Changes

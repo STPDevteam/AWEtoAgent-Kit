@@ -3,8 +3,8 @@
  * Uses wallet package utilities for standard signing operations
  */
 
-import type { Hex, SignerWalletClient } from '@AWEtoAgent/wallet';
-import { signMessageWithViem } from '@AWEtoAgent/wallet';
+import type { Hex, SignerWalletClient } from '@aweto-agent/wallet';
+import { signMessageWithViem } from '@aweto-agent/wallet';
 import {
   encodeAbiParameters,
   keccak256,
