@@ -1,0 +1,166 @@
+{
+  "id": "identity-no-register",
+  "name": "Agent without ERC-8004 Registration",
+  "description": "Full-featured agent with payments and token creation, but without ERC-8004 identity registration. The backend will handle ERC-8004 registration via createTokenWithIdentity.",
+  "adapters": ["hono", "express", "tanstack-ui", "tanstack-headless", "next"],
+  "package": {
+    "dependencies": {
+      "@AWEtoAgent/identity": "latest",
+      "@AWEtoAgent/wallet": "latest",
+      "viem": "^2.21.26"
+    }
+  },
+  "wizard": {
+    "prompts": [
+      {
+        "key": "AGENT_DESCRIPTION",
+        "type": "input",
+        "message": "How would you describe your agent?",
+        "defaultValue": "Agent with backend-managed identity"
+      },
+      {
+        "key": "AGENT_VERSION",
+        "type": "input",
+        "message": "What version should the agent start at?",
+        "defaultValue": "0.1.0"
+      },
+      {
+        "key": "AGENT_DOMAIN",
+        "type": "input",
+        "message": "What domain will host your agent?",
+        "defaultValue": "agent.example.com"
+      },
+      {
+        "key": "AGENT_SHORT_DESCRIPTION",
+        "type": "input",
+        "message": "Short description for listings (one sentence)",
+        "defaultValue": "Agent with backend-managed identity"
+      },
+      {
+        "key": "AGENT_SERVICE_TYPE",
+        "type": "select",
+        "message": "Service type",
+        "choices": [
+          { "value": "AI_AGENT", "title": "AI Agent" },
+          { "value": "API_ACCESS", "title": "API Access" },
+          { "value": "MCP_SERVICE", "title": "MCP Service" }
+        ],
+        "defaultValue": "AI_AGENT"
+      },
+      {
+        "key": "AGENT_TOKEN_NAME",
+        "type": "input",
+        "message": "Token name (for backend factory)",
+        "defaultValue": "Agent Token"
+      },
+      {
+        "key": "AGENT_TOKEN_SYMBOL",
+        "type": "input",
+        "message": "Token symbol (max 10 chars)",
+        "defaultValue": "AGENTA"
+      },
+      {
+        "key": "AGENT_BACKEND_BASE_URL",
+        "type": "input",
+        "message": "Backend base URL (e.g. http://localhost:3000/api)",
+        "defaultValue": ""
+      },
+      {
+        "key": "AGENT_RESOURCE_LINK",
+        "type": "input",
+        "message": "Primary resource link",
+        "defaultValue": "https://agent.example.com"
+      },
+      {
+        "key": "AGENT_ACCESS_DETAILS",
+        "type": "input",
+        "message": "Access details (optional)",
+        "defaultValue": ""
+      },
+      {
+        "key": "AGENT_GITHUB_LINK",
+        "type": "input",
+        "message": "GitHub link (optional)",
+        "defaultValue": ""
+      },
+      {
+        "key": "AGENT_TWITTER_LINK",
+        "type": "input",
+        "message": "Twitter/X link (optional)",
+        "defaultValue": ""
+      },
+      {
+        "key": "AGENT_DOCUMENT_LINK",
+        "type": "input",
+        "message": "Documentation link (optional)",
+        "defaultValue": ""
+      },
+      {
+        "key": "PAYMENTS_FACILITATOR_URL",
+        "type": "input",
+        "message": "Facilitator URL",
+        "defaultValue": "https://facilitator.daydreams.systems"
+      },
+      {
+        "key": "PAYMENTS_NETWORK",
+        "type": "select",
+        "message": "Payment network",
+        "choices": [
+          { "value": "base-sepolia", "title": "Base Sepolia (EVM testnet)" },
+          { "value": "base", "title": "Base (EVM mainnet)" },
+          { "value": "solana-devnet", "title": "Solana Devnet" },
+          { "value": "solana", "title": "Solana Mainnet" }
+        ],
+        "defaultValue": "base-sepolia"
+      },
+      {
+        "key": "PAYMENTS_RECEIVABLE_ADDRESS",
+        "type": "input",
+        "message": "Payment address (0x... for EVM, Base58 for Solana)",
+        "defaultValue": ""
+      },
+      {
+        "key": "PAYMENTS_DEFAULT_PRICE",
+        "type": "input",
+        "message": "Default price for entrypoints (micro USDC)",
+        "defaultValue": "1000"
+      },
+      {
+        "key": "RPC_URL",
+        "type": "input",
+        "message": "RPC URL (blockchain endpoint)",
+        "defaultValue": "https://sepolia.base.org"
+      },
+      {
+        "key": "CHAIN_ID",
+        "type": "input",
+        "message": "Chain ID",
+        "defaultValue": "84532"
+      },
+      {
+        "key": "AGENT_METADATA_URI",
+        "type": "input",
+        "message": "Metadata URI (optional)",
+        "defaultValue": "https://agent.example.com/.well-known/agent-metadata.json"
+      },
+      {
+        "key": "AGENT_CARD_URI",
+        "type": "input",
+        "message": "Agent card URI (optional)",
+        "defaultValue": "https://agent.example.com/.well-known/agent-card.json"
+      },
+      {
+        "key": "AGENT_WALLET_PRIVATE_KEY",
+        "type": "input",
+        "message": "Agent wallet private key (leave blank to auto-generate)",
+        "defaultValue": ""
+      },
+      {
+        "key": "DEVELOPER_WALLET_PRIVATE_KEY",
+        "type": "input",
+        "message": "Developer wallet private key (optional, for contract interactions)",
+        "defaultValue": ""
+      }
+    ]
+  }
+}

@@ -151,22 +151,14 @@ export async function runCli(
     throw new Error(`No templates found in ${templateRoot}`);
   }
 
-  const { template, adapter: selectedAdapter } = await resolveTemplate({
-    templates,
-    requestedId: parsed.options.templateId,
-    requestedAdapter: parsed.options.adapterId,
-    prompt,
-    logger,
-  });
-
-  // Validate adapter exists and is compatible with template
-  validateAdapterExists(selectedAdapter);
-  validateAdapterCompatibility(template, selectedAdapter);
+  // Fixed adapter and template - no selection needed
+  const selectedAdapter = 'hono';
+  const template = templates.find(t => t.id === 'identity-no-register');
+  if (!template) {
+    throw new Error('Template "identity-no-register" not found');
+  }
 
   const adapterDefinition = getAdapterDefinition(selectedAdapter);
-
-  logger.log(`Using runtime adapter: ${formatAdapterName(selectedAdapter)}`);
-  logger.log(`Using template: ${template.title}`);
 
   const projectName = await resolveProjectName({
     parsed,
@@ -233,20 +225,20 @@ export async function runCli(
     await runInstall(targetDir, logger);
   }
 
-  if (template.id === 'identity') {
-    try {
-      await runAutoOnboarding({
-        targetDir,
-        wizardAnswers,
-        agentName: projectDirName,
-        logger,
-      });
-    } catch (error) {
-      logger.warn(
-        `Auto onboarding failed: ${(error as Error).message}. ` +
-          'Run `bun run agent:onboard` inside the project to retry later.'
-      );
-    }
+  // Always run auto onboarding for identity-no-register template
+  try {
+    await runAutoOnboarding({
+      targetDir,
+      wizardAnswers,
+      agentName: projectDirName,
+      logger,
+      skipErc8004Registration: true,
+    });
+  } catch (error) {
+    logger.warn(
+      `Auto onboarding failed: ${(error as Error).message}. ` +
+        'Run `bun run agent:onboard` inside the project to retry later.'
+    );
   }
 
   const relativeTarget = relative(cwd, targetDir) || '.';

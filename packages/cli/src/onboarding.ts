@@ -59,9 +59,12 @@ export async function runAutoOnboarding(params: {
   wizardAnswers: WizardAnswers;
   agentName: string;
   logger: RunLogger;
+  skipErc8004Registration?: boolean;
 }): Promise<void> {
-  const { targetDir, wizardAnswers, agentName, logger } = params;
+  const { targetDir, wizardAnswers, agentName, logger, skipErc8004Registration } = params;
   const backendBaseUrl = getStringAnswer(wizardAnswers, 'AGENT_BACKEND_BASE_URL');
+
+  logger.log('[cli] Starting auto onboarding...');
 
   if (!backendBaseUrl) {
     logger.warn(
@@ -69,6 +72,8 @@ export async function runAutoOnboarding(params: {
     );
     return;
   }
+
+  logger.log(`[cli] Backend URL: ${backendBaseUrl}`);
 
   const privateKey = getStringAnswer(wizardAnswers, 'AGENT_WALLET_PRIVATE_KEY');
   if (!privateKey) {
@@ -138,64 +143,73 @@ export async function runAutoOnboarding(params: {
     if (balance === 0n) {
       hasBalance = false;
       logger.warn(`[cli] ⚠️  Wallet ${walletAddress} has 0 ETH balance.`);
-      logger.warn(`[cli] Skipping ERC-8004 on-chain registration (requires gas fees).`);
-      logger.warn(`[cli] To complete registration later:`);
-      logger.warn(`[cli]   1. Fund the wallet with testnet ETH`);
-      logger.warn(`[cli]      Faucets for Base Sepolia:`);
-      logger.warn(`[cli]      - https://www.alchemy.com/faucets/base-sepolia`);
-      logger.warn(`[cli]      - https://faucets.chain.link/base-sepolia`);
-      logger.warn(`[cli]   2. Run: cd ${path.basename(params.targetDir)} && bun run agent:onboard`);
+      if (!skipErc8004Registration) {
+        logger.warn(`[cli] Skipping ERC-8004 on-chain registration (requires gas fees).`);
+        logger.warn(`[cli] To complete registration later:`);
+        logger.warn(`[cli]   1. Fund the wallet with testnet ETH`);
+        logger.warn(`[cli]      Faucets for Base Sepolia:`);
+        logger.warn(`[cli]      - https://www.alchemy.com/faucets/base-sepolia`);
+        logger.warn(`[cli]      - https://faucets.chain.link/base-sepolia`);
+        logger.warn(`[cli]   2. Run: cd ${path.basename(params.targetDir)} && bun run agent:onboard`);
+      }
     } else {
       logger.log(`[cli] Wallet ${walletAddress} balance: ${balanceEth} ETH`);
     }
   }
+
+  let agentTokenId: string | undefined;
   
-  // If no balance, skip on-chain registration but still create the project
-  if (!hasBalance) {
-    logger.log('[cli] Project created successfully without ERC-8004 registration.');
-    logger.log('[cli] Run `bun run agent:onboard` after funding the wallet to complete setup.');
-    return;
+  // Skip ERC-8004 registration if requested (backend will handle it via createTokenWithIdentity)
+  if (skipErc8004Registration) {
+    logger.log('[cli] Skipping ERC-8004 registration (backend will handle via createTokenWithIdentity)...');
+  } else {
+    // If no balance, skip on-chain registration but still create the project
+    if (!hasBalance) {
+      logger.log('[cli] Project created successfully without ERC-8004 registration.');
+      logger.log('[cli] Run `bun run agent:onboard` after funding the wallet to complete setup.');
+      return;
+    }
+
+    logger.log('[cli] Registering / checking ERC-8004 identity...');
+
+    const envRecord = convertWizardAnswersToEnv(wizardAnswers);
+    const identity = await createAgentIdentity({
+      runtime,
+      domain: agentDomain,
+      autoRegister,
+      chainId,
+      rpcUrl,
+      env: envRecord,
+    });
+
+    if (identity.transactionHash) {
+      logger.log(`[cli] Registration tx hash: ${identity.transactionHash}`);
+    }
+
+    if (!identity.record?.agentId) {
+      throw new Error('ERC-8004 registry did not return an agentId.');
+    }
+    agentTokenId = identity.record.agentId.toString();
+    logger.log(`[cli] Identity Agent ID: ${agentTokenId}`);
+
+    const metadataDir = path.join(targetDir, WELL_KNOWN_DIR);
+    await mkdir(metadataDir, { recursive: true });
+    const metadataPath = path.join(metadataDir, AGENT_METADATA_FILENAME);
+
+    const capabilities = parseCapabilities(
+      wizardAnswers,
+      agentDescription
+    );
+
+    const metadata = generateAgentMetadata(identity, {
+      name: agentName,
+      description: agentDescription,
+      capabilities,
+    });
+    await writeFile(metadataPath, JSON.stringify(metadata, null, 2), 'utf8');
+
+    logger.log(`[cli] Wrote ERC-8004 metadata to ${metadataPath}`);
   }
-
-  logger.log('[cli] Registering / checking ERC-8004 identity...');
-
-  const envRecord = convertWizardAnswersToEnv(wizardAnswers);
-  const identity = await createAgentIdentity({
-    runtime,
-    domain: agentDomain,
-    autoRegister,
-    chainId,
-    rpcUrl,
-    env: envRecord,
-  });
-
-  if (identity.transactionHash) {
-    logger.log(`[cli] Registration tx hash: ${identity.transactionHash}`);
-  }
-
-  if (!identity.record?.agentId) {
-    throw new Error('ERC-8004 registry did not return an agentId.');
-  }
-  const agentTokenId = identity.record.agentId.toString();
-  logger.log(`[cli] Identity Agent ID: ${agentTokenId}`);
-
-  const metadataDir = path.join(targetDir, WELL_KNOWN_DIR);
-  await mkdir(metadataDir, { recursive: true });
-  const metadataPath = path.join(metadataDir, AGENT_METADATA_FILENAME);
-
-  const capabilities = parseCapabilities(
-    wizardAnswers,
-    agentDescription
-  );
-
-  const metadata = generateAgentMetadata(identity, {
-    name: agentName,
-    description: agentDescription,
-    capabilities,
-  });
-  await writeFile(metadataPath, JSON.stringify(metadata, null, 2), 'utf8');
-
-  logger.log(`[cli] Wrote ERC-8004 metadata to ${metadataPath}`);
 
   const shortDescription =
     getStringAnswer(wizardAnswers, 'AGENT_SHORT_DESCRIPTION') ??
@@ -249,8 +263,14 @@ export async function runAutoOnboarding(params: {
     metadataUri,
     agentCardUri,
     message,
-    agentTokenId,
+    // If we skipped ERC-8004 registration, tell backend to use createTokenWithIdentity
+    registerIdentity: skipErc8004Registration === true,
   };
+
+  // Only include agentTokenId if we registered it ourselves
+  if (agentTokenId) {
+    payload.agentTokenId = agentTokenId;
+  }
 
   if (accessDetails) payload.accessDetails = accessDetails;
   if (resourceLink) payload.resourceLink = resourceLink;
@@ -259,18 +279,28 @@ export async function runAutoOnboarding(params: {
   if (documentLink) payload.documentLink = documentLink;
   if (payments) payload.payments = payments;
 
-  logger.log('[cli] Calling backend /agents/init endpoint...');
+  const initUrl = buildBackendUrl(backendBaseUrl, '/agents/init');
+  logger.log(`[cli] Calling backend /agents/init endpoint: ${initUrl}`);
 
-  const response = await fetch(buildBackendUrl(backendBaseUrl, '/agents/init'), {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-      'x-agent-address': signer.address,
-      'x-signature': signature,
-      'x-timestamp': timestamp,
-    },
-    body: JSON.stringify(payload),
-  });
+  let response: Response;
+  try {
+    response = await fetch(initUrl, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'x-agent-address': signer.address,
+        'x-signature': signature,
+        'x-timestamp': timestamp,
+      },
+      body: JSON.stringify(payload),
+    });
+  } catch (fetchError) {
+    const errorMessage = (fetchError as Error).message;
+    throw new Error(
+      `Failed to connect to backend at ${initUrl}: ${errorMessage}. ` +
+        'Make sure the backend server is running.'
+    );
+  }
 
   let body: any;
   try {
@@ -358,7 +388,10 @@ async function loadOrCreateWallet(
     address: account.address,
   };
   await writeFile(walletPath, JSON.stringify(record, null, 2), 'utf8');
-  logger.log(`[cli] Generated agent wallet ${account.address}`);
+  logger.log(`[cli] Generated agent wallet:`);
+  logger.log(`[cli]   Address: ${account.address}`);
+  logger.log(`[cli]   Private Key: ${privateKey}`);
+  logger.log(`[cli]   (Save this private key securely! It's also stored in ${walletPath})`);
   return record;
 }
 
