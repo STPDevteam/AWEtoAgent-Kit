@@ -1,5 +1,13 @@
 # @lucid-agents/core
 
+## 1.7.8
+
+### Patch Changes
+
+- 2e777d0: Update landing page UI with new dark theme, logo, and terminology changes.
+  - @aweto-agent/identity@1.7.8
+  - @aweto-agent/payments@1.7.8
+
 ## 1.7.7
 
 ### Patch Changes

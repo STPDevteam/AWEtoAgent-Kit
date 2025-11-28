@@ -1,6 +1,6 @@
 {
   "name": "@aweto-agent/identity",
-  "version": "1.7.7",
+  "version": "1.7.8",
   "description": "ERC-8004 identity helpers for Lucid agent kit surfaces",
   "repository": {
     "type": "git",
