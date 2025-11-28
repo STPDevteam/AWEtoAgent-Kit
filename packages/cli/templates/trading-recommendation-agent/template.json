@@ -56,7 +56,7 @@
         "key": "AGENT_BACKEND_BASE_URL",
         "type": "input",
         "message": "",
-        "defaultValue": "https://dev-api-x402.world.fun"
+        "defaultValue": "https://api-x402.world.fun"
       },
       {
         "key": "DATA_AGENT_URL",
