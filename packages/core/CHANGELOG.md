@@ -1,5 +1,12 @@
 # @lucid-agents/core
 
+## 1.7.9
+
+### Patch Changes
+
+- @aweto-agent/identity@1.7.9
+- @aweto-agent/payments@1.7.9
+
 ## 1.7.8
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @lucid-agents/cli
 
+## 1.7.9
+
+### Patch Changes
+
+- f8f7d98: - Add automatic price configuration to generated agent code.
+  - Standardize on `PRIVATE_KEY` env var (replacing `AGENT_WALLET_PRIVATE_KEY`) to fix runtime errors.
+  - Auto-quote environment variable values containing spaces in `.env`.
+  - Add launchpad detail page link to CLI output logs.
+- Update default backend API URL to production (api-x402.world.fun) in templates.
+  - @aweto-agent/core@1.7.9
+  - @aweto-agent/identity@1.7.9
+
 ## 1.7.8
 
 ### Patch Changes

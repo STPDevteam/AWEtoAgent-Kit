@@ -1,6 +1,6 @@
 {
   "name": "@aweto-agent/payments",
-  "version": "1.7.8",
+  "version": "1.7.9",
   "description": "Payment logic for bidirectional agent-to-agent payments",
   "repository": {
     "type": "git",
