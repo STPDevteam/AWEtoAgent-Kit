@@ -104,13 +104,29 @@ function attachPreconnect(
 function inferChainId(network?: string): number | undefined {
   if (!network) return undefined;
   const normalized = network.toLowerCase();
+
+  // Ethereum mainnet
+  if (normalized === 'ethereum' || normalized === 'eip155:1') return 1;
+  // Ethereum Sepolia testnet
+  if (normalized === 'sepolia' || normalized === 'eip155:11155111') return 11155111;
+  // Base mainnet
   if (normalized === 'base' || normalized === 'eip155:8453') return 8453;
+  // Base Sepolia testnet
   if (
     normalized === 'base-sepolia' ||
     normalized === 'eip155:84532' ||
     normalized === 'base_testnet'
   )
     return 84532;
+  // Polygon mainnet
+  if (normalized === 'polygon' || normalized === 'eip155:137') return 137;
+  // Polygon Amoy testnet
+  if (normalized === 'polygon-amoy' || normalized === 'eip155:80002') return 80002;
+  // Avalanche C-Chain
+  if (normalized === 'avalanche' || normalized === 'eip155:43114') return 43114;
+  // Avalanche Fuji testnet
+  if (normalized === 'avalanche-fuji' || normalized === 'eip155:43113') return 43113;
+
   return undefined;
 }
 

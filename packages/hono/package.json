@@ -1,6 +1,6 @@
 {
   "name": "@aweto-agent/hono",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "Hono adapter for Lucid agent runtime",
   "repository": {
     "type": "git",
@@ -33,12 +33,12 @@
   },
   "dependencies": {
     "@aweto-agent/ap2": "^0.2.0",
-    "@aweto-agent/core": "^1.7.0",
-    "@aweto-agent/payments": "^1.7.2",
-    "@aweto-agent/types": "^1.3.0",
+    "@aweto-agent/core": "^1.8.0",
+    "@aweto-agent/payments": "^1.8.0",
+    "@aweto-agent/types": "^1.3.2",
     "hono": "4.10.1",
-    "x402-hono": "^0.7.1",
-    "x402": "^0.7.1",
+    "x402-hono": "^1.1.0",
+    "x402": "^1.1.0",
     "zod": "^4.1.12"
   },
   "devDependencies": {

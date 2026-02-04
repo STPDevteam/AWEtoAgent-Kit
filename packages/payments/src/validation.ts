@@ -5,9 +5,22 @@ import {
 } from 'x402/types';
 import type { PaymentsConfig } from '@aweto-agent/types/payments';
 
-const SUPPORTED_NETWORKS: Network[] = [
+/**
+ * Additional networks supported by agent-kit beyond x402 defaults.
+ * These include Ethereum mainnet and testnets that x402 SDK doesn't include
+ * but are supported via custom facilitators.
+ */
+const EXTENDED_NETWORKS = [
+  'ethereum', // Ethereum mainnet (friendly name)
+  'sepolia', // Ethereum Sepolia testnet (friendly name)
+  'eip155:1', // Ethereum mainnet (CAIP-2 format)
+  'eip155:11155111', // Sepolia testnet (CAIP-2 format)
+] as const;
+
+const SUPPORTED_NETWORKS: (Network | (typeof EXTENDED_NETWORKS)[number])[] = [
   ...SupportedEVMNetworks,
   ...SupportedSVMNetworks,
+  ...EXTENDED_NETWORKS,
 ];
 
 /**

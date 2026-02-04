@@ -27,7 +27,26 @@ import {
   RoutesConfig,
   SupportedEVMNetworks,
   SupportedSVMNetworks,
+  type Network,
 } from "x402/types";
+
+/**
+ * Extended EVM networks supported beyond x402 defaults.
+ * Includes Ethereum mainnet and testnets.
+ */
+const EXTENDED_EVM_NETWORKS = [
+  'ethereum',
+  'sepolia',
+  'eip155:1',
+  'eip155:11155111',
+] as const;
+
+function isEvmNetwork(network: string): boolean {
+  return (
+    SupportedEVMNetworks.includes(network as Network) ||
+    EXTENDED_EVM_NETWORKS.includes(network as (typeof EXTENDED_EVM_NETWORKS)[number])
+  );
+}
 import { useFacilitator } from "x402/verify";
 
 type RoutesConfigResolver = RoutesConfig | (() => RoutesConfig | Promise<RoutesConfig>);
@@ -118,7 +137,7 @@ function createPaymentHandler({
     const resourceUrl = resolveResource(request, pathname, resource);
     const paymentRequirements: PaymentRequirements[] = [];
 
-    if (SupportedEVMNetworks.includes(network)) {
+    if (isEvmNetwork(network)) {
       paymentRequirements.push({
         scheme: "exact",
         network,

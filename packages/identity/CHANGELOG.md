@@ -1,5 +1,12 @@
 # @lucid-agents/identity
 
+## 1.8.0
+
+### Patch Changes
+
+- Updated dependencies
+  - @aweto-agent/types@1.3.2
+
 ## 1.7.9
 
 ## 1.7.8

@@ -1,6 +1,6 @@
 {
   "name": "@aweto-agent/core",
-  "version": "1.7.9",
+  "version": "1.8.0",
   "description": "Build typed agent HTTP apps",
   "repository": {
     "type": "git",
@@ -49,14 +49,14 @@
   "dependencies": {
     "zod": "^4.1.12",
     "hono": "4.10.1",
-    "@aweto-agent/types": "^1.3.0",
+    "@aweto-agent/types": "^1.3.2",
     "@aweto-agent/a2a": "^0.2.0",
     "@aweto-agent/ap2": "^0.2.0",
-    "@aweto-agent/identity": "^1.7.9",
-    "@aweto-agent/payments": "^1.7.9",
+    "@aweto-agent/identity": "^1.8.0",
+    "@aweto-agent/payments": "^1.8.0",
     "@aweto-agent/wallet": "^0.2.1",
-    "x402-fetch": "^0.7.1",
-    "x402": "^0.7.1",
+    "x402-fetch": "^1.1.0",
+    "x402": "^1.1.0",
     "viem": "^2.38.5",
     "@ax-llm/ax": "^14.0.37",
     "@ax-llm/ax-tools": "^14.0.37"
@@ -66,6 +66,6 @@
     "typescript": "^5.9.2",
     "@aweto-agent/eslint-config": "workspace:*",
     "@aweto-agent/prettier-config": "workspace:*",
-    "@aweto-agent/hono": "^0.6.0"
+    "@aweto-agent/hono": "^0.6.3"
   }
 }

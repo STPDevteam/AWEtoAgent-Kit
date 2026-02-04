@@ -1,5 +1,14 @@
 # @lucid-agents/cli
 
+## 1.8.0
+
+### Patch Changes
+
+- 3e3f358: Update default backend API URL to production (api-x402.world.fun) in templates.
+- Updated dependencies
+  - @aweto-agent/core@1.8.0
+  - @aweto-agent/identity@1.8.0
+
 ## 1.7.9
 
 ### Patch Changes
